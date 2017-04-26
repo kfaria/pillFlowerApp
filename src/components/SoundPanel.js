@@ -13,6 +13,7 @@ const styles = {
   containerStyles: {
     flexDirection: 'row',
     position: 'relative',
+    paddingTop: 10,
   }
 }
 export { SoundPanel };
