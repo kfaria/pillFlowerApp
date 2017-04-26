@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Image, Text, View } from 'react-native';
 
 const styles = {
-  testStyle: {
-    alignSelf: 'center',
+  viewStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imageStyle: {
+    width: 200,
+    height: 200,
   },
 };
 
@@ -11,10 +16,10 @@ class PillFlower extends Component {
 
   constructor(props) {
     const pfArray = [
-      './../images/pill-flowers/01.png',
-      './../images/pill-flowers/02.png',
-      './../images/pill-flowers/03.png',
-      './../images/pill-flowers/04.png'
+      require('./../images/pill-flowers/01.png'),
+      require('./../images/pill-flowers/02.png'),
+      require('./../images/pill-flowers/03.png'),
+      require('./../images/pill-flowers/04.png'),
     ];
     let currentIndex = 0;
     super(props);
@@ -22,13 +27,20 @@ class PillFlower extends Component {
     setInterval(() => {
       console.log(currentIndex);
       console.log(this.state.currentPillFlower);
-      this.setState({ currentPillFlower: pfArray[currentIndex += 1] });
-    }, 5000);        // Initial value for opacity
+      if (currentIndex === pfArray.length - 1) {
+        currentIndex = 0
+        this.setState({ currentPillFlower: pfArray[currentIndex] });
+      } else {
+        this.setState({ currentPillFlower: pfArray[currentIndex += 1] });
+      }
+    }, 1000);        // Initial value for opacity
   }
 
   render() {
     return (
-      <Image source={} />
+      <View style={styles.viewStyle}>
+        <Image source={this.state.currentPillFlower} style={styles.imageStyle} />
+      </View>
     );
   }
 
