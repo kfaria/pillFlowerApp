@@ -13,13 +13,24 @@ const lany = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
   console.log('duration in seconds: ' + lany.getDuration() + 'number of channels: ' + lany.getNumberOfChannels());
 });
 
+let playPause = 1;
+
 class App extends Component {
   render() {
     return (
       <View>
         <Header headerText='Test' />
         <SoundPanel>
-          <Button>
+          <Button onPress={() => { 
+            if(playPause%2 == 0){
+              lany.pause();
+            }
+            if(playPause%2 == 1){
+              lany.play();
+            }
+            playPause = playPause + 1;
+            }
+          }>
             Play Song 1
           </Button>
           <Button>
