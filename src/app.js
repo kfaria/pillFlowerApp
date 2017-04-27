@@ -19,7 +19,6 @@ class App extends Component {
   render() {
     return (
       <View>
-
         <Header headerText='Test' />
         <SoundPanel>
           <Button onPress={() => { 
