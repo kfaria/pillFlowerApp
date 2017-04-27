@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { View, Text, Image } from 'react-native';
 import Sound from 'react-native-sound';
 import { Header, Button, SoundPanel, PillFlower } from './components/';
@@ -23,7 +22,7 @@ class App extends Component {
 
         <Header headerText='Test' />
         <SoundPanel>
-          <Button onPress={() => { 
+          <Button onPress={() => {
             if(playPause%2 == 0){
               lany.pause();
             }
