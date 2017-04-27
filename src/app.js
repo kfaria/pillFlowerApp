@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import Sound from 'react-native-sound';
-import { Header, Button, SoundPanel, PillFlower } from './components/';
+import { Header, Button, SoundPanel, OverlappingFade } from './components/';
 import file from './Lany.mp3';
 
 Sound.setCategory('Playback');
@@ -42,7 +42,7 @@ class App extends Component {
             Play Song 3
           </Button>
         </SoundPanel>
-        <PillFlower />
+        <OverlappingFade />
       </View>
     );
   }

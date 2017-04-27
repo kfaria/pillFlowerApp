@@ -33,7 +33,7 @@ class PillFlower extends Component {
       } else {
         this.setState({ currentPillFlower: pfArray[currentIndex += 1] });
       }
-    }, 4000);        // Initial value for opacity
+    }, 4000); 
   }
 
   render() {
