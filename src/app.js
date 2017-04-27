@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { View, Text, Image } from 'react-native';
 import Sound from 'react-native-sound';
 import { Header, Button, SoundPanel, PillFlower } from './components/';
@@ -43,7 +42,6 @@ class App extends Component {
           </Button>
         </SoundPanel>
         <PillFlower />
-
       </View>
     );
   }
