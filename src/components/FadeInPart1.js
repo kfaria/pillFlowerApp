@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Image, Animated } from 'react-native';
 
+const styles = {
+  imageStyle: {
+    width: 200,
+    height: 200,
+  },
+};
+
 class FadeInPart1 extends Component {
 
   constructor(props) {
@@ -10,6 +17,26 @@ class FadeInPart1 extends Component {
       require('./../images/pill-flowers/02.png'),
       require('./../images/pill-flowers/03.png'),
       require('./../images/pill-flowers/04.png'),
+      require('./../images/pill-flowers/05.png'),
+      require('./../images/pill-flowers/06.png'),
+      require('./../images/pill-flowers/07.png'),
+      require('./../images/pill-flowers/08.png'),
+      require('./../images/pill-flowers/09.png'),
+      require('./../images/pill-flowers/10.png'),
+      require('./../images/pill-flowers/11.png'),
+      require('./../images/pill-flowers/12.png'),
+      require('./../images/pill-flowers/13.png'),
+      require('./../images/pill-flowers/14.png'),
+      require('./../images/pill-flowers/15.png'),
+      require('./../images/pill-flowers/16.png'),
+      require('./../images/pill-flowers/17.png'),
+      require('./../images/pill-flowers/18.png'),
+      require('./../images/pill-flowers/19.png'),
+      require('./../images/pill-flowers/20.png'),
+      require('./../images/pill-flowers/21.png'),
+      require('./../images/pill-flowers/22.png'),
+      require('./../images/pill-flowers/23.png'),
+      require('./../images/pill-flowers/24.png'),
     ];
     super(props);
     this.state = {
@@ -56,12 +83,5 @@ class FadeInPart1 extends Component {
     );
   }
 }
-
-const styles = {
-  imageStyle: {
-    width: 200,
-    height: 200,
-  },
-};
 
 export { FadeInPart1 };

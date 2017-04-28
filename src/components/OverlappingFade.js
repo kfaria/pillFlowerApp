@@ -3,6 +3,14 @@ import { View } from 'react-native';
 import { FadeInPart1 } from './FadeInPart1';
 import { FadeInPart2 } from './FadeInPart2';
 
+const styles = {
+  viewStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 50,
+  },
+};
+
 class OverlappingFade extends Component {
   render() {
     return (
@@ -13,13 +21,5 @@ class OverlappingFade extends Component {
     );
   }
 }
-
-const styles = {
-  viewStyle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 50,
-  },
-};
 
 export { OverlappingFade };
