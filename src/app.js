@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import Sound from 'react-native-sound';
-import { Header, Button, SoundPanel, PillFlower } from './components/';
+import { Header, Button, SoundPanel, PillFlower, Toggle } from './components/';
 import file from './Lany.mp3';
 
 Sound.setCategory('Playback');
@@ -18,7 +18,7 @@ let playPause = 1;
 class App extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.viewStyle}>
         <Header headerText='Test' />
         <SoundPanel>
           <Button onPress={() => { 
@@ -41,9 +41,34 @@ class App extends Component {
           </Button>
         </SoundPanel>
         <PillFlower />
+        <SoundPanel style={styles.panelStyle}>
+          <Toggle 
+            onPress={() => { 
+            if (playPause % 2 === 0) {
+              lany.pause();
+            }
+            if (playPause % 2 === 1) {
+              lany.play();
+            }
+            playPause = playPause + 1;
+          }
+          }
+          />
+          <Toggle />
+          <Toggle />
+        </SoundPanel>
       </View>
     );
   }
 }
+
+const styles = {
+  viewStyle: {
+    backgroundColor: 'rgb(0,0,0)',
+  },
+  panelStyle: {
+
+  },
+};
 
 export default App;
