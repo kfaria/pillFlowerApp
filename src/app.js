@@ -34,7 +34,7 @@ class App extends Component {
       <View style={styles.viewStyle}>
         {/*<Header headerText='Test' />*/}
         <SoundPanel>
-          <Button onPress={() => { 
+          <Button onPress={() => {
             if (playPause % 2 === 0) {
               lany.pause();
             }
@@ -42,9 +42,7 @@ class App extends Component {
               lany.play();
             }
             playPause = playPause + 1;
-          }
-          }>
-            Song 1
+          }}>Song 1
           </Button>
           <Button>
             Song 2
