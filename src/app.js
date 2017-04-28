@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import Sound from 'react-native-sound';
-import { Header, Button, SoundPanel, PillFlower, Toggle } from './components/';
+import { Header, Button, SoundPanel, PillFlower, Toggle, PillButton } from './components/';
 import file from './Lany.mp3';
 
 Sound.setCategory('Playback');
+
+// First song
 const lany = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
     console.log('failed to load the sound', error);
@@ -12,14 +14,25 @@ const lany = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
   }
   console.log('duration in seconds: ' + lany.getDuration() + 'number of channels: ' + lany.getNumberOfChannels());
 });
-
 let playPause = 1;
 
+// Second Song
+const lany2 = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  console.log('duration in seconds: ' + lany2.getDuration() + 'number of channels: ' + lany2.getNumberOfChannels());
+});
+let playPause2 = 1;
+
+
 class App extends Component {
+
   render() {
     return (
       <View style={styles.viewStyle}>
-        <Header headerText='Test' />
+        {/*<Header headerText='Test' />*/}
         <SoundPanel>
           <Button onPress={() => { 
             if (playPause % 2 === 0) {
@@ -31,31 +44,35 @@ class App extends Component {
             playPause = playPause + 1;
           }
           }>
-            Play Song 1
+            Song 1
           </Button>
           <Button>
-            Play Song 2
+            Song 2
           </Button>
           <Button>
-            Play Song 3
+            Song 3
           </Button>
         </SoundPanel>
         <PillFlower />
-        <SoundPanel style={styles.panelStyle}>
-          <Toggle 
-            onPress={() => { 
-            if (playPause % 2 === 0) {
-              lany.pause();
+        <SoundPanel>
+         <Button onPress={() => { 
+            if (playPause2 % 2 === 0) {
+              lany2.pause();
             }
-            if (playPause % 2 === 1) {
-              lany.play();
+            if (playPause2 % 2 === 1) {
+              lany2.play();
             }
-            playPause = playPause + 1;
+            playPause2 = playPause2 + 1;
           }
-          }
-          />
-          <Toggle />
-          <Toggle />
+          }>
+            Song 4
+          </Button>
+          <Button>
+            Song 5
+          </Button>
+          <Button>
+            Song 6
+          </Button>
         </SoundPanel>
       </View>
     );
@@ -65,9 +82,7 @@ class App extends Component {
 const styles = {
   viewStyle: {
     backgroundColor: 'rgb(0,0,0)',
-  },
-  panelStyle: {
-
+    // marginTop: 20,
   },
 };
 

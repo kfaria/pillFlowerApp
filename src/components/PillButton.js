@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 
-class Toggle extends Component {
-  state = { toggleSwtiched: 0 };
-
-  render() {
-    return ( 
-        <Text>HI</Text>
+const PillButton = ({ onPress, children }) => {
+    return (
+      <TouchableOpacity style={styles.textStyle} onPress={onPress}>
+        <Image
+          style={styles.buttonStyle}
+          source={require('./button.png')}
+        />
+      </TouchableOpacity>
     );
-  }
-}
+};
 
 
 const styles = {
   buttonStyle: {
     height: 50,
-    width: 150,
-    backgroundColor: '#fff',
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5,
+    width: 50,
   },
   textStyle: {
     flex: 1,
@@ -51,4 +46,4 @@ const styles = {
   },
 };
 
-export { Toggle };
+export { PillButton };
