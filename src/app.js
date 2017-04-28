@@ -31,8 +31,6 @@ class App extends Component {
 
   render() {
     return (
-
-
       <View style={styles.viewStyle}>
         {/*<Header headerText='Test' />*/}
         <SoundPanel>
@@ -46,6 +44,37 @@ class App extends Component {
               }
               playPause += 1;
             }}>
+            Song 1
+          </Button>
+          <Button>
+            Song 2
+          </Button>
+          <Button>
+            Song 3
+          </Button>
+        </SoundPanel>
+        <PillFlower />
+        <SoundPanel>
+         <Button onPress={() => { 
+            if (playPause2 % 2 === 0) {
+              lany2.pause();
+            }
+            if (playPause2 % 2 === 1) {
+              lany2.play();
+            }
+            playPause2 = playPause2 + 1;
+          }
+          }>
+
+            Song 4
+          </Button>
+          <Button>
+            Song 5
+          </Button>
+          <Button>
+            Song 6
+          </Button>
+        </SoundPanel>
             Song 1
           </Button>
           <Button>
