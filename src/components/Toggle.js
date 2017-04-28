@@ -2,50 +2,56 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 class Toggle extends Component {
-  state = { toggleSwtiched: 0 };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOn: false,
+      backgroundColor: '#000',
+      toggleStyle: {
+        height: 50,
+        width: 50,
+        backgroundColor: '#000',    
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: '#999',
+        marginLeft: 5,
+        marginRight: 5,
+      },
+    };
+  }
 
   render() {
-    return ( 
-        <Text>HI</Text>
-    );
+    return(
+      
+      <TouchableOpacity style={this.state.toggleStyle} onPress={() => {
+        this.state.isOn = true;
+        this.state.toggleStyle.backgroundColor = '#F00';
+        }}>
+        <Text style={styles.textStyle}>
+          
+        </Text>
+      </TouchableOpacity>
+
+  );
   }
 }
 
-
 const styles = {
-  buttonStyle: {
-    height: 50,
-    width: 150,
-    backgroundColor: '#fff',
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5,
-  },
   textStyle: {
-    flex: 1,
-    marginLeft: 10,
-    alignItems: 'center',
+    alignSelf: 'center',
+    color: '#777',
+    fontSize: 16,
+    fontWeight: '600',
+    paddingTop: 10,
     paddingBottom: 10,
-  },
-  toggleOnStyle:{
-    flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
+  }, 
+    buttonStyle: {
+    height: 50,
+    width: 50,
+    backgroundColor: '#fff',    
+    borderRadius: 50,
     borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5,
-  },
-  toggleOffStyle:{
-    flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 2,
-    borderWidth: 1,
-    borderColor: '#007aff',
+    borderColor: '#999',
     marginLeft: 5,
     marginRight: 5,
   },

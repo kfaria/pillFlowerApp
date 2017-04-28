@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import Sound from 'react-native-sound';
-import { Header, Button, SoundPanel, PillFlower, Toggle, PillButton } from './components/';
+
+import { Header, Button, SoundPanel, OverlappingFade, Toggle, PillButton } from './components/';
+
 import file from './Lany.mp3';
 
 Sound.setCategory('Playback');
@@ -26,34 +28,32 @@ const lany2 = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
 });
 let playPause2 = 1;
 
-
 class App extends Component {
 
   render() {
     return (
       <View style={styles.viewStyle}>
-        {/*<Header headerText='Test' />*/}
         <SoundPanel>
-          <Button onPress={() => {
-            if (playPause % 2 === 0) {
-              lany.pause();
-            }
-            if (playPause % 2 === 1) {
-              lany.play();
-            }
-            playPause = playPause + 1;
-          }}>Song 1
+          <Button
+            onPress={() => {
+              if (playPause % 2 === 0) {
+                lany.pause();
+              }
+              if (playPause % 2 === 1) {
+                lany.play();
+              }
+              playPause += 1;
+            }}>
           </Button>
           <Button>
-            Song 2
           </Button>
           <Button>
-            Song 3
           </Button>
         </SoundPanel>
-        <PillFlower />
+        {/*<OverlappingFade />*/}
         <SoundPanel>
-         <Button onPress={() => { 
+          <Toggle />
+         <Button onPress={() => {
             if (playPause2 % 2 === 0) {
               lany2.pause();
             }
@@ -63,13 +63,10 @@ class App extends Component {
             playPause2 = playPause2 + 1;
           }
           }>
-            Song 4
           </Button>
           <Button>
-            Song 5
           </Button>
           <Button>
-            Song 6
           </Button>
         </SoundPanel>
       </View>
@@ -80,6 +77,9 @@ class App extends Component {
 const styles = {
   viewStyle: {
     backgroundColor: 'rgb(0,0,0)',
+    marginTop: 20,
+    justifyContent: 'space-between',
+    flex: 1,
     // marginTop: 20,
   },
 };

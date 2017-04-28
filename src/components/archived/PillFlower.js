@@ -25,15 +25,15 @@ class PillFlower extends Component {
     super(props);
     this.state = { currentPillFlower: pfArray[currentIndex] };
     setInterval(() => {
-      console.log(currentIndex);
-      console.log(this.state.currentPillFlower);
+      //console.log(currentIndex);
+      //console.log(this.state.currentPillFlower);
       if (currentIndex === pfArray.length - 1) {
         currentIndex = 0
         this.setState({ currentPillFlower: pfArray[currentIndex] });
       } else {
         this.setState({ currentPillFlower: pfArray[currentIndex += 1] });
       }
-    }, 4000);        // Initial value for opacity
+    }, 4000); 
   }
 
   render() {

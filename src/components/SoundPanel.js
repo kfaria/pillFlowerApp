@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 const SoundPanel = (props) => {
-  return ( 
+  return (
     <View style={styles.containerStyles}>
       {props.children}
     </View>
@@ -12,10 +12,8 @@ const SoundPanel = (props) => {
 const styles = {
   containerStyles: {
     flexDirection: 'row',
-    position: 'relative',
+    justifyContent: 'space-around',
     paddingTop: 10,
   }
 }
 export { SoundPanel };
-
-
