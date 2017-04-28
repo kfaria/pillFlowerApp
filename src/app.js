@@ -20,17 +20,20 @@ class App extends Component {
     return (
       <View>
         <Header headerText='Test' />
+
         <SoundPanel>
-          <Button onPress={() => { 
-            if(playPause%2 == 0){
-              lany.pause();
+          <Button
+            onPress={() => {
+              if (playPause % 2 === 0) {
+                lany.pause();
+              }
+              if (playPause % 2 === 1) {
+                lany.play();
+              }
+              playPause += 1;
             }
-            if(playPause%2 == 1){
-              lany.play();
             }
-            playPause = playPause + 1;
-            }
-          }>
+          >
             Play Song 1
           </Button>
           <Button>
