@@ -218,28 +218,28 @@
 			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
 			remoteInfo = "RCTAnimation-tvOS";
 		};
-		71745D6D1EB2FF8F003CD4AF /* PBXContainerItemProxy */ = {
+		71B7D92D1EB2C7D60095FC4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9C8893D2EC845BAA4A6C7BD /* RCTAudio.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 32D980DD1BE9F11C00FA27E5;
 			remoteInfo = RCTAudio;
 		};
-		71745D861EB2FF8F003CD4AF /* PBXContainerItemProxy */ = {
+		71B7D9461EB2C7D60095FC4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB7A277C7C5548AF9DF2232B /* RNAudio.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 42F559BA1CFC90C400DC3F84;
 			remoteInfo = RNAudio;
 		};
-		71745D891EB2FF8F003CD4AF /* PBXContainerItemProxy */ = {
+		71B7D9491EB2C7D60095FC4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63543B5EB3B842A390D9C124 /* RNSimpleSound.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 27D4F42F1BED747600C15668;
 			remoteInfo = RNSimpleSound;
 		};
-		71745D8C1EB2FF8F003CD4AF /* PBXContainerItemProxy */ = {
+		71B7D94C1EB2C7D60095FC4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 81153649AF0E43238EB2139E /* RNSound.xcodeproj */;
 			proxyType = 2;
@@ -468,34 +468,34 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71745D611EB2FF8F003CD4AF /* Products */ = {
+		71B7D9211EB2C7D50095FC4A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71745D8A1EB2FF8F003CD4AF /* libRNSimpleSound.a */,
+				71B7D94D1EB2C7D60095FC4A /* libRNSound.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71745D631EB2FF8F003CD4AF /* Products */ = {
+		71B7D9231EB2C7D50095FC4A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71745D6E1EB2FF8F003CD4AF /* libRCTAudio.a */,
+				71B7D94A1EB2C7D60095FC4A /* libRNSimpleSound.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71745D651EB2FF8F003CD4AF /* Products */ = {
+		71B7D9251EB2C7D50095FC4A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71745D8D1EB2FF8F003CD4AF /* libRNSound.a */,
+				71B7D9471EB2C7D60095FC4A /* libRNAudio.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71745D671EB2FF8F003CD4AF /* Products */ = {
+		71B7D9271EB2C7D50095FC4A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71745D871EB2FF8F003CD4AF /* libRNAudio.a */,
+				71B7D92E1EB2C7D60095FC4A /* libRCTAudio.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -651,6 +651,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = CEYWV4QH39;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -683,7 +686,7 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
-					ProductGroup = 71745D631EB2FF8F003CD4AF /* Products */;
+					ProductGroup = 71B7D9271EB2C7D50095FC4A /* Products */;
 					ProjectRef = C9C8893D2EC845BAA4A6C7BD /* RCTAudio.xcodeproj */;
 				},
 				{
@@ -723,15 +726,15 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = 71745D671EB2FF8F003CD4AF /* Products */;
+					ProductGroup = 71B7D9251EB2C7D50095FC4A /* Products */;
 					ProjectRef = DB7A277C7C5548AF9DF2232B /* RNAudio.xcodeproj */;
 				},
 				{
-					ProductGroup = 71745D611EB2FF8F003CD4AF /* Products */;
+					ProductGroup = 71B7D9231EB2C7D50095FC4A /* Products */;
 					ProjectRef = 63543B5EB3B842A390D9C124 /* RNSimpleSound.xcodeproj */;
 				},
 				{
-					ProductGroup = 71745D651EB2FF8F003CD4AF /* Products */;
+					ProductGroup = 71B7D9211EB2C7D50095FC4A /* Products */;
 					ProjectRef = 81153649AF0E43238EB2139E /* RNSound.xcodeproj */;
 				},
 			);
@@ -907,32 +910,32 @@
 			remoteRef = 5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		71745D6E1EB2FF8F003CD4AF /* libRCTAudio.a */ = {
+		71B7D92E1EB2C7D60095FC4A /* libRCTAudio.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTAudio.a;
-			remoteRef = 71745D6D1EB2FF8F003CD4AF /* PBXContainerItemProxy */;
+			remoteRef = 71B7D92D1EB2C7D60095FC4A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		71745D871EB2FF8F003CD4AF /* libRNAudio.a */ = {
+		71B7D9471EB2C7D60095FC4A /* libRNAudio.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNAudio.a;
-			remoteRef = 71745D861EB2FF8F003CD4AF /* PBXContainerItemProxy */;
+			remoteRef = 71B7D9461EB2C7D60095FC4A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		71745D8A1EB2FF8F003CD4AF /* libRNSimpleSound.a */ = {
+		71B7D94A1EB2C7D60095FC4A /* libRNSimpleSound.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNSimpleSound.a;
-			remoteRef = 71745D891EB2FF8F003CD4AF /* PBXContainerItemProxy */;
+			remoteRef = 71B7D9491EB2C7D60095FC4A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		71745D8D1EB2FF8F003CD4AF /* libRNSound.a */ = {
+		71B7D94D1EB2C7D60095FC4A /* libRNSound.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNSound.a;
-			remoteRef = 71745D8C1EB2FF8F003CD4AF /* PBXContainerItemProxy */;
+			remoteRef = 71B7D94C1EB2C7D60095FC4A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
@@ -1150,6 +1153,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = CEYWV4QH39;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@remobile/react-native-audio/ios/RCTAudio",
@@ -1165,6 +1169,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = pillFlowerApp;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1174,6 +1179,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CEYWV4QH39;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@remobile/react-native-audio/ios/RCTAudio",
@@ -1189,6 +1195,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = pillFlowerApp;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
