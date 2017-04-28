@@ -34,7 +34,6 @@ class App extends Component {
   render() {
     return (
       <View style={styles.viewStyle}>
-        {/*<Header headerText='Test' />*/}
         <SoundPanel>
           <Button
             onPress={() => {
@@ -46,49 +45,15 @@ class App extends Component {
               }
               playPause += 1;
             }}>
-            Song 1
           </Button>
           <Button>
-            Song 2
           </Button>
           <Button>
-            Song 3
-          </Button>
-        </SoundPanel>
-        <PillFlower />
-        <SoundPanel>
-         <Button onPress={() => { 
-            if (playPause2 % 2 === 0) {
-              lany2.pause();
-            }
-            if (playPause2 % 2 === 1) {
-              lany2.play();
-            }
-            playPause2 = playPause2 + 1;
-          }
-          }>
-
-            Song 4
-          </Button>
-          <Button>
-            Song 5
-          </Button>
-          <Button>
-            Song 6
-          </Button>
-        </SoundPanel>
-            Song 1
-          </Button>
-          <Button>
-            Song 2
-          </Button>
-          <Button>
-            Song 3
           </Button>
         </SoundPanel>
         <OverlappingFade />
         <SoundPanel>
-         <Button onPress={() => { 
+         <Button onPress={() => {
             if (playPause2 % 2 === 0) {
               lany2.pause();
             }
@@ -98,13 +63,10 @@ class App extends Component {
             playPause2 = playPause2 + 1;
           }
           }>
-            Song 4
           </Button>
           <Button>
-            Song 5
           </Button>
           <Button>
-            Song 6
           </Button>
         </SoundPanel>
       </View>
@@ -115,6 +77,9 @@ class App extends Component {
 const styles = {
   viewStyle: {
     backgroundColor: 'rgb(0,0,0)',
+    marginTop: 20,
+    justifyContent: 'space-between',
+    flex: 1,
     // marginTop: 20,
   },
 };

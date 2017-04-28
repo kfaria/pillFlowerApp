@@ -3,8 +3,8 @@ import { Image, Animated } from 'react-native';
 
 const styles={
   imageStyle: {
-    width: 200,
-    height: 200,
+    width: 800,
+    height: 800,
     position: 'absolute',
     bottom: 0,
   },

@@ -7,7 +7,6 @@ const styles = {
   viewStyle: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 50,
   },
 };
 

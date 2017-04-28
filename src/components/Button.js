@@ -14,12 +14,14 @@ const Button = ({ onPress, children }) => {
 };
 const styles = {
   buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
+    // flex: 1,
+    // alignSelf: 'stretch',
+    width: 50,
+    height: 50,
     backgroundColor: '#000',
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#007aff',
+    borderRadius: 50,
+    borderWidth: 5,
+    borderColor: '#999',
     marginLeft: 15,
     marginRight: 15,
     marginBottom: 30,
@@ -27,11 +29,12 @@ const styles = {
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: '#777',
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10,
   },
 };
+
 export { Button };
