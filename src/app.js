@@ -52,7 +52,7 @@ class App extends Component {
         </SoundPanel>
         {/*<OverlappingFade />*/}
         <SoundPanel>
-          <Toggle />
+          
          <Button onPress={() => {
             if (playPause2 % 2 === 0) {
               lany2.pause();
@@ -67,7 +67,9 @@ class App extends Component {
           <Button>
           </Button>
           <Button>
+            
           </Button>
+          <Toggle />
         </SoundPanel>
       </View>
     );
