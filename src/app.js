@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, PanResponder, Animated } from 'react-native';
 import Sound from 'react-native-sound';
+import ImageZoom from 'react-native-image-pan-zoom';
 import { Header, Button, SoundPanel, OverlappingFade, Toggle, PillButton, PanZoom } from './components/';
 import file from './Lany.mp3';
 
@@ -47,13 +48,12 @@ class App extends Component {
           <Button>
           </Button>
         </SoundPanel>
-        
-        <PanZoom>
-          <View>
-            <Text style={{color: 'red', fontSize: 25}}>Hi</Text>
-          </View>
-        </PanZoom>
-        
+          <PanZoom>
+            <View>
+              <Text style={{color: 'red', fontSize: 25}}>Hi</Text>
+            </View>
+          </PanZoom>
+
         <SoundPanel>
          <Button onPress={() => {
             if (playPause2 % 2 === 0) {
