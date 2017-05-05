@@ -5,3 +5,4 @@ export * from './OverlappingFade';
 export * from './PillButton';
 export * from './Toggle';
 export * from './ToggleButton';
+export * from './PanZoom';

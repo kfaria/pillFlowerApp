@@ -12,6 +12,7 @@
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.4",
     "react-native-audio-player-recorder": "^2.0.0",
+    "react-native-gestures": "^0.3.0",
     "react-native-simple-sound": "^1.0.0",
     "react-native-sound": "^0.10.0",
     "react-native-video": "^1.0.0"
