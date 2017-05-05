@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, Image, PanResponder, Animated } from 'react-native';
+import { View, Text } from 'react-native';
 import Sound from 'react-native-sound';
-import ImageZoom from 'react-native-image-pan-zoom';
-import { Header, Button, SoundPanel, OverlappingFade, Toggle, PillButton, PanZoom } from './components/';
+import { Header, Button, SoundPanel, OverlappingFade, Toggle, PanZoom } from './components/';
 import file from './Lany.mp3';
 
 Sound.setCategory('Playback');

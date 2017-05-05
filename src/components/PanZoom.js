@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Animated, Dimensions, PanResponder, Image } from 'react-native';
-import ImageZoom from 'react-native-image-pan-zoom';
 import PinchZoomView from 'react-native-pinch-zoom-view';
 import pic1 from '../images/pill-flowers/01.png';
  
