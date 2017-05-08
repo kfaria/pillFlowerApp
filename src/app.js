@@ -68,7 +68,7 @@ class App extends Component {
           <Button>
           </Button>
           <Button>
-            
+
           </Button>
           <Toggle />
         </SoundPanel>
