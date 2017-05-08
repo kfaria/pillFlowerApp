@@ -20,7 +20,7 @@ class GrowScreen extends Component {
     return (
       <View>
         <StatusBar hidden />
-        <Text>
+        <Text style={{ marginTop: 50 }}>
           Im Grow!
         </Text>
       </View>

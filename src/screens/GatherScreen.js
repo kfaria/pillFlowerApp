@@ -6,7 +6,7 @@ class GatherScreen extends Component {
   render() {
     return (
       <View>
-        <Text>
+        <Text style={{ marginTop: 50 }}>
           Im Gather!
         </Text>
       </View>

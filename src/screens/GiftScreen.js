@@ -7,7 +7,7 @@ class GiftScreen extends Component {
     return (
       <View>
         <StatusBar hidden />
-        <Text>
+        <Text style={{ marginTop: 50 }}>
           Im Gift!
         </Text>
       </View>
