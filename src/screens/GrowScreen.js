@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { CardSection, Button } from './common';
+import { View, Text, StatusBar } from 'react-native';
 
 class GrowScreen extends Component {
   constructor(props) {
@@ -20,6 +19,7 @@ class GrowScreen extends Component {
   render() {
     return (
       <View>
+        <StatusBar hidden />
         <Text>
           Im Grow!
         </Text>

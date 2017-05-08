@@ -1,90 +1,45 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import Sound from 'react-native-sound';
-import { Header, Button, SoundPanel, OverlappingFade, Toggle, PanZoom } from './components/';
-import file from './Lany.mp3';
+import React from 'react';
+import { TabNavigator } from 'react-navigation';
+import GrowScreen from './screens/GrowScreen';
+import GatherScreen from './screens/GatherScreen';
+import DreamScreen from './screens/DreamScreen';
+import PlayScreen from './screens/PlayScreen';
+import GiftScreen from './screens/GiftScreen';
+import TabBar from './components/TabBar';
 
-Sound.setCategory('Playback');
-
-// First song
-const lany = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
-  if (error) {
-    console.log('failed to load the sound', error);
-    return;
-  }
-  console.log('duration in seconds: ' + lany.getDuration() + 'number of channels: ' + lany.getNumberOfChannels());
-});
-let playPause = 1;
-
-// Second Song
-const lany2 = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
-  if (error) {
-    console.log('failed to load the sound', error);
-    return;
-  }
-  console.log('duration in seconds: ' + lany2.getDuration() + 'number of channels: ' + lany2.getNumberOfChannels());
-});
-let playPause2 = 1;
-
-class App extends Component {
-  render() {
-    return (
-      <View style={styles.viewStyle}>
-        <SoundPanel>
-          <Button
-            onPress={() => {
-              if (playPause % 2 === 0) {
-                lany.pause();
-              }
-              if (playPause % 2 === 1) {
-                lany.play();
-              }
-              playPause += 1;
-            }}>
-          </Button>
-          <Button>
-          </Button>
-          <Button>
-          </Button>
-        </SoundPanel>
-          <PanZoom>
-            <View>
-              <Text style={{color: 'red', fontSize: 25}}>Hi</Text>
-            </View>
-          </PanZoom>
-
-        <SoundPanel>
-         <Button onPress={() => {
-            if (playPause2 % 2 === 0) {
-              lany2.pause();
-            }
-            if (playPause2 % 2 === 1) {
-              lany2.play();
-            }
-            playPause2 = playPause2 + 1;
-          }
-          }>
-          </Button>
-          <Button>
-          </Button>
-          <Button>
-
-          </Button>
-          <Toggle />
-        </SoundPanel>
-      </View>
-    );
-  }
-}
-
-const styles = {
-  viewStyle: {
-    backgroundColor: 'rgb(0,0,0)',
-    marginTop: 20,
-    justifyContent: 'space-between',
-    flex: 1,
-    // marginTop: 20,
+const App = TabNavigator({
+  Grow: {
+    screen: GrowScreen,
   },
-};
+  Gather: {
+    screen: GatherScreen,
+  },
+  Play: {
+    screen: PlayScreen,
+  },
+  Dream: {
+    screen: DreamScreen,
+  },
+  Gift: {
+    screen: GiftScreen,
+  },
+}, {
+  tabBarComponent: TabBar,
+  tabBarOptions: {
+    showIcon: false,
+    labelStyle: {
+      alignSelf: 'center',
+      color: '#fff',
+      fontSize: 20,
+      fontFamily: 'Platelet',
+      margin: 0,
+    },
+  },
+  animationEnabled: true,
+});
+
+// const styles={
+//   titleStyle =
+// }
 
 export default App;
