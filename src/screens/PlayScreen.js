@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { View, Text, StatusBar } from 'react-native';
 import { PanZoom } from '../components';
 
+const styles = {
+  viewStyle: {
+    backgroundColor: 'black',
+  },
+};
+
 class PlayScreen extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.viewStyle}>
         <StatusBar hidden />
         <Text>
           Im Play!
