@@ -5,6 +5,7 @@ import { PanZoom } from '../components';
 const styles = {
   viewStyle: {
     backgroundColor: 'black',
+    flex: 1,
   },
 };
 

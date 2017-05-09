@@ -4,6 +4,7 @@ import { View, Text } from 'react-native';
 const styles = {
   viewStyle: {
     backgroundColor: 'black',
+    flex: 1,
   },
 };
 
