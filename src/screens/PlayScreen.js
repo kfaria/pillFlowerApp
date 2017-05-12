@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
-import { PanZoom } from '../components';
+import { View, Text, StatusBar, Animated, PanResponder } from 'react-native';
+import PhotoView from 'react-native-photo-view';
+import { PanZoom2, PlayFlower } from '../components';
+import pic1 from '../images/pill-flowers/01.png';
+
 
 const styles = {
   viewStyle: {
@@ -18,14 +21,9 @@ class PlayScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        <Text>
-          Im Play!
-        </Text>
-        <PanZoom>
-          <View>
-            <Text style={{ color: 'red', fontSize: 25 }}>Hi</Text>
-          </View>
-        </PanZoom>
+
+            <PlayFlower imageSource={pic1} />
+            
       </View>
     );
   }
