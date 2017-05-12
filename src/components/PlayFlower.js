@@ -67,7 +67,7 @@ class PlayFlower extends Component {
       this.springValue,
       {
         toValue: 1,
-        friction: 0.5,
+        friction: 5,
         tension: 100,
       },
     ).start();
@@ -81,7 +81,6 @@ class PlayFlower extends Component {
         style={styles.viewStyle}
       >
         <Animated.View
-          /*onPress={this.spring()}*/
           style={{ transform: [{ scale: this.springValue }] }}
         >
           <View style={{ transform: this.state.test }}>
