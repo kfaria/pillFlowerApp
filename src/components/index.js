@@ -6,4 +6,7 @@ export * from './PillButton';
 export * from './Toggle';
 export * from './ToggleButton';
 export * from './PanZoom';
+export * from './PanZoom2';
 export * from './NavBarButton';
+export * from './Pan';
+export * from './PlayFlower';
