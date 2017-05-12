@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { PanResponder, Image, Animated, View } from 'react-native';
 
 const styles = {
@@ -13,6 +13,9 @@ class PlayFlower extends Component {
 
   constructor(props) {
     super(props);
+
+    this.springValue = new Animated.Value(1);
+
     this.state = {
       scale: 1,
       prevScale: 1,
@@ -33,6 +36,7 @@ class PlayFlower extends Component {
           let pinchDistance = Math.sqrt((pinchX * pinchX) + (pinchY * pinchY));
           this.pinchDistance = pinchDistance;
         }
+        this.spring();
       },
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
@@ -41,48 +45,54 @@ class PlayFlower extends Component {
           let pinchY2 = Math.abs(event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY);
           let pinchDistance2 = Math.sqrt((pinchX2 * pinchX2) + (pinchY2 * pinchY2));
           this.setState({ scale: pinchDistance2 / this.pinchDistance });
-          this.setState({ test: [{ scale: pinchDistance2 / this.pinchDistance }] });
-          // console.log(this.state.scale);
-          // console.log(typeof this.state.scale);
+          this.setState({ test: [{ scale: pinchDistance2 / this.pinchDistance }] });          
         }
-
+        
+        console.log(gesture);
       },
       onPanResponderRelease: (event, gesture) => {
         this.setState({ prevScale: this.state.scale });
         position.flattenOffset();
-        console.log(this.state.scale);
       },
     });
 
     this.state = { panResponder, position };
   }
 
+  spring() {
+    console.log('hi');
+    //change the value below the change the amount of wiggle.
+    this.springValue.setValue(1.01);
+    Animated.spring(
+      this.springValue,
+      {
+        toValue: 1,
+        friction: 0.5,
+        tension: 100,
+      },
+    ).start();
+  }
+
   render() {
     const size = this.state.scale;
     console.log(size);
     return (
-      <View style={styles.viewStyle}>
-        {/*<View
-          style={
-          {
-            transform: [
-              { scale: 2 },
-            ],
-          }}
-        >*/}
-        <View
-          style={
-            {transform: this.state.test}
-          }
-          >
-        <Animated.View 
-          {...this.state.panResponder.panHandlers}
-          style={this.state.position.getLayout()}
+      <View
+        style={styles.viewStyle}
+      >
+        <Animated.View
+          /*onPress={this.spring()}*/
+          style={{ transform: [{ scale: this.springValue }] }}
         >
-            <Image source={this.props.imageSource} alt='' />
-        </Animated.View>
+          <View style={{ transform: this.state.test }}>
+            <Animated.View 
+              {...this.state.panResponder.panHandlers}
+              style={this.state.position.getLayout()}
+            >
+              <Image source={this.props.imageSource} alt='' />
+            </Animated.View>
           </View>
-        
+        </Animated.View>
       </View>
     );
   }
