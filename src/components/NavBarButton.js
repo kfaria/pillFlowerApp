@@ -16,11 +16,11 @@ const NavBarButton = ({ onPress }) => {
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
       <Image
-        source={require('../hamburgerMenuIcon.png')}
+        source={require('../images/hamburgerMenuIcon.png')}
         style={imageStyle}
       />
     </TouchableOpacity>
   );
 };
 
-export { NavBarButton };
+export default NavBarButton;

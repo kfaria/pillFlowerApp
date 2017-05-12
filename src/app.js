@@ -8,19 +8,19 @@ import GiftScreen from './screens/GiftScreen';
 import TabBar from './components/TabBar';
 
 const App = TabNavigator({
-  Grow: {
+  grow: {
     screen: GrowScreen,
   },
-  Gather: {
+  gather: {
     screen: GatherScreen,
   },
-  Play: {
+  play: {
     screen: PlayScreen,
   },
-  Dream: {
+  dream: {
     screen: DreamScreen,
   },
-  Gift: {
+  gift: {
     screen: GiftScreen,
   },
 }, {
@@ -34,6 +34,7 @@ const App = TabNavigator({
       fontFamily: 'Platelet',
       margin: 0,
     },
+    upperCaseLabel: false,
   },
   animationEnabled: true,
 });

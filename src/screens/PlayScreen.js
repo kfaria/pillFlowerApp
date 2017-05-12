@@ -7,6 +7,10 @@ const styles = {
     backgroundColor: 'black',
     flex: 1,
   },
+  buttonStyle: {
+    marginTop: 20,
+    marginLeft: 20,
+  },
 };
 
 class PlayScreen extends Component {

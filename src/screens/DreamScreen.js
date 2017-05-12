@@ -8,7 +8,6 @@ import GoatsFile from '../music/Goats.mp3';
 import LifeFile from '../music/Life.mp3';
 import LondonBluesFile from '../music/LondonBlues.mp3';
 import TheWindowFile from '../music/TheWindow.mp3';
-import WinterIsOverFile from '../music/WinterIsOver.mp3';
 
 const styles = {
   viewStyle: {
@@ -16,6 +15,10 @@ const styles = {
     marginTop: 20,
     justifyContent: 'space-between',
     flex: 1,
+  },
+  buttonStyle: {
+    marginTop: 20,
+    marginLeft: 20,
   },
 };
 
@@ -29,7 +32,6 @@ const Angie23 = new Sound(Angie23File, Sound.MAIN_BUNDLE, (error) => {
   }
   console.log('should be working');
 });
-let playPause = 1;
 
 // Second song
 const Christalline = new Sound(ChristallineFile, Sound.MAIN_BUNDLE, (error) => {
@@ -39,7 +41,6 @@ const Christalline = new Sound(ChristallineFile, Sound.MAIN_BUNDLE, (error) => {
   }
   console.log('should be working');
 });
-let playPause2 = 1;
 
 // Third song
 const Goats = new Sound(GoatsFile, Sound.MAIN_BUNDLE, (error) => {
@@ -49,7 +50,6 @@ const Goats = new Sound(GoatsFile, Sound.MAIN_BUNDLE, (error) => {
   }
   console.log('should be working');
 });
-let playPause3 = 1;
 
 // Fourth song
 const Life = new Sound(LifeFile, Sound.MAIN_BUNDLE, (error) => {
@@ -59,7 +59,6 @@ const Life = new Sound(LifeFile, Sound.MAIN_BUNDLE, (error) => {
   }
   console.log('should be working');
 });
-let playPause4 = 1;
 
 // Fifth song
 const LondonBlues = new Sound(LondonBluesFile, Sound.MAIN_BUNDLE, (error) => {
@@ -69,7 +68,6 @@ const LondonBlues = new Sound(LondonBluesFile, Sound.MAIN_BUNDLE, (error) => {
   }
   console.log('should be working');
 });
-let playPause5 = 1;
 
 // Sixth song
 const TheWindow = new Sound(TheWindowFile, Sound.MAIN_BUNDLE, (error) => {
@@ -79,26 +77,14 @@ const TheWindow = new Sound(TheWindowFile, Sound.MAIN_BUNDLE, (error) => {
   }
   console.log('should be working');
 });
-let playPause6 = 1;
 
-const WinterIsOver = new Sound(WinterIsOverFile, Sound.MAIN_BUNDLE, (error) => {
-  if (error) {
-    console.log('failed to load the sound', error);
-    return;
-  }
-  console.log('should be working');
-});
-let playPause7 = 1;
-
-// // Second Song
-// const lany2 = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
+// const WinterIsOver = new Sound(WinterIsOverFile, Sound.MAIN_BUNDLE, (error) => {
 //   if (error) {
 //     console.log('failed to load the sound', error);
 //     return;
 //   }
-//   console.log('duration in seconds: ' + lany2.getDuration() + 'number of channels: ' + lany2.getNumberOfChannels());
+//   console.log('should be working');
 // });
-// let playPause2 = 1;
 
 class DreamScreen extends Component {
 
@@ -115,14 +101,13 @@ class DreamScreen extends Component {
       opacityButtonSix: new Animated.Value(1),
     };
     setInterval(() => {
-      console.log(this.state.opacityButtonOne._value)
       switch (this.state.currentTrack) {
         case 1:
           if (this.state.opacityButtonOne._value === 1) {
             Animated.timing(
               this.state.opacityButtonOne,
               {
-                toValue: 0.6,
+                toValue: 0.3,
                 duration: 450,
               },
             ).start();
@@ -149,7 +134,7 @@ class DreamScreen extends Component {
             Animated.timing(
               this.state.opacityButtonTwo,
               {
-                toValue: 0.6,
+                toValue: 0.3,
                 duration: 450,
               },
             ).start();
@@ -171,13 +156,13 @@ class DreamScreen extends Component {
           });
           break;
         case 3:
-          this.setState({ buttonToPulse: this.state.opacityButtonThree })
+          this.setState({ buttonToPulse: this.state.opacityButtonThree });
           this.setState({ buttonToPulse: this.state.opacityButtonThree });
           if (this.state.opacityButtonThree._value === 1) {
             Animated.timing(
               this.state.opacityButtonThree,
               {
-                toValue: 0.6,
+                toValue: 0.3,
                 duration: 450,
               },
             ).start();
@@ -204,7 +189,7 @@ class DreamScreen extends Component {
             Animated.timing(
               this.state.opacityButtonFour,
               {
-                toValue: 0.6,
+                toValue: 0.3,
                 duration: 450,
               },
             ).start();
@@ -231,7 +216,7 @@ class DreamScreen extends Component {
             Animated.timing(
               this.state.opacityButtonFive,
               {
-                toValue: 0.6,
+                toValue: 0.3,
                 duration: 450,
               },
             ).start();
@@ -250,7 +235,7 @@ class DreamScreen extends Component {
             opacityButtonThree: new Animated.Value(1),
             opacityButtonFour: new Animated.Value(1),
             opacityButtonSix: new Animated.Value(1),
-          })
+          });
           break;
         case 6:
           this.setState({ buttonToPulse: this.state.opacityButtonOne });
@@ -258,7 +243,7 @@ class DreamScreen extends Component {
             Animated.timing(
               this.state.opacityButtonSix,
               {
-                toValue: 0.6,
+                toValue: 0.3,
                 duration: 450,
               },
             ).start();
@@ -293,7 +278,6 @@ class DreamScreen extends Component {
       }
     }, 500);
   }
-
   // If a track other than the selected button is pressed, stop it and play the new one
   // Called each time a music button is pressed
   musicToggle(musicToBePlayed, trackNumberToBePlayed) {
