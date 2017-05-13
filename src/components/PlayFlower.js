@@ -13,9 +13,7 @@ class PlayFlower extends Component {
 
   constructor(props) {
     super(props);
-
     this.springValue = new Animated.Value(1);
-
     this.state = {
       scale: 1,
       prevScale: 1,
@@ -25,14 +23,17 @@ class PlayFlower extends Component {
     };
     let pinchDistance = null;
     const position = new Animated.ValueXY();
+
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event, gesture) => {
         position.setOffset({ x: position.x._value, y: position.y._value });
         position.setValue({ x:0, y:0 });
         if (gesture.numberActiveTouches === 2) {
-          let pinchX = Math.abs(event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX);
-          let pinchY = Math.abs(event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY);
+          let pinchX = Math.abs(
+            event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX);
+          let pinchY = Math.abs(
+            event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY);
           let pinchDistance = Math.sqrt((pinchX * pinchX) + (pinchY * pinchY));
           this.pinchDistance = pinchDistance;
         }
@@ -41,14 +42,26 @@ class PlayFlower extends Component {
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
         if (gesture.numberActiveTouches === 2) {
-          let pinchX2 = Math.abs(event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX);
-          let pinchY2 = Math.abs(event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY);
+          let pinchX2 = Math.abs(
+            event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX);
+          let pinchY2 = Math.abs(
+            event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY);
           let pinchDistance2 = Math.sqrt((pinchX2 * pinchX2) + (pinchY2 * pinchY2));
-          this.setState({ scale: pinchDistance2 / this.pinchDistance });
-          this.setState({ test: [{ scale: pinchDistance2 / this.pinchDistance }] });          
+          //  set condition for max and min size
+          let zoomRatio = pinchDistance2 / this.pinchDistance;
+          //  maxmin zoom
+          if (zoomRatio * this.props.width < this.props.maxSize &&
+            zoomRatio * this.props.width > this.props.minSize) {
+            this.setState({ test: [{ scale: zoomRatio }] });
+            this.setState({ prevScale: zoomRatio });
+          } else {
+            this.spring();
+            // zoomRatio = this.state.prevScale;
+            // this.setState({ test: [{ scale: zoomRatio }] });
+            // console.log(zoomRatio);
+          }
+          // this.setState({ test: [{ scale: zoomRatio }] });
         }
-        
-        console.log(gesture);
       },
       onPanResponderRelease: (event, gesture) => {
         this.setState({ prevScale: this.state.scale });
@@ -60,9 +73,8 @@ class PlayFlower extends Component {
   }
 
   spring() {
-    console.log('hi');
-    //change the value below the change the amount of wiggle.
-    this.springValue.setValue(1.01);
+    //  change the value below the change the amount of wiggle.
+    this.springValue.setValue(1.05);
     Animated.spring(
       this.springValue,
       {
@@ -74,8 +86,6 @@ class PlayFlower extends Component {
   }
 
   render() {
-    const size = this.state.scale;
-    console.log(size);
     return (
       <View
         style={styles.viewStyle}
@@ -84,11 +94,13 @@ class PlayFlower extends Component {
           style={{ transform: [{ scale: this.springValue }] }}
         >
           <View style={{ transform: this.state.test }}>
-            <Animated.View 
+            <Animated.View
               {...this.state.panResponder.panHandlers}
               style={this.state.position.getLayout()}
             >
-              <Image source={this.props.imageSource} alt='' />
+              <Image
+                source={this.props.imageSource} alt='' 
+              />
             </Animated.View>
           </View>
         </Animated.View>
