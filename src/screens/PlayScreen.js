@@ -17,9 +17,13 @@ class PlayScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-
-            <PlayFlower imageSource={pic1} />
-            
+            <PlayFlower
+              imageSource={pic1}
+              width={200}
+              height={200}
+              maxSize={250}
+              minSize={150}
+            />
       </View>
     );
   }
