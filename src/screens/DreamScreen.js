@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Animated, StatusBar } from 'react-native';
 import Sound from 'react-native-sound';
+import Toast, { DURATION } from 'react-native-easy-toast';
 import { Button, SoundPanel, OverlappingFade } from '../components/';
 import Angie23File from '../music/Angie23.mp3';
 import ChristallineFile from '../music/Christalline.mp3';
@@ -92,7 +93,6 @@ class DreamScreen extends Component {
     super(props);
     this.state = {
       currentTrack: 0, // The current track being played, 0 means null
-      buttonToPulse: null,
       opacityButtonOne: new Animated.Value(1),
       opacityButtonTwo: new Animated.Value(1),
       opacityButtonThree: new Animated.Value(1),
@@ -129,7 +129,6 @@ class DreamScreen extends Component {
           });
           break;
         case 2:
-          this.setState({ buttonToPulse: this.state.opacityButtonTwo });
           if (this.state.opacityButtonTwo._value === 1) {
             Animated.timing(
               this.state.opacityButtonTwo,
@@ -156,8 +155,6 @@ class DreamScreen extends Component {
           });
           break;
         case 3:
-          this.setState({ buttonToPulse: this.state.opacityButtonThree });
-          this.setState({ buttonToPulse: this.state.opacityButtonThree });
           if (this.state.opacityButtonThree._value === 1) {
             Animated.timing(
               this.state.opacityButtonThree,
@@ -184,7 +181,6 @@ class DreamScreen extends Component {
           });
           break;
         case 4:
-          this.setState({ buttonToPulse: this.state.opacityButtonFour });
           if (this.state.opacityButtonFour._value === 1) {
             Animated.timing(
               this.state.opacityButtonFour,
@@ -211,7 +207,6 @@ class DreamScreen extends Component {
           });
           break;
         case 5:
-          this.setState({ buttonToPulse: this.state.opacityButtonFive });
           if (this.state.opacityButtonFive._value === 1) {
             Animated.timing(
               this.state.opacityButtonFive,
@@ -238,7 +233,6 @@ class DreamScreen extends Component {
           });
           break;
         case 6:
-          this.setState({ buttonToPulse: this.state.opacityButtonOne });
           if (this.state.opacityButtonSix._value === 1) {
             Animated.timing(
               this.state.opacityButtonSix,
@@ -266,7 +260,6 @@ class DreamScreen extends Component {
           break;
         default:
           this.setState({
-            buttonToPulse: null,
             opacityButtonOne: new Animated.Value(1),
             opacityButtonTwo: new Animated.Value(1),
             opacityButtonThree: new Animated.Value(1),
@@ -276,13 +269,14 @@ class DreamScreen extends Component {
           });
 
       }
-    }, 500);
+    }, 470);
   }
   // If a track other than the selected button is pressed, stop it and play the new one
   // Called each time a music button is pressed
-  musicToggle(musicToBePlayed, trackNumberToBePlayed) {
+  musicToggle(musicToBePlayed, trackNumberToBePlayed, nameOfSong) {
     if ((this.state.currentTrack !== 0) && (this.state.currentTrack !== trackNumberToBePlayed)) {
       // Music on and next track is a different track, turn off old, turn on next
+      this.refs.toast.show(nameOfSong, DURATION.LENGTH_LONG);
       Angie23.stop();
       Christalline.stop();
       Goats.stop();
@@ -296,6 +290,7 @@ class DreamScreen extends Component {
       musicToBePlayed.stop();
       this.setState({ currentTrack: 0 });
     } else if (this.state.currentTrack === 0) {
+      this.refs.toast.show(nameOfSong, DURATION.LENGTH_LONG);
       // Music is off, turn on selected song
       musicToBePlayed.play();
       this.setState({ currentTrack: trackNumberToBePlayed });
@@ -310,17 +305,17 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonOne }}>
             <Button
-              onPress={() => this.musicToggle(Angie23, 1)}
+              onPress={() => this.musicToggle(Angie23, 1, 'Angie 23 by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonTwo }}>
             <Button
-              onPress={() => this.musicToggle(Christalline, 2)}
+              onPress={() => this.musicToggle(Christalline, 2, 'Christalline by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonThree }}>
             <Button
-              onPress={() => this.musicToggle(Goats, 3)}
+              onPress={() => this.musicToggle(Goats, 3, 'Goats by Tony Smith')}
             />
           </Animated.View>
         </SoundPanel>
@@ -328,20 +323,21 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
             <Button
-              onPress={() => this.musicToggle(Life, 4)}
+              onPress={() => this.musicToggle(Life, 4, 'Life by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
             <Button
-              onPress={() => this.musicToggle(LondonBlues, 5)}
+              onPress={() => this.musicToggle(LondonBlues, 5, 'London Blues by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
             <Button
-              onPress={() => this.musicToggle(TheWindow, 6)}
+              onPress={() => this.musicToggle(TheWindow, 6, 'The Window by Tony Smith')}
             />
           </Animated.View>
         </SoundPanel>
+        <Toast ref="toast" />
       </View>
     );
   }
