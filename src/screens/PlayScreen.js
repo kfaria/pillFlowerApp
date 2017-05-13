@@ -25,8 +25,8 @@ class PlayScreen extends Component {
               imageSource={pic1}
               width={200}
               height={200}
-              maxSize={250}
-              minSize={150}
+              maxSize={450}
+              minSize={50}
             />
       </View>
     );
