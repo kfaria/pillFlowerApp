@@ -25,6 +25,7 @@ const App = TabNavigator({
   },
 }, {
   tabBarComponent: TabBar,
+  initialRouteName: 'play',
   tabBarOptions: {
     showIcon: false,
     labelStyle: {
