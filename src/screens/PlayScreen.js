@@ -1,26 +1,45 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Animated, PanResponder } from 'react-native';
+import { View, Text, Dimensions, StatusBar, Animated, PanResponder, TouchableOpacity, Image } from 'react-native';
 import PhotoView from 'react-native-photo-view';
-import { PanZoom2, PlayFlower } from '../components';
+import { PanZoom2, PlayFlower, BackgroundChanger } from '../components';
 import pic1 from '../images/pill-flowers/01.png';
 import pic2 from '../images/pill-flowers/02.png';
 
-
+const { height, width } = Dimensions.get('window');
 const styles = {
   viewStyle: {
     backgroundColor: 'black',
     flex: 1,
   },
+  containerStyle: {
+    flexDirection: 'row',
+  },
   buttonStyle: {
-    marginTop: 20,
-    marginLeft: 20,
+    borderWidth: 2,
+    borderColor: 'red',
+    height: 100,
+  },
+  imageStyle: {
+    maxWidth: 150,
+    maxHeight: 100,
   },
 };
-
 class PlayScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      backgroundImage: null,
+    };
+  }
+  changeBackground(newImage) {
+    this.setState({
+      backgroundImage: newImage,
+    });
+  }
   render() {
     return (
       <View style={styles.viewStyle}>
+        <Image source={this.state.backgroundImage} style={{ zIndex: -55, position: 'absolute', width: width, height: height }} />
         <StatusBar hidden />
         <PlayFlower
           imageSource={pic1}
@@ -29,6 +48,32 @@ class PlayScreen extends Component {
           maxSize={450}
           minSize={50}
         />
+        <View style={styles.containerStyle}>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic1.jpg"))}
+          >
+            <Image source={require("../images/backgrounds/bgpic1.jpg")} style={styles.imageStyle} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
+          >
+            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic1.jpg"))}
+          >
+            <Image source={require("../images/backgrounds/bgpic1.jpg")} style={styles.imageStyle} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
+          >
+            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
