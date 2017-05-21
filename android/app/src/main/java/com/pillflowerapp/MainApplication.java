@@ -3,6 +3,9 @@ package com.pillflowerapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.reactnativenavigation.NavigationReactPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
 import com.zmxv.RNSound.RNSoundPackage;
@@ -27,6 +30,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactVideoPackage(),
+            new PhotoViewPackage(),
+            new NavigationReactPackage(),
             new RCTCameraPackage(),
             new ReactNativeAudioPackage(),
             new RNSoundPackage(),

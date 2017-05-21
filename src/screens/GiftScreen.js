@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, Text } from 'react-native';
+import { View, StatusBar, Text, CameraRoll, Image } from 'react-native';
 import NavBarButton from '../components/NavBarButton';
 import Camera from 'react-native-camera';
 
@@ -37,47 +37,53 @@ class GiftScreen extends Component {
     this.state = {
       showTabBar: true,
       navBarButtonOffset: 0,
+      hasTakenPicture: false,
+      photoData: '',
     };
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
   }
-  toggleTabBar() {
-    this.setState({
-      showTabBar: !this.state.showTabBar,
-    });
-    this.props.navigation.setParams({ visible: this.state.showTabBar });
-    if (this.state.showTabBar) {
-      this.setState({
-        navBarButtonOffset: 40,
-      });
-    } else {
-      this.setState({
-        navBarButtonOffset: 0,
-      });
-    }
-  }
   takePicture() {
     const options = {};
+    this.setState({
+      hasTakenPicture: true,
+    });
     this.camera.capture({ metadata: options })
-      .then((data) => console.log(data))
+      .then(data => this.setState({ photoData: data }))
       .catch(err => console.error(err));
+    this.renderContent();
+  }
+  renderContent() {
+    console.log('rendering new content')
+    console.log(this.state.photoData['path'])
+    if (this.state.hasTakenPicture) {
+      return (
+        <View>
+          <Text style={{ color: 'white', margin: 100 }}>
+            Time to do screenshot shit.
+          </Text>
+          <Image source={{ uri: this.state.photoData['path'] }} style={{ width: 400, height: 400 }} />
+        </View>
+      );
+    }
+    return (
+      <Camera
+        ref={(cam) => { this.camera = cam; }}
+        style={styles.preview}
+        captureTarget={Camera.constants.CaptureTarget.disk}
+        aspect={Camera.constants.Aspect.fill}
+        type={Camera.constants.Type.front}
+      >
+        <Text style={styles.capture} onPress={this.takePicture.bind(this)}>Capture!</Text>
+      </Camera>
+    );
   }
   render() {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        {/* <View style={[styles.buttonStyle, { top: this.state.navBarButtonOffset }]}>
-          <NavBarButton onPress={() => this.toggleTabBar()} />
-        </View> */}
-        <Camera
-          ref={(cam) => { this.camera = cam; }}
-          style={styles.preview}
-          aspect={Camera.constants.Aspect.fill}
-          type={Camera.constants.Type.front}
-        >
-          <Text style={styles.capture} onPress={this.takePicture.bind(this)}>Capture!</Text>
-        </Camera>
+        {this.renderContent()}
       </View>
     );
   }
