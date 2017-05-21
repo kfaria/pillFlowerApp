@@ -38,7 +38,7 @@ class GiftScreen extends Component {
       showTabBar: true,
       navBarButtonOffset: 0,
       hasTakenPicture: false,
-      photoData: '',
+      photoPath: '',
     };
   }
   componentWillMount() {
@@ -50,20 +50,20 @@ class GiftScreen extends Component {
       hasTakenPicture: true,
     });
     this.camera.capture({ metadata: options })
-      .then(data => this.setState({ photoData: data }))
+      .then(path => this.setState({ photoPath: path }))
       .catch(err => console.error(err));
     this.renderContent();
   }
   renderContent() {
     console.log('rendering new content')
-    console.log(this.state.photoData['path'])
+    console.log(this.state.photoPath['path'])
     if (this.state.hasTakenPicture) {
       return (
         <View>
           <Text style={{ color: 'white', margin: 100 }}>
             Time to do screenshot shit.
           </Text>
-          <Image source={{ uri: this.state.photoData['path'] }} style={{ width: 400, height: 400 }} />
+          <Image source={{ uri: this.state.photoPath['path'] }} style={{ width: 400, height: 400 }} />
         </View>
       );
     }
