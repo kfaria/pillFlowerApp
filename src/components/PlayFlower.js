@@ -74,7 +74,7 @@ class PlayFlower extends Component {
 
   spring() {
     //  change the value below the change the amount of wiggle.
-    this.springValue.setValue(1.05);
+    this.springValue.setValue(1.15);
     Animated.spring(
       this.springValue,
       {
@@ -99,7 +99,7 @@ class PlayFlower extends Component {
               style={this.state.position.getLayout()}
             >
               <Image
-                source={this.props.imageSource} alt='' 
+                source={this.props.imageSource} alt=''
               />
             </Animated.View>
           </View>
