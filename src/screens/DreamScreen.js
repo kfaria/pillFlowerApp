@@ -3,12 +3,12 @@ import { View, Animated, StatusBar } from 'react-native';
 import Sound from 'react-native-sound';
 import Toast, { DURATION } from 'react-native-easy-toast';
 import { Button, SoundPanel, OverlappingFade } from '../components/';
-import Angie23File from '../music/Angie23.mp3';
+import ArabellaFile from '../music/Arabella.mp3';
 import ChristallineFile from '../music/Christalline.mp3';
-import GoatsFile from '../music/Goats.mp3';
-import LifeFile from '../music/Life.mp3';
+import BellaFile from '../music/Bella.mp3';
+import DarkBarkFile from '../music/DarkBark.mp3';
 import LondonBluesFile from '../music/LondonBlues.mp3';
-import TheWindowFile from '../music/TheWindow.mp3';
+import DarksideFile from '../music/Darkside.mp3';
 
 const styles = {
   viewStyle: {
@@ -26,7 +26,7 @@ const styles = {
 Sound.setCategory('Playback');
 
 // First song
-const Angie23 = new Sound(Angie23File, Sound.MAIN_BUNDLE, (error) => {
+const Arabella = new Sound(ArabellaFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
     console.log('failed to load the sound', error);
     return;
@@ -44,7 +44,7 @@ const Christalline = new Sound(ChristallineFile, Sound.MAIN_BUNDLE, (error) => {
 });
 
 // Third song
-const Goats = new Sound(GoatsFile, Sound.MAIN_BUNDLE, (error) => {
+const Bella = new Sound(BellaFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
     console.log('failed to load the sound', error);
     return;
@@ -53,7 +53,7 @@ const Goats = new Sound(GoatsFile, Sound.MAIN_BUNDLE, (error) => {
 });
 
 // Fourth song
-const Life = new Sound(LifeFile, Sound.MAIN_BUNDLE, (error) => {
+const DarkBark = new Sound(DarkBarkFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
     console.log('failed to load the sound', error);
     return;
@@ -71,21 +71,13 @@ const LondonBlues = new Sound(LondonBluesFile, Sound.MAIN_BUNDLE, (error) => {
 });
 
 // Sixth song
-const TheWindow = new Sound(TheWindowFile, Sound.MAIN_BUNDLE, (error) => {
+const Darkside = new Sound(DarksideFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
     console.log('failed to load the sound', error);
     return;
   }
   console.log('should be working');
 });
-
-// const WinterIsOver = new Sound(WinterIsOverFile, Sound.MAIN_BUNDLE, (error) => {
-//   if (error) {
-//     console.log('failed to load the sound', error);
-//     return;
-//   }
-//   console.log('should be working');
-// });
 
 class DreamScreen extends Component {
 
@@ -101,6 +93,7 @@ class DreamScreen extends Component {
       opacityButtonSix: new Animated.Value(1),
     };
     setInterval(() => {
+      console.log(this.props.navigation)
       switch (this.state.currentTrack) {
         case 1:
           if (this.state.opacityButtonOne._value === 1) {
@@ -108,7 +101,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonOne,
               {
                 toValue: 0.3,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           } else {
@@ -116,7 +109,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonOne,
               {
                 toValue: 1,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           }
@@ -134,7 +127,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonTwo,
               {
                 toValue: 0.3,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           } else {
@@ -142,7 +135,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonTwo,
               {
                 toValue: 1,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           }
@@ -160,7 +153,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonThree,
               {
                 toValue: 0.3,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           } else {
@@ -168,7 +161,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonThree,
               {
                 toValue: 1,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           }
@@ -186,7 +179,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonFour,
               {
                 toValue: 0.3,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           } else {
@@ -194,7 +187,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonFour,
               {
                 toValue: 1,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           }
@@ -212,7 +205,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonFive,
               {
                 toValue: 0.3,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           } else {
@@ -220,7 +213,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonFive,
               {
                 toValue: 1,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           }
@@ -238,7 +231,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonSix,
               {
                 toValue: 0.3,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           } else {
@@ -246,7 +239,7 @@ class DreamScreen extends Component {
               this.state.opacityButtonSix,
               {
                 toValue: 1,
-                duration: 450,
+                duration: 550,
               },
             ).start();
           }
@@ -267,24 +260,31 @@ class DreamScreen extends Component {
             opacityButtonFive: new Animated.Value(1),
             opacityButtonSix: new Animated.Value(1),
           });
-
       }
-    }, 470);
+    }, 570);
   }
+  // onScreenChange() {
+  //   Arabella.stop();
+  //   Christalline.stop();
+  //   Bella.stop();
+  //   LondonBlues.stop();
+  //   DarkBark.stop();
+  //   Darkside.stop();
+  // }
   // If a track other than the selected button is pressed, stop it and play the new one
   // Called each time a music button is pressed
   musicToggle(musicToBePlayed, trackNumberToBePlayed, nameOfSong) {
     if ((this.state.currentTrack !== 0) && (this.state.currentTrack !== trackNumberToBePlayed)) {
       // Music on and next track is a different track, turn off old, turn on next
-      this.refs.toast.show(nameOfSong, DURATION.LENGTH_LONG);
-      Angie23.stop();
+      Arabella.stop();
       Christalline.stop();
-      Goats.stop();
+      Bella.stop();
       LondonBlues.stop();
-      Life.stop();
-      TheWindow.stop();
+      DarkBark.stop();
+      Darkside.stop();
       musicToBePlayed.play();
       this.setState({ currentTrack: trackNumberToBePlayed });
+      this.refs.toast.show(nameOfSong, DURATION.LENGTH_LONG);
     } else if ((this.state.currentTrack !== 0) && (this.state.currentTrack === trackNumberToBePlayed)) {
       // Music on and pressed same button, turn off current song
       musicToBePlayed.stop();
@@ -295,7 +295,65 @@ class DreamScreen extends Component {
       musicToBePlayed.play();
       this.setState({ currentTrack: trackNumberToBePlayed });
     } else {
-      console.log('somethings fucky');
+      console.log('somethings wrong');
+    }
+  }
+  renderToast() {
+    switch (this.state.currentTrack) {
+      case 1:
+        return (
+          <Toast
+            ref="toast"
+            position="top"
+            positionValue={60}
+          />
+        );
+      case 2:
+        return (
+          <Toast
+            ref="toast"
+            position="top"
+            positionValue={120}
+          />
+        );
+      case 3:
+        return (
+          <Toast
+            ref="toast"
+            position="top"
+            positionValue={180}
+          />
+        );
+      case 4:
+        return (
+          <Toast
+            ref="toast"
+            position="bottom"
+            positionValue={60}
+          />
+        );
+      case 5:
+        return (
+          <Toast
+            ref="toast"
+            position="bottom"
+            positionValue={120}
+          />
+        );
+      case 6:
+        return (
+          <Toast
+            ref="toast"
+            position="bottom"
+            positionValue={180}
+          />
+        );
+      default:
+        return (
+          <Toast
+            ref="toast"
+          />
+        );
     }
   }
   render() {
@@ -305,7 +363,7 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonOne }}>
             <Button
-              onPress={() => this.musicToggle(Angie23, 1, 'Angie 23 by Tony Smith')}
+              onPress={() => this.musicToggle(LondonBlues, 1, 'London Blues by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonTwo }}>
@@ -315,7 +373,7 @@ class DreamScreen extends Component {
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonThree }}>
             <Button
-              onPress={() => this.musicToggle(Goats, 3, 'Goats by Tony Smith')}
+              onPress={() => this.musicToggle(Bella, 3, 'Bella by Tony Smith')}
             />
           </Animated.View>
         </SoundPanel>
@@ -323,21 +381,21 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
             <Button
-              onPress={() => this.musicToggle(Life, 4, 'Life by Tony Smith')}
+              onPress={() => this.musicToggle(DarkBark, 4, 'DarkBark by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
             <Button
-              onPress={() => this.musicToggle(LondonBlues, 5, 'London Blues by Tony Smith')}
+              onPress={() => this.musicToggle(Arabella, 5, 'Arabella by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
             <Button
-              onPress={() => this.musicToggle(TheWindow, 6, 'The Window by Tony Smith')}
+              onPress={() => this.musicToggle(Darkside, 6, 'The Window by Tony Smith')}
             />
           </Animated.View>
         </SoundPanel>
-        <Toast ref="toast" />
+        {this.renderToast()}
       </View>
     );
   }

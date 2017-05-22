@@ -41,6 +41,7 @@ const App = TabNavigator({
   animationEnabled: true,
 });
 
+
 // const styles={
 //   titleStyle =
 // }
