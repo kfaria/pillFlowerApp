@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, StatusBar } from 'react-native';
+import { FlowerBuilder } from '../components';
 
 const styles = {
   viewStyle: {
     backgroundColor: 'black',
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
 
@@ -27,9 +30,7 @@ class GrowScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        <Text style={{ marginTop: 50 }}>
-          Im Grow!
-        </Text>
+        <FlowerBuilder numOfPetals={8} flowerRadius={300} width={600} height={600} />
       </View>
     );
   }

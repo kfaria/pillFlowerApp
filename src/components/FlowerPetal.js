@@ -1,0 +1,56 @@
+/*
+  Component takes in img, x y and rotateZ props to render a single petal. 
+  also has component to animate the movement.
+
+*/
+
+import React, { Component } from 'react';
+import { Animated, Image } from 'react-native';
+
+class FlowerPetal extends Component {
+  constructor(props) {
+    super(props);
+    this.springValue = new Animated.Value(1);
+    this.state = {
+      updated: false,
+      opacityValue: new Animated.Value(0),
+    };
+  }
+  componentWillMount() {
+    Animated.timing(
+      this.state.opacityValue, {
+        toValue: 1,
+        duration: this.props.delayBetweenPill,
+        delay: 100,
+      },
+    ).start();
+
+    this.spring();
+  }
+  spring() {
+    this.springValue.setValue(1.09);
+    Animated.sequence([
+      Animated.delay(1200),
+      Animated.spring(this.springValue, {
+        toValue: 1.04,
+        friction: 2,
+        tension: 90,
+      }),
+    ]).start();
+  }
+  render() {
+    return (
+      <Animated.View style={{ transform: [{ scale: this.springValue }] }}>
+        <Animated.View style={{ opacity: this.state.opacityValue }}>
+          <Image
+            position='absolute'
+            transform={this.props.pillSpec}
+            source={this.props.pillButtonImage}
+          />
+        </Animated.View>
+      </Animated.View>
+    );
+  }
+}
+
+export default FlowerPetal;
