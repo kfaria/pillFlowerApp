@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-import { View, StatusBar, Text, CameraRoll, Image } from 'react-native';
-import NavBarButton from '../components/NavBarButton';
+import {
+  View,
+  StatusBar,
+  Text,
+  CameraRoll,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 import Camera from 'react-native-camera';
+
+const { width, height } = Dimensions.get('window')
 
 const styles = {
   viewStyle: {
@@ -29,16 +38,25 @@ const styles = {
     padding: 10,
     margin: 40,
   },
+  scrollView: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  textStyle: {
+    margin: 100,
+    color: 'white',
+  },
+  imageStyle: {
+    maxWidth: 500,
+    maxHeight: 500,
+  },
 };
 
 class GiftScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showTabBar: true,
-      navBarButtonOffset: 0,
       hasTakenPicture: false,
-      photoPath: '',
     };
   }
   componentWillMount() {
@@ -46,44 +64,58 @@ class GiftScreen extends Component {
   }
   takePicture() {
     const options = {};
-    this.setState({
-      hasTakenPicture: true,
-    });
     this.camera.capture({ metadata: options })
-      .then(path => this.setState({ photoPath: path }))
+      .then((data) => { console.log(data); })
       .catch(err => console.error(err));
-    this.renderContent();
   }
-  renderContent() {
-    console.log('rendering new content')
-    console.log(this.state.photoPath['path'])
-    if (this.state.hasTakenPicture) {
-      return (
-        <View>
-          <Text style={{ color: 'white', margin: 100 }}>
-            Time to do screenshot shit.
-          </Text>
-          <Image source={{ uri: this.state.photoPath['path'] }} style={{ width: 400, height: 400 }} />
-        </View>
-      );
-    }
-    return (
-      <Camera
-        ref={(cam) => { this.camera = cam; }}
-        style={styles.preview}
-        captureTarget={Camera.constants.CaptureTarget.disk}
-        aspect={Camera.constants.Aspect.fill}
-        type={Camera.constants.Type.front}
-      >
-        <Text style={styles.capture} onPress={this.takePicture.bind(this)}>Capture!</Text>
-      </Camera>
-    );
-  }
+  // renderContent() {
+  //   console.log('rendering new content')
+  //   if (this.state.hasTakenPicture) {
+  //     this.getPhotos();
+  //     return (
+  //       <View>
+  //         <Text style={styles.textStyle}>
+  //           Hello camera roll
+  //         </Text>
+  //         {
+  //           this.state.photos.map((p) => {
+  //             return (
+  //               <Image
+  //                 style={{
+  //                   width: width / 3,
+  //                   height: width / 3,
+  //                 }}
+  //                 source={{ uri: p.node.image.uri }}
+  //               />
+  //             );
+  //           })
+  //         }
+  //       </View>
+  //     );
+  //   }
+  // }
   render() {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        {this.renderContent()}
+        <Camera
+          ref={(cam) => { this.camera = cam; }}
+          style={styles.preview}
+          aspect={Camera.constants.Aspect.fill}
+          type={Camera.constants.Type.front}
+        >
+          <TouchableOpacity onPress={() => {
+            this.props.navigation.navigate('EditGiftScreen');
+            this.takePicture();
+          }}
+          >
+            <Text
+              style={styles.capture}
+            >
+              navigate!
+            </Text>
+          </TouchableOpacity>
+        </Camera>
       </View>
     );
   }

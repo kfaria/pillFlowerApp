@@ -93,7 +93,6 @@ class DreamScreen extends Component {
       opacityButtonSix: new Animated.Value(1),
     };
     setInterval(() => {
-      console.log(this.props.navigation)
       switch (this.state.currentTrack) {
         case 1:
           if (this.state.opacityButtonOne._value === 1) {
@@ -263,14 +262,6 @@ class DreamScreen extends Component {
       }
     }, 570);
   }
-  // onScreenChange() {
-  //   Arabella.stop();
-  //   Christalline.stop();
-  //   Bella.stop();
-  //   LondonBlues.stop();
-  //   DarkBark.stop();
-  //   Darkside.stop();
-  // }
   // If a track other than the selected button is pressed, stop it and play the new one
   // Called each time a music button is pressed
   musicToggle(musicToBePlayed, trackNumberToBePlayed, nameOfSong) {
@@ -285,7 +276,8 @@ class DreamScreen extends Component {
       musicToBePlayed.play();
       this.setState({ currentTrack: trackNumberToBePlayed });
       this.refs.toast.show(nameOfSong, DURATION.LENGTH_LONG);
-    } else if ((this.state.currentTrack !== 0) && (this.state.currentTrack === trackNumberToBePlayed)) {
+    } else if ((this.state.currentTrack !== 0) &&
+    (this.state.currentTrack === trackNumberToBePlayed)) {
       // Music on and pressed same button, turn off current song
       musicToBePlayed.stop();
       this.setState({ currentTrack: 0 });
@@ -305,7 +297,7 @@ class DreamScreen extends Component {
           <Toast
             ref="toast"
             position="top"
-            positionValue={60}
+            style={{ marginRight: 680 }}
           />
         );
       case 2:
@@ -321,7 +313,7 @@ class DreamScreen extends Component {
           <Toast
             ref="toast"
             position="top"
-            positionValue={180}
+            style={{ marginLeft: 680 }}
           />
         );
       case 4:
@@ -329,7 +321,8 @@ class DreamScreen extends Component {
           <Toast
             ref="toast"
             position="bottom"
-            positionValue={60}
+            style={{ marginRight: 680 }}
+            positionValue={160}
           />
         );
       case 5:
@@ -337,7 +330,7 @@ class DreamScreen extends Component {
           <Toast
             ref="toast"
             position="bottom"
-            positionValue={120}
+            positionValue={160}
           />
         );
       case 6:
@@ -345,7 +338,8 @@ class DreamScreen extends Component {
           <Toast
             ref="toast"
             position="bottom"
-            positionValue={180}
+            style={{ marginLeft: 680 }}
+            positionValue={160}
           />
         );
       default:
@@ -381,7 +375,7 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
             <Button
-              onPress={() => this.musicToggle(DarkBark, 4, 'DarkBark by Tony Smith')}
+              onPress={() => this.musicToggle(DarkBark, 4, 'Dark Bark by Tony Smith')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
@@ -391,7 +385,7 @@ class DreamScreen extends Component {
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
             <Button
-              onPress={() => this.musicToggle(Darkside, 6, 'The Window by Tony Smith')}
+              onPress={() => this.musicToggle(Darkside, 6, 'Darkside by Tony Smith')}
             />
           </Animated.View>
         </SoundPanel>

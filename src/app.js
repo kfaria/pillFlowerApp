@@ -1,11 +1,17 @@
 import React from 'react';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import GrowScreen from './screens/GrowScreen';
 import GatherScreen from './screens/GatherScreen';
 import DreamScreen from './screens/DreamScreen';
 import PlayScreen from './screens/PlayScreen';
 import GiftScreen from './screens/GiftScreen';
+import GiftScreenEdit from './screens/GiftScreenEdit';
 import TabBar from './components/TabBar';
+
+const GiftScreenNavigator = StackNavigator({
+  MainGiftScreen: { screen: GiftScreen },
+  EditGiftScreen: { screen: GiftScreenEdit },
+});
 
 const App = TabNavigator({
   grow: {
@@ -21,7 +27,7 @@ const App = TabNavigator({
     screen: DreamScreen,
   },
   gift: {
-    screen: GiftScreen,
+    screen: GiftScreenNavigator,
   },
 }, {
   tabBarComponent: TabBar,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, Text, TouchableOpacity } from 'react-native';
 import NavBarButton from '../components/NavBarButton';
 
 const styles = {
@@ -10,6 +10,14 @@ const styles = {
   buttonStyle: {
     marginTop: 20,
     marginLeft: 20,
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    margin: 40,
   },
 };
 
@@ -46,6 +54,16 @@ class GatherScreen extends Component {
         <View style={[styles.buttonStyle, { top: this.state.navBarButtonOffset }]}>
           <NavBarButton onPress={() => this.toggleTabBar()} />
         </View>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate('dream');
+            console.log('navigating');
+          }}
+        >
+          <Text style={styles.capture}>
+            Capture!
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

@@ -38,6 +38,7 @@
 		39FF131807A44C7AA6447C93 /* libRCTAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 613E4555E4C8422A9B30B080 /* libRCTAudio.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		688250674C8947D69E7FDC43 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D10A6C41DDDC415DA34F1E2E /* libRCTCamera.a */; };
+		714BC6FA1ED376A800D7B76D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		71505EB11EC0AD6400083720 /* Platelet Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71505EB01EC0AD6400083720 /* Platelet Regular.ttf */; };
 		7180B4341ED21827008C11D1 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7180B4331ED217EF008C11D1 /* libRCTCameraRoll.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -1092,6 +1093,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				714BC6FA1ED376A800D7B76D /* Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				71505EB11EC0AD6400083720 /* Platelet Regular.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
