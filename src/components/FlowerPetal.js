@@ -24,17 +24,16 @@ class FlowerPetal extends Component {
         delay: 100,
       },
     ).start();
-
     this.spring();
   }
   spring() {
-    this.springValue.setValue(1.09);
+    this.springValue.setValue(1.05);
     Animated.sequence([
-      Animated.delay(1200),
+      Animated.delay(800),
       Animated.spring(this.springValue, {
         toValue: 1.04,
-        friction: 2,
-        tension: 90,
+        friction: 3,
+        tension: 120,
       }),
     ]).start();
   }

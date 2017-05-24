@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StatusBar } from 'react-native';
-import { FlowerBuilder } from '../components';
+import { FlowerBase } from '../components';
+import pillButton1 from '../components/button.png';
+
 
 const styles = {
   viewStyle: {
@@ -30,7 +32,16 @@ class GrowScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        <FlowerBuilder numOfPetals={8} flowerRadius={300} width={600} height={600} />
+        <View >
+          <FlowerBase
+            height={600}
+            width={600}
+            rows={2}
+            rowRadius={[200, 100, 100]}
+            rowNumOfPetals={[4, 4, 4]}
+            pillRowImage={[pillButton1, pillButton1, pillButton1]}
+          />
+        </View>
       </View>
     );
   }
