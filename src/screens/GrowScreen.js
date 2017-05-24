@@ -37,12 +37,11 @@ class GrowScreen extends Component {
             height={800}
             width={800}
             rows={4}
-            rowRadius={[0, 300, 400, 100]}
-            rowNumOfPetals={[1, 8, 16, 4]}
+            rowRadius={[0, 100, 200, 300]}
+            rowNumOfPetals={[0, 8, 8, 8]}
             rowNames={['level0','level1', 'level2', 'level3']}
             pillRowImage={[pillButton1, pillButton1, pillButton1, pillButton1]}
           />
-          {/*<Image source={pillButton1} />*/}
         </View>
       </View>
     );

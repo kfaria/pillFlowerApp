@@ -17,7 +17,7 @@ import { View } from 'react-native';
 import { FlowerRowBuilder } from '../components';
 import pillButton1 from '../components/button.png';
 
-const tempArray = [];
+let tempArray = [];
 
 class FlowerBase extends Component {
   constructor(props) {
@@ -35,8 +35,8 @@ class FlowerBase extends Component {
           pillImage={this.props.pillRowImage[i]}
           numOfPetals={this.props.rowNumOfPetals[i]}
           flowerRadius={this.props.rowRadius[i]}
-          height={this.props.height}
-          width={this.props.width}
+          height={100}
+          width={100}
         />
         </View>
       );
