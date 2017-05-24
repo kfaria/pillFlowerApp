@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Image, StatusBar } from 'react-native';
 import { FlowerBase } from '../components';
 import pillButton1 from '../components/button.png';
 
@@ -32,15 +32,17 @@ class GrowScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        <View >
+        <View style={{ width: 800, height: 800, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
           <FlowerBase
-            height={600}
-            width={600}
-            rows={2}
-            rowRadius={[200, 100, 100]}
-            rowNumOfPetals={[4, 4, 4]}
-            pillRowImage={[pillButton1, pillButton1, pillButton1]}
+            height={800}
+            width={800}
+            rows={4}
+            rowRadius={[0, 300, 400, 100]}
+            rowNumOfPetals={[1, 8, 16, 4]}
+            rowNames={['level0','level1', 'level2', 'level3']}
+            pillRowImage={[pillButton1, pillButton1, pillButton1, pillButton1]}
           />
+          {/*<Image source={pillButton1} />*/}
         </View>
       </View>
     );

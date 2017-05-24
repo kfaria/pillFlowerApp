@@ -5,7 +5,7 @@
 */
 
 import React, { Component } from 'react';
-import { Animated, Image } from 'react-native';
+import { Animated, Image, View } from 'react-native';
 
 class FlowerPetal extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class FlowerPetal extends Component {
     Animated.sequence([
       Animated.delay(800),
       Animated.spring(this.springValue, {
-        toValue: 1.04,
+        toValue: 1.0,
         friction: 3,
         tension: 120,
       }),
@@ -39,6 +39,7 @@ class FlowerPetal extends Component {
   }
   render() {
     return (
+      
       <Animated.View style={{ transform: [{ scale: this.springValue }] }}>
         <Animated.View style={{ opacity: this.state.opacityValue }}>
           <Image

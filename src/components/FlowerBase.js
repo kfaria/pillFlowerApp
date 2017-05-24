@@ -5,6 +5,7 @@
     rows={}
     rowRadius={[]}
     rowNumOfPetals={[]}
+    rowNames={[]}
     pillRowImage={[]}
 
     The below is whats required to render eachrow.
@@ -12,24 +13,11 @@
 
 */
 import React, { Component } from 'react';
-import { View, Animated } from 'react-native';
+import { View } from 'react-native';
 import { FlowerRowBuilder } from '../components';
 import pillButton1 from '../components/button.png';
 
 const tempArray = [];
-
-const styles = {
-  circle: {
-    borderRadius: 30,
-    borderWidth: 30,
-    borderColor: 'green',
-  },
-  circle2: {
-    borderRadius: 30,
-    borderWidth: 30,
-    borderColor: 'blue',
-  },
-};
 
 class FlowerBase extends Component {
   constructor(props) {
@@ -39,37 +27,26 @@ class FlowerBase extends Component {
 
   renderBody() {
     for (let i = 0; i < this.props.rows; i++) {
+      const tempString = this.props.rowNames[i];
       tempArray.push(
+        <View key={tempString} style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center'}}>
         <FlowerRowBuilder
-          key={i}
+          rowID={tempString}
           pillImage={this.props.pillRowImage[i]}
           numOfPetals={this.props.rowNumOfPetals[i]}
           flowerRadius={this.props.rowRadius[i]}
           height={this.props.height}
           width={this.props.width}
         />
+        </View>
       );
+      console.log(tempArray[i].key);
     }
   }
   render() {
     return (
-      <View>
+      <View style={{ width: 800, height: 800, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
         {tempArray}
-        {/*<FlowerRowBuilder
-          pillImage={this.props.pillRowImage[0]}
-          numOfPetals={this.props.rowNumOfPetals[0]}
-          flowerRadius={this.props.rowRadius[0]}
-          height={this.props.height}
-          width={this.props.width}
-        >
-          <FlowerRowBuilder
-          pillImage={this.props.pillRowImage[1]}
-          numOfPetals={this.props.rowNumOfPetals[1]}
-          flowerRadius={this.props.rowRadius[1]}
-          height={this.props.height}
-          width={this.props.width}
-        />
-        </FlowerRowBuilder>*/}
       </View>
     );
   }

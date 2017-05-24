@@ -50,6 +50,7 @@ class FlowerRowBuilder extends Component {
         ).start();
   }
   renderBody() {
+    console.log('hi');
     const angle = (2 * Math.PI) / this.props.numOfPetals;
     for (let i = 1; i < this.props.numOfPetals; i++) {
       const xPos = (this.props.flowerRadius) * Math.cos((i) * angle);
@@ -57,11 +58,11 @@ class FlowerRowBuilder extends Component {
       const pillAngle = 1 * angle * (180 / Math.PI) * i;
       // console.log(xPos + ',' + yPos + ',' + pillAngle.toString() + 'deg');
       const pillDelay = 200 * i;
-     
       if (this.state.activated === false) {
+        const tempString = this.props.rowID;
         pillArray.push(
           <FlowerPetal
-            key={i}
+            key={tempString+'pill'+i}
             position='absolute'
             delayBetweenPill={pillDelay}
             pillButtonImage={this.props.pillImage}
@@ -74,16 +75,20 @@ class FlowerRowBuilder extends Component {
   }
 
   render() {
-    console.log(this.props.pillButton);
+    console.log(...pillArray);
     return (
       // <Animated.View style={{ opacity: this.state.opacityValue }} >
       <View
-        style={{ height: this.props.height, width: this.props.width, alignItems: 'center', justifyContent: 'center' }}
+        style={{
+          height: this.props.height,
+          width: this.props.width,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
         <TouchableHighlight onPress={() => this.renderBody()}>
-          <View>
-            <FlowerPetal pillSpec={[{ translateX: this.props.flowerRadius }]} position='absolute' pillButtonImage={this.props.pillImage} />
-            {this.props.children}
+          <View style={{ height: 100, width: 100 }}>
+            <FlowerPetal pillSpec={[{ translateX: this.props.flowerRadius }, { translateY: 0 }]} position='absolute' pillButtonImage={this.props.pillImage} />
             {pillArray}
           </View>
         </TouchableHighlight>
