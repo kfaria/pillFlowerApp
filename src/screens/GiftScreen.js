@@ -65,7 +65,10 @@ class GiftScreen extends Component {
   takePicture() {
     const options = {};
     this.camera.capture({ metadata: options })
-      .then((data) => { console.log(data); })
+      .then((data) => {
+        console.log(data);
+        this.props.navigation.navigate('EditGiftScreen');
+      })
       .catch(err => console.error(err));
   }
   // renderContent() {
@@ -105,7 +108,6 @@ class GiftScreen extends Component {
           type={Camera.constants.Type.front}
         >
           <TouchableOpacity onPress={() => {
-            this.props.navigation.navigate('EditGiftScreen');
             this.takePicture();
           }}
           >

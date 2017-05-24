@@ -3,6 +3,8 @@ package com.pillflowerapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rnfs.RNFSPackage;
+import fr.greweb.reactnativeviewshot.RNViewShotPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.reactnative.photoview.PhotoViewPackage;
 import com.reactnativenavigation.NavigationReactPackage;
@@ -30,6 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFSPackage(),
+            new RNViewShotPackage(),
             new ReactVideoPackage(),
             new PhotoViewPackage(),
             new NavigationReactPackage(),

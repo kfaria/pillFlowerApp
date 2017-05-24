@@ -9,8 +9,18 @@ import GiftScreenEdit from './screens/GiftScreenEdit';
 import TabBar from './components/TabBar';
 
 const GiftScreenNavigator = StackNavigator({
-  MainGiftScreen: { screen: GiftScreen },
-  EditGiftScreen: { screen: GiftScreenEdit },
+  MainGiftScreen: {
+    screen: GiftScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  EditGiftScreen: {
+    screen: GiftScreenEdit,
+    navigationOptions: {
+      tabBarVisible: false,
+    },
+  },
 });
 
 const App = TabNavigator({
