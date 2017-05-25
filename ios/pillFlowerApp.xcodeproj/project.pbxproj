@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -45,8 +46,8 @@
 		8715D24C25A8469A8776E1D5 /* libRNAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F978C929A7584476944D1ABE /* libRNAudio.a */; };
 		CD21CBBA08A0441FB4143163 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D34367D31E5A43F781B89948 /* libRCTVideo.a */; };
 		DEDD475A38FF4565BFCC8E44 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 396988EB25D441DBBD6BBE7D /* libReactNativeNavigation.a */; };
-		F742572A8CB14483B47B0BDA /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A952765BDEE140408E120572 /* libRNSound.a */; };
 		E785744C2D32476ABB18B010 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A8FDBEE40547E3B16C56F0 /* libRNFS.a */; };
+		F742572A8CB14483B47B0BDA /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A952765BDEE140408E120572 /* libRNSound.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +226,13 @@
 			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
 			remoteInfo = "RCTAnimation-tvOS";
 		};
+		716D51981ED65E6F00C77882 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F43B0E38EFBD4EDBB3031719 /* RNFS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F12AFB9B1ADAF8F800E0535D;
+			remoteInfo = RNFS;
+		};
 		7180B4241ED2151A008C11D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF798FE3D8A44928B499E437 /* ReactNativeNavigation.xcodeproj */;
@@ -339,6 +347,7 @@
 		81153649AF0E43238EB2139E /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8AF158E4B8C3402AB5A15091 /* libRNViewShot.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNViewShot.a; sourceTree = "<group>"; };
+		97A8FDBEE40547E3B16C56F0 /* libRNFS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFS.a; sourceTree = "<group>"; };
 		A952765BDEE140408E120572 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		BF798FE3D8A44928B499E437 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		C9C8893D2EC845BAA4A6C7BD /* RCTAudio.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTAudio.xcodeproj; path = "../node_modules/@remobile/react-native-audio/ios/RCTAudio.xcodeproj"; sourceTree = "<group>"; };
@@ -346,9 +355,8 @@
 		D10A6C41DDDC415DA34F1E2E /* libRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTCamera.a; sourceTree = "<group>"; };
 		D34367D31E5A43F781B89948 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		DB7A277C7C5548AF9DF2232B /* RNAudio.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAudio.xcodeproj; path = "../node_modules/react-native-audio-player-recorder/ios/RNAudio.xcodeproj"; sourceTree = "<group>"; };
+		F43B0E38EFBD4EDBB3031719 /* RNFS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		F978C929A7584476944D1ABE /* libRNAudio.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAudio.a; sourceTree = "<group>"; };
-		F43B0E38EFBD4EDBB3031719 /* RNFS.xcodeproj */ = {isa = PBXFileReference; name = "RNFS.xcodeproj"; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		97A8FDBEE40547E3B16C56F0 /* libRNFS.a */ = {isa = PBXFileReference; name = "libRNFS.a"; path = "libRNFS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -524,6 +532,14 @@
 			children = (
 				5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */,
 				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		716D51761ED65E6F00C77882 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				716D51991ED65E6F00C77882 /* libRNFS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -853,6 +869,10 @@
 					ProjectRef = DB7A277C7C5548AF9DF2232B /* RNAudio.xcodeproj */;
 				},
 				{
+					ProductGroup = 716D51761ED65E6F00C77882 /* Products */;
+					ProjectRef = F43B0E38EFBD4EDBB3031719 /* RNFS.xcodeproj */;
+				},
+				{
 					ProductGroup = 71B7D9231EB2C7D50095FC4A /* Products */;
 					ProjectRef = 63543B5EB3B842A390D9C124 /* RNSimpleSound.xcodeproj */;
 				},
@@ -1035,6 +1055,13 @@
 			fileType = archive.ar;
 			path = "libRCTAnimation-tvOS.a";
 			remoteRef = 5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		716D51991ED65E6F00C77882 /* libRNFS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFS.a;
+			remoteRef = 716D51981ED65E6F00C77882 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7180B4251ED2151A008C11D1 /* libReactNativeNavigation.a */ = {

@@ -3,7 +3,7 @@ import { PanResponder, Image, Animated, View } from 'react-native';
 
 const styles = {
   viewStyle: {
-    flex: 1,
+    flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -15,11 +15,7 @@ class PlayFlower extends Component {
     super(props);
     this.springValue = new Animated.Value(1);
     this.state = {
-      scale: 1,
-      prevScale: 1,
-      test: [
-        { scale: 1.2 },
-      ],
+
     };
     let pinchDistance = null;
     const position = new Animated.ValueXY();
@@ -69,9 +65,17 @@ class PlayFlower extends Component {
       },
     });
 
-    this.state = { panResponder, position };
+    this.state = {
+      panResponder,
+      position,
+      scale: 1,
+      prevScale: 1,
+      test: [
+        { scale: 1.2 },
+      ],
+    };
+    console.log(this.state);
   }
-
   spring() {
     //  change the value below the change the amount of wiggle.
     this.springValue.setValue(1.15);
@@ -90,20 +94,42 @@ class PlayFlower extends Component {
       <View
         style={styles.viewStyle}
       >
+        {/* <Animated.View
+          style={{ transform:
+            [{ scale: this.springValue }],
+            borderWidth: 5,
+            borderColor: 'white',
+          }}
+        > */}
         <Animated.View
-          style={{ transform: [{ scale: this.springValue }] }}
+          {...this.state.panResponder.panHandlers}
+          style={[
+            {
+              transform: [{ scale: this.springValue }],
+              width: this.state.test[0].scale * this.props.width,
+              height: this.state.test[0].scale * this.props.width,
+              position: 'absolute',
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
+            this.state.position.getLayout(),
+          ]}
         >
-          <View style={{ transform: this.state.test }}>
-            <Animated.View
-              {...this.state.panResponder.panHandlers}
-              style={this.state.position.getLayout()}
-            >
-              <Image
-                source={this.props.imageSource} alt=''
-              />
-            </Animated.View>
+          <View
+            style={{
+              transform: this.state.test,
+              borderRadius: 1000,
+              position: 'absolute',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Image
+              source={this.props.imageSource} alt=''
+            />
           </View>
         </Animated.View>
+        {/* </Animated.View> */}
       </View>
     );
   }

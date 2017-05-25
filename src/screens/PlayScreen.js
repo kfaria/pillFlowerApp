@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Dimensions, StatusBar, Animated, PanResponder, TouchableOpacity, Image } from 'react-native';
 import PhotoView from 'react-native-photo-view';
+import { NavigationActions } from 'react-navigation';
 import { PanZoom2, PlayFlower, BackgroundChanger } from '../components';
 import pic1 from '../images/pill-flowers/01.png';
 import pic2 from '../images/pill-flowers/02.png';
@@ -29,11 +30,23 @@ class PlayScreen extends Component {
     super(props);
     this.state = {
       backgroundImage: null,
+      startingPosition1: 0,
+      startingPosition2: 10,
+      startingScale1: 200,
+      startingScale2: 200,
     };
   }
   changeBackground(newImage) {
     this.setState({
       backgroundImage: newImage,
+    });
+  }
+  reset() {
+    this.setState({
+      startingPosition1: 0,
+      startingPosition2: 10,
+      startingScale1: 200,
+      startingScale2: 200,
     });
   }
   render() {
@@ -43,6 +56,13 @@ class PlayScreen extends Component {
         <StatusBar hidden />
         <PlayFlower
           imageSource={pic1}
+          width={200}
+          height={200}
+          maxSize={450}
+          minSize={50}
+        />
+        <PlayFlower
+          imageSource={pic2}
           width={200}
           height={200}
           maxSize={450}
@@ -69,7 +89,10 @@ class PlayScreen extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
+            onPress={() => {
+              console.log('update please');
+            }
+            }
           >
             <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
           </TouchableOpacity>
