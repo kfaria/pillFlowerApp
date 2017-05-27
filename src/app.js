@@ -13,11 +13,13 @@ const GiftScreenNavigator = StackNavigator({
     screen: GiftScreen,
     navigationOptions: {
       header: null,
+      headerBackTitle: 'Back',
     },
   },
   EditGiftScreen: {
     screen: GiftScreenEdit,
     navigationOptions: {
+      title: 'Share',
       tabBarVisible: false,
     },
   },

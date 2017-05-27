@@ -3,7 +3,6 @@ import { PanResponder, Image, Animated, View } from 'react-native';
 
 const styles = {
   viewStyle: {
-    flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -14,9 +13,6 @@ class PlayFlower extends Component {
   constructor(props) {
     super(props);
     this.springValue = new Animated.Value(1);
-    this.state = {
-
-    };
     let pinchDistance = null;
     const position = new Animated.ValueXY();
 
@@ -71,7 +67,7 @@ class PlayFlower extends Component {
       scale: 1,
       prevScale: 1,
       test: [
-        { scale: 1.2 },
+        { scale: 0.4 },
       ],
     };
     console.log(this.state);

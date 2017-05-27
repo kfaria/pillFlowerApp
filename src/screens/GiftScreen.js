@@ -32,11 +32,16 @@ const styles = {
   },
   capture: {
     flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
+    borderRadius: 50,
     padding: 10,
-    margin: 40,
+    height: 50,
+    width: 50,
+    borderWidth: 5,
+    borderColor: '#999',
+    shadowColor: '#fff',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 2,
+    shadowRadius: 4,
   },
   scrollView: {
     flexDirection: 'row',
@@ -111,11 +116,9 @@ class GiftScreen extends Component {
             this.takePicture();
           }}
           >
-            <Text
+            <View
               style={styles.capture}
-            >
-              navigate!
-            </Text>
+            />
           </TouchableOpacity>
         </Camera>
       </View>

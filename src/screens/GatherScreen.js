@@ -51,19 +51,9 @@ class GatherScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        <View style={[styles.buttonStyle, { top: this.state.navBarButtonOffset }]}>
+        {/* <View style={[styles.buttonStyle, { top: this.state.navBarButtonOffset }]}>
           <NavBarButton onPress={() => this.toggleTabBar()} />
-        </View>
-        <TouchableOpacity
-          onPress={() => {
-            this.props.navigation.navigate('dream');
-            console.log('navigating');
-          }}
-        >
-          <Text style={styles.capture}>
-            Capture!
-          </Text>
-        </TouchableOpacity>
+        </View> */}
       </View>
     );
   }
