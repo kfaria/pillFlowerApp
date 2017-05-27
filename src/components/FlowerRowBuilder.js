@@ -95,15 +95,16 @@ class FlowerRowBuilder extends Component {
           width: this.props.width,
           alignItems: 'center',
           justifyContent: 'center',
+          position: 'absolute',
         }}
       >
         <TouchableHighlight onPress={() => this.renderBody()}>
-          <View style={{ height: 100, width: 100 }}>
+          <View style={{ height: 100, width: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center', transform: [{ rotateZ: this.state.angleOffset }], }}>
             <Animated.View
               {...this.state.panResponder.panHandlers}
               style={[this.state.position.getLayout()]}
             >
-              <FlowerPetal pillSpec={[{ translateX: this.props.flowerRadius }, { translateY: 0 }]} position='absolute' pillButtonImage={this.props.pillImage} />
+              <FlowerPetal pillSpec={[{ translateX: this.props.flowerRadius }, { translateY: 0 }]} pillButtonImage={this.props.pillImage} />
             </Animated.View>
             {this.pillArray}
           </View>
