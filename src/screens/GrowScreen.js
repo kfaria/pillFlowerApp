@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StatusBar, Image } from 'react-native';
 import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
 import pill1 from '../images/play-pill-flowers/01ns.png';
@@ -63,10 +63,8 @@ class GrowScreen extends Component {
             <Image
               source={outline}
               alt=''
-              
             />
           </View>
-            
           </View>
             <FlowerBase
               height={800}
