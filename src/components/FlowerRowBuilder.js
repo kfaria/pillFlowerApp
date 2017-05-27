@@ -24,23 +24,24 @@ import FlowerPetal from './FlowerPetal';
 class FlowerRowBuilder extends Component {
   constructor(props) {
     super(props);
-
+    let origin = [0, 0];
     const position = new Animated.ValueXY();
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event, gesture) => {
         position.setOffset({ x: position.x._value, y: position.y._value });
-        position.setValue({ x:0, y:0 });
+        position.setValue({ x: 0, y: 0 });
       },
       onPanResponderMove: (event, gesture) => {
+        console.log(gesture.moveX);
         if (this.state.rowSet === false) {
-          position.setValue({ x: gesture.dx, y: gesture.dy });          
-          if (gesture.moveX >= 780 && gesture.moveX <= 820 ) {
+          position.setValue({ x: gesture.dx, y: gesture.dy });
+          if (gesture.moveX >= 780 && gesture.moveX <= 820) {
             position.setValue({ x: gesture.moveX - position.x, y: gesture.moveY - position.Y });
-            console.log(gesture.moveX);
+            // console.log(gesture.moveX);
           }
-          console.log(gesture);
-          if (gesture.moveX === 800) {
+          // console.log(gesture);
+          if (gesture.moveX >= 790 && gesture.moveX <= 810) {
             this.renderBody();
           }
         }
@@ -67,7 +68,7 @@ class FlowerRowBuilder extends Component {
       const xPos = (this.props.flowerRadius) * Math.cos((i) * angle);
       const yPos = (this.props.flowerRadius) * Math.sin((i) * angle);
       const pillAngle = 1 * angle * (180 / Math.PI) * i;
-      // console.log(xPos + ',' + yPos + ',' + pillAngle.toString() + 'deg');
+      console.log(xPos + ',' + yPos + ',' + pillAngle.toString() + 'deg');
       const pillDelay = 200 * i;
       if (this.state.activated === false) {
         const tempString = this.props.rowID;

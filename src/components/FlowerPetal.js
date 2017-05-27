@@ -1,7 +1,6 @@
 /*
   Component takes in img, x y and rotateZ props to render a single petal. 
   also has component to animate the movement.
-
 */
 
 import React, { Component } from 'react';

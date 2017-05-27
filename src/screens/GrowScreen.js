@@ -45,7 +45,6 @@ class GrowScreen extends Component {
             <Image
               source={outline}
               alt=''
-              
             />
           </View>
             
