@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Image, StatusBar } from 'react-native';
+import { View, Text, StatusBar, Image } from 'react-native';
+import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
 import pill1 from '../images/play-pill-flowers/01ns.png';
 import pill2 from '../images/play-pill-flowers/02ns.png';
@@ -16,21 +17,36 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  buttonStyle: {
+    marginTop: 20,
+    marginLeft: 20,
+  },
 };
 
 class GrowScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = { showBar: true };
+    this.state = {
+      showTabBar: false,
+      navBarButtonOffset: 40,
+    };
   }
-  tabBarOnOff() {
-    if (this.state.showBar) {
-      this.setState({ showBar: false });
-      console.log('off');
-    }
-    if (!this.state.showBar) {
-      this.setState({ showBar: true });
-      console.log('on');
+  componentWillMount() {
+    this.props.navigation.setParams({ visible: true });
+  }
+  toggleTabBar() {
+    this.setState({
+      showTabBar: !this.state.showTabBar,
+    });
+    this.props.navigation.setParams({ visible: this.state.showTabBar });
+    if (this.state.showTabBar) {
+      this.setState({
+        navBarButtonOffset: 40,
+      });
+    } else {
+      this.setState({
+        navBarButtonOffset: 0,
+      });
     }
   }
   render() {
@@ -47,7 +63,6 @@ class GrowScreen extends Component {
               alt=''
             />
           </View>
-            
           </View>
             <FlowerBase
               height={800}

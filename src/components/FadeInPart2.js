@@ -55,7 +55,7 @@ class FadeInPart2 extends Component {
         Animated.timing(
           this.state.opacityValue, {
             toValue: 0,
-            duration: 2000,
+            duration: 1500,
           },
         ).start();
         this.setState({ currentIndex: this.state.currentIndex += 2 });
@@ -65,7 +65,7 @@ class FadeInPart2 extends Component {
         Animated.timing(
           this.state.opacityValue, {
             toValue: 1,
-            duration: 2000,
+            duration: 1500,
           },
         ).start();
       }
@@ -73,7 +73,7 @@ class FadeInPart2 extends Component {
       if (this.state.currentIndex >= imageArray.length) {
         this.setState({ currentIndex: 1 });
       }
-    }, 3000);
+    }, 2500);
   }
 
   render() {
