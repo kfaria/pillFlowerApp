@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { View, Text, StatusBar } from 'react-native';
 import NavBarButton from '../components/NavBarButton';
-=======
-import { View, Image, StatusBar } from 'react-native';
 import { FlowerBase } from '../components';
 import pill1 from '../images/play-pill-flowers/01ns.png';
 import pill2 from '../images/play-pill-flowers/02ns.png';
@@ -12,7 +9,6 @@ import pill4 from '../images/play-pill-flowers/04ns.png';
 import pill5 from '../images/play-pill-flowers/05ns.png';
 import outline from '../images/play-pill-flowers/outline.png';
 
->>>>>>> Ken-dev
 
 const styles = {
   viewStyle: {
@@ -83,6 +79,7 @@ class GrowScreen extends Component {
               pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
             />
         </View>
+      </View>
       </View>
     );
   }
