@@ -53,8 +53,6 @@ class GrowScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden />
-        <View style={[styles.buttonStyle, { top: this.state.navBarButtonOffset }]}>
-          <NavBarButton onPress={() => this.toggleTabBar()} />
         <View style={{ width: 800, height: 500, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
           <View
             style={{ opacity: 0.65, transform: [{ scale: 2.5 }, { rotateZ: '-2deg' }]}}
@@ -77,7 +75,6 @@ class GrowScreen extends Component {
               pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
             />
         </View>
-      </View>
       </View>
     );
   }
