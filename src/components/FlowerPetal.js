@@ -39,10 +39,10 @@ class FlowerPetal extends Component {
   }
   render() {
     return (
-      
       <Animated.View style={{ transform: [{ scale: this.springValue }] }}>
-        <Animated.View style={{ opacity: this.state.opacityValue }}>
+        <Animated.View style={{ opacity: this.state.opacityValue, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
           <Image
+            //style={{ borderColor: 'red', borderWidth: 2 }}
             position='absolute'
             transform={this.props.pillSpec}
             source={this.props.pillButtonImage}

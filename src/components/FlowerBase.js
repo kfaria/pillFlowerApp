@@ -31,12 +31,13 @@ class FlowerBase extends Component {
       tempArray.push(
         <View key={tempString} style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center'}}>
         <FlowerRowBuilder
+          angleOffset={this.props.rowAngleOffset[i]}
           rowID={tempString}
           pillImage={this.props.pillRowImage[i]}
           numOfPetals={this.props.rowNumOfPetals[i]}
           flowerRadius={this.props.rowRadius[i]}
-          height={100}
-          width={100}
+          height={50}
+          width={50}
         />
         </View>
       );
