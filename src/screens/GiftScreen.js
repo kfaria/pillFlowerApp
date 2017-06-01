@@ -21,13 +21,8 @@ const styles = {
     marginTop: 20,
     marginLeft: 20,
   },
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-  },
   preview: {
-    height: 1200,
-    justifyContent: 'flex-end',
+    flex: 1,
     alignItems: 'center',
   },
   capture: {
@@ -36,24 +31,19 @@ const styles = {
     padding: 10,
     height: 50,
     width: 50,
+    position: 'absolute',
+    bottom: 50,
     borderWidth: 5,
     borderColor: '#999',
     shadowColor: '#fff',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 2,
     shadowRadius: 4,
-  },
-  scrollView: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    zIndex: 100,
   },
   textStyle: {
     margin: 100,
     color: 'white',
-  },
-  imageStyle: {
-    maxWidth: 500,
-    maxHeight: 500,
   },
 };
 
@@ -112,9 +102,11 @@ class GiftScreen extends Component {
           aspect={Camera.constants.Aspect.fill}
           type={Camera.constants.Type.front}
         >
-          <TouchableOpacity onPress={() => {
-            this.takePicture();
-          }}
+          <TouchableOpacity
+            onPress={() => {
+              this.takePicture();
+            }}
+            style={{ width: 50, height: 50, position: 'absolute', zIndex: 100, bottom: 50 }}
           >
             <View
               style={styles.capture}

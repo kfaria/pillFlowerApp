@@ -44,7 +44,6 @@ const App = TabNavigator({
 }, {
   tabBarComponent: TabBar,
   initialRouteName: 'play',
-  lazy: true,
   tabBarOptions: {
     showIcon: false,
     labelStyle: {

@@ -3,12 +3,12 @@ import { View, CameraRoll, Text, Dimensions, Image, TouchableOpacity } from 'rea
 import RNFS from 'react-native-fs';
 import { takeSnapshot } from 'react-native-view-shot';
 import { PlayFlower } from '../components';
+import pic1 from '../images/pill-flowers/01.png';
+import pic2 from '../images/pill-flowers/02.png';
+import pic3 from '../images/pill-flowers/03.png';
+import pic4 from '../images/pill-flowers/04.png';
 
 const { width, height } = Dimensions.get('window');
-const pic1 = require('../images/pill-flowers/01.png');
-const pic2 = require('../images/pill-flowers/02.png');
-const pic3 = require('../images/pill-flowers/03.png');
-const pic4 = require('../images/pill-flowers/04.png');
 
 const styles = {
   mainStyle: {
@@ -87,6 +87,7 @@ class GiftScreenEdit extends Component {
           this.state.photos.map((p, i) => {
             return (
               <Image
+                key={{ i }}
                 style={{
                   width,
                   height: width,

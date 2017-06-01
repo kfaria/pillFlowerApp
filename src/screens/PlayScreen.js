@@ -77,9 +77,9 @@ class PlayScreen extends Component {
         <View style={styles.containerStyle}>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic1.jpg"))}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
           >
-            <Image source={require("../images/backgrounds/bgpic1.jpg")} style={styles.imageStyle} />
+            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
@@ -89,9 +89,9 @@ class PlayScreen extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic1.jpg"))}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
           >
-            <Image source={require("../images/backgrounds/bgpic1.jpg")} style={styles.imageStyle} />
+            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}

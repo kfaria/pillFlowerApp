@@ -5,6 +5,8 @@ const styles = {
   viewStyle: {
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'red',
   },
 };
 

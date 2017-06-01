@@ -72,7 +72,7 @@ class FadeInPart1 extends Component {
       if (this.state.currentIndex >= imageArray.length) {
         this.setState({ currentIndex: 0 });
       }
-    }, 2500);
+    }, 3000);
   }
 
   render() {
