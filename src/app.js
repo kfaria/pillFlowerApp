@@ -8,24 +8,7 @@ import GiftScreen from './screens/GiftScreen';
 import GiftScreenEdit from './screens/GiftScreenEdit';
 import TabBar from './components/TabBar';
 
-const GiftScreenNavigator = StackNavigator({
-  MainGiftScreen: {
-    screen: GiftScreen,
-    navigationOptions: {
-      header: null,
-      headerBackTitle: 'Back',
-    },
-  },
-  EditGiftScreen: {
-    screen: GiftScreenEdit,
-    navigationOptions: {
-      title: 'Share',
-      tabBarVisible: false,
-    },
-  },
-});
-
-const App = TabNavigator({
+const TabNav = TabNavigator({
   grow: {
     screen: GrowScreen,
   },
@@ -39,7 +22,11 @@ const App = TabNavigator({
     screen: DreamScreen,
   },
   gift: {
-    screen: GiftScreenNavigator,
+    screen: GiftScreen,
+    navigationOptions: {
+      header: null,
+      headerBackTitle: 'Back',
+    },
   },
 }, {
   tabBarComponent: TabBar,
@@ -58,6 +45,21 @@ const App = TabNavigator({
   animationEnabled: true,
 });
 
+const App = StackNavigator({
+  MainScreen: {
+    screen: TabNav,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  EditGiftScreen: {
+    screen: GiftScreenEdit,
+    navigationOptions: {
+      title: 'Share',
+      tabBarVisible: false,
+    },
+  },
+});
 
 // const styles={
 //   titleStyle =
