@@ -93,6 +93,17 @@ class DreamScreen extends Component {
       opacityButtonSix: new Animated.Value(1),
     };
     setInterval(() => {
+      if (this.props.screenProps.test.routes[0].index !== 3) {
+        Arabella.stop();
+        Christalline.stop();
+        Bella.stop();
+        LondonBlues.stop();
+        DarkBark.stop();
+        Darkside.stop();
+        this.setState({
+          currentTrack: 0,
+        });
+      }
       switch (this.state.currentTrack) {
         case 1:
           if (this.state.opacityButtonOne._value === 1) {

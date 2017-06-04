@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, StatusBar, Animated, PanResponder, TouchableOpacity, Image } from 'react-native';
+import { View, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
 import PhotoView from 'react-native-photo-view';
 import { NavigationActions } from 'react-navigation';
-import { PanZoom2, PlayFlower, BackgroundChanger } from '../components';
+import { PlayFlower } from '../components';
 import pic1 from '../images/pill-flowers/01.png';
 import pic2 from '../images/pill-flowers/02.png';
 import pic3 from '../images/pill-flowers/03.png';
@@ -17,19 +17,18 @@ const styles = {
   },
   containerStyle: {
     position: 'absolute',
-    bottom: 0,
-    flexDirection: 'row',
+    left: 0,
   },
   buttonStyle: {
-    borderWidth: 2,
-    borderColor: 'red',
-    height: 100,
+    height: 200,
+    width: 100,
   },
   imageStyle: {
-    maxWidth: 150,
-    maxHeight: 100,
+    height: 200,
+    width: 100,
   },
 };
+
 class PlayScreen extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +44,7 @@ class PlayScreen extends Component {
   render() {
     return (
       <View style={styles.viewStyle}>
-        <Image source={this.state.backgroundImage} style={{ zIndex: -55, position: 'absolute', width: width, height: height }} />
+        <Image source={this.state.backgroundImage} style={{ zIndex: -55, position: 'absolute', width, height }} />
         <StatusBar hidden />
         <View style={{ position: 'absolute', top: 475, left: (width / 2) - 45 }}>
           <PlayFlower
@@ -77,30 +76,24 @@ class PlayScreen extends Component {
         <View style={styles.containerStyle}>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
-          >
-            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
-          >
-            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bgpic2.jpg"))}
-          >
-            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonStyle}
             onPress={() => {
-              this.changeBackground(require("../images/backgrounds/bgpic2.jpg"));
+              this.changeBackground(require("../images/backgrounds/bkgd white canvas.png"));
             }
             }
           >
-            <Image source={require("../images/backgrounds/bgpic2.jpg")} style={styles.imageStyle} />
+            <Image source={require("../images/backgrounds/bkgd white canvas.png")} style={styles.imageStyle} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd black canvas.png"))}
+          >
+            <Image source={require("../images/backgrounds/bkgd black canvas.png")} style={styles.imageStyle} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd green canvas.png"))}
+          >
+            <Image source={require("../images/backgrounds/bkgd green canvas.png")} style={styles.imageStyle} />
           </TouchableOpacity>
         </View>
       </View>

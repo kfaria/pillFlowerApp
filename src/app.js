@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import GrowScreen from './screens/GrowScreen';
 import GatherScreen from './screens/GatherScreen';
@@ -7,6 +7,18 @@ import PlayScreen from './screens/PlayScreen';
 import GiftScreen from './screens/GiftScreen';
 import GiftScreenEdit from './screens/GiftScreenEdit';
 import TabBar from './components/TabBar';
+
+function getCurrentRouteName(navigationState) {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+  // dive into nested navigators
+  if (route.routes) {
+    return getCurrentRouteName(route);
+  }
+  return route.routeName;
+}
 
 const TabNav = TabNavigator({
   grow: {
@@ -32,6 +44,9 @@ const TabNav = TabNavigator({
   tabBarComponent: TabBar,
   initialRouteName: 'play',
   tabBarOptions: {
+    indicatorStyle: {
+      backgroundColor: '#74d6af',
+    },
     showIcon: false,
     labelStyle: {
       alignSelf: 'center',
@@ -45,7 +60,7 @@ const TabNav = TabNavigator({
   animationEnabled: true,
 });
 
-const App = StackNavigator({
+const AppNavigator = StackNavigator({
   MainScreen: {
     screen: TabNav,
     navigationOptions: {
@@ -61,6 +76,29 @@ const App = StackNavigator({
   },
 });
 
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      herp: null,
+    }
+  }
+  render() {
+    return (
+      <AppNavigator
+        onNavigationStateChange={(prevState, currentState) => {
+          const currentScreen = getCurrentRouteName(currentState);
+          const prevScreen = getCurrentRouteName(prevState);
+          this.setState({ herp: currentState });
+          console.log(currentScreen);
+          console.log(prevScreen);
+        }
+        }
+        screenProps={{ test: this.state.herp }}
+      />
+    );
+  }
+}
 // const styles={
 //   titleStyle =
 // }
