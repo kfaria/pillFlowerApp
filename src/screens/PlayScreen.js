@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { View, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
 import PhotoView from 'react-native-photo-view';
 import { NavigationActions } from 'react-navigation';
-import { PlayFlower } from '../components';
+import { PlayFlower, PlayFlowerStack } from '../components';
 import pic1 from '../images/pill-flowers/01.png';
 import pic2 from '../images/pill-flowers/02.png';
 import pic3 from '../images/pill-flowers/03.png';
+import pic4 from '../images/pill-flowers/04.png';
+import pic5 from '../images/pill-flowers/05.png';
+import pic6 from '../images/pill-flowers/06.png';
 
+const spacer = 160;
+const beginGap = 70
 const { height, width } = Dimensions.get('window');
 const styles = {
   viewStyle: {
@@ -46,33 +51,12 @@ class PlayScreen extends Component {
       <View style={styles.viewStyle}>
         <Image source={this.state.backgroundImage} style={{ zIndex: -55, position: 'absolute', width, height }} />
         <StatusBar hidden />
-        <View style={{ position: 'absolute', top: 475, left: (width / 2) - 45 }}>
-          <PlayFlower
-            imageSource={pic1}
-            width={200}
-            height={200}
-            maxSize={450}
-            minSize={50}
-          />
-        </View>
-        <View style={{ position: 'absolute', top: (900 + 475) / 2, left: (width / 2) - 45 }}>
-          <PlayFlower
-            imageSource={pic2}
-            width={200}
-            height={200}
-            maxSize={450}
-            minSize={50}
-          />
-        </View>
-        <View style={{ position: 'absolute', top: 900, left: (width / 2) - 45 }}>
-          <PlayFlower
-            imageSource={pic3}
-            width={200}
-            height={200}
-            maxSize={450}
-            minSize={50}
-          />
-        </View>
+        <PlayFlowerStack imageSource={pic1} bottom={150} left={beginGap} />
+        <PlayFlowerStack imageSource={pic2} bottom={150} left={beginGap + spacer} />
+        <PlayFlowerStack imageSource={pic3} bottom={150} left={beginGap + (2 * spacer)} />
+        <PlayFlowerStack imageSource={pic4} bottom={150} left={beginGap + (3 * spacer)} />
+        <PlayFlowerStack imageSource={pic5} bottom={150} left={beginGap + (4 * spacer)} />
+        <PlayFlowerStack imageSource={pic6} bottom={150} left={beginGap + (5 * spacer)} />
         <View style={styles.containerStyle}>
           <TouchableOpacity
             style={styles.buttonStyle}

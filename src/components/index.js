@@ -9,3 +9,4 @@ export * from './PlayFlower';
 export * from './FlowerRowBuilder';
 export * from './FlowerBase';
 export * from './PillLibrary';
+export * from './PlayFlowerStack';
