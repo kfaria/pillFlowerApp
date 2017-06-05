@@ -13,7 +13,7 @@
 
 */
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import { FlowerRowBuilder } from '../components';
 import pillButton1 from '../components/button.png';
 
@@ -27,15 +27,20 @@ class FlowerBase extends Component {
 
   renderBody() {
     for (let i = 0; i < this.props.rows; i++) {
+      const activateX = (this.props.rowRadius[i] * (Math.cos(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').width / 2);
+      const activateY = (this.props.rowRadius[i] * (Math.sin(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').height / 2);
+      console.log(activateX + " " + activateY);
       const tempString = this.props.rowNames[i];
       tempArray.push(
         <View key={tempString} style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center'}}>
         <FlowerRowBuilder
+          activationCoordinates={[activateX, activateY]}
           angleOffset={this.props.rowAngleOffset[i]}
           rowID={tempString}
           pillImage={this.props.pillRowImage[i]}
           numOfPetals={this.props.rowNumOfPetals[i]}
           flowerRadius={this.props.rowRadius[i]}
+          spacing={this.props.rowNames[i]}
           height={50}
           width={50}
         />
@@ -46,7 +51,7 @@ class FlowerBase extends Component {
   }
   render() {
     return (
-      <View style={{ width: 800, height: 800, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
+      <View style={{ borderColor: 'blue', borderWidth: 2, width: 800, height: 800, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
         {tempArray}
       </View>
     );

@@ -57,7 +57,8 @@ class GrowScreen extends Component {
           <View
             style={{ opacity: 0.65, transform: [{ scale: 2.5 }, { rotateZ: '-2deg' }]}}
           >
-          <View style={{ marginLeft: 38, marginTop: 38 }}>
+          {/*<View style={{ borderColor: 'red', borderWidth: 2 }}>*/}
+          <View>
             <Image
               source={outline}
               alt=''
@@ -70,10 +71,11 @@ class GrowScreen extends Component {
               rows={5}
               rowRadius={[165, 170, 125, 68, 0]}
               rowNumOfPetals={[8, 8, 8, 16, 1]}
-              rowAngleOffset={['20deg', '0deg', '20deg', '0deg', '0deg']}
-              rowNames={['level0', 'level1', 'level2', 'level3', 'level4']}
+              rowAngleOffset={['22.5deg', '0deg', '22.5deg', '0deg', '0deg']}
+              rowNames={['0level0', '1level1', '2level2', '3level3', '4level4']}
               pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
             />
+            
         </View>
       </View>
     );

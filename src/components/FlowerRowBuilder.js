@@ -16,7 +16,7 @@ pillFlower, one layer at a time.  The props are as follows:
 */
 
 import React, { Component } from 'react';
-import { View, Animated, TouchableHighlight, PanResponder } from 'react-native';
+import { View, Animated, TouchableHighlight, PanResponder, Dimensions } from 'react-native';
 import FlowerPetal from './FlowerPetal';
 
 // const pillArray = [];
@@ -24,24 +24,37 @@ import FlowerPetal from './FlowerPetal';
 class FlowerRowBuilder extends Component {
   constructor(props) {
     super(props);
-    let origin = [0, 0];
     const position = new Animated.ValueXY();
     const panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponder: () => {
+        return true;
+      },
       onPanResponderGrant: (event, gesture) => {
+        console.log(((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + " "  + ((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]));
+        // console.log(this.props.activationCoordinates[1]);
         position.setOffset({ x: position.x._value, y: position.y._value });
         position.setValue({ x: 0, y: 0 });
       },
       onPanResponderMove: (event, gesture) => {
-        console.log(gesture.moveX);
-        if (this.state.rowSet === false) {
+        // console.log(gesture.moveX + " " + gesture.moveY);
+        console.log(position.y._offset);
+        if (this.state.rowSet === false && this.state.inPosition === false) {
           position.setValue({ x: gesture.dx, y: gesture.dy });
-          if (gesture.moveX >= 780 && gesture.moveX <= 820) {
-            position.setValue({ x: gesture.moveX - position.x, y: gesture.moveY - position.Y });
-            // console.log(gesture.moveX);
-          }
-          // console.log(gesture);
-          if (gesture.moveX >= 790 && gesture.moveX <= 810) {
+          if (
+            gesture.moveX >= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) - 15)
+            && gesture.moveX <= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + 15)
+            && gesture.moveY <= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) + 15)
+            && gesture.moveY >= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) - 15)
+            ) {
+            // position.setValue({ x: gesture.moveX - position.x, y: gesture.moveY - position.y });
+            console.log((Dimensions.get('window').width / 2) + this.props.flowerRadius);
+            position.setValue({ x: Math.abs(this.props.activationCoordinates[0]), y: -1 * (Dimensions.get('window').height / 4) });
+            // position.setValue({ x: gesture.moveX - position.x, y: position.y });
+            // position.setOffset({ x: 0, y: 0 });
+            // position.setValue({ x: Dimensions.get('window').width / 8, y: -1 * Dimensions.get('window').height / 4 });
+            // this.orderPills();
+            this.setState({ inPosition: true });
+            //code to realign pills to flowertrace
             this.renderBody();
           }
         }
@@ -54,16 +67,30 @@ class FlowerRowBuilder extends Component {
     this.state = {
       panResponder,
       position,
+      inPosition: false,
       activated: false,
       rowSet: false,
       angleOffset: '0deg',
       array: [],
+      startingPosition: [{ translateX: this.props.flowerRadius }, { translateY: this.props.activationCoordinates[1] }, { rotateZ: -1 * parseFloat(this.props.angleOffset) }],
     };
+  }
+
+  componentDidMount() {
+    this.scatterPills();
+  }
+
+  scatterPills() {
+    this.setState({ startingPosition: [
+      { translateX: -300 + (parseInt(this.props.spacing) * 150) },
+      { translateY: ((Dimensions.get('window').height / 3.5)) },
+      { rotateZ: -1 * parseFloat(this.props.angleOffset) },
+    ] });
   }
 
   renderBody() {
     const angle = (2 * Math.PI) / this.props.numOfPetals;
-    for (let i = 1; i < this.props.numOfPetals; i++) {
+    for (let i = 1; i <= this.props.numOfPetals; i++) {
       //determine offset requirement
       const xPos = (this.props.flowerRadius) * Math.cos((i) * angle);
       const yPos = (this.props.flowerRadius) * Math.sin((i) * angle);
@@ -73,21 +100,25 @@ class FlowerRowBuilder extends Component {
       if (this.state.activated === false) {
         const tempString = this.props.rowID;
         this.pillArray.push(
-          <FlowerPetal
-            key={tempString+'pill'+i}
-            position='absolute'
-            delayBetweenPill={pillDelay}
-            pillButtonImage={this.props.pillImage}
-            pillSpec={[{ translateX: xPos }, { translateY: yPos }, { rotateZ: pillAngle.toString() + 'deg' }]}
-          />,
+            <FlowerPetal
+              key={tempString+'pill'+i}
+              position='absolute'
+              delayBetweenPill={pillDelay}
+              pillButtonImage={this.props.pillImage}
+              pillSpec={[{ translateX: xPos }, { translateY: yPos }, { rotateZ: pillAngle.toString() + 'deg' }]}
+            />
         );
         this.setState({ activated: true, rowSet: true, angleOffset: this.props.angleOffset });
+        this.setState({
+          startingPosition: [{ translateX: -1000 }, { translateY: -1000 }]          
+        });
       }
     }
   }
 
   render() {
-    // console.log(...pillArray);
+    console.log('render called');
+    console.log(this.state.angleOffset);
     return (
       // <Animated.View style={{ opacity: this.state.opacityValue }} >
       <View
@@ -99,21 +130,23 @@ class FlowerRowBuilder extends Component {
           position: 'absolute',
         }}
       >
-        <TouchableHighlight onPress={() => this.renderBody()}>
-          <View style={{ height: 100, width: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center', transform: [{ rotateZ: this.state.angleOffset }], }}>
+          <View style={{ height: 100, width: 100, transform: [{ rotateZ: this.state.angleOffset }] }}>
             <Animated.View
               {...this.state.panResponder.panHandlers}
-              style={[this.state.position.getLayout()]}
+              style={[this.state.position.getLayout(), { height: 100, width: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center' }]}
             >
-              <FlowerPetal pillSpec={[{ translateX: this.props.flowerRadius }, { translateY: 0 }]} pillButtonImage={this.props.pillImage} />
+              <View>
+                <FlowerPetal pillSpec={this.state.startingPosition} pillButtonImage={this.props.pillImage} />
+              </View>
             </Animated.View>
-            {this.pillArray}
+            <View style={{ width: 100, height: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center' }}>
+              {this.pillArray}
+            </View>
           </View>
-        </TouchableHighlight>
       </View>
       // </Animated.View>
     );
-  };
+  }
 }
 
 export { FlowerRowBuilder };
