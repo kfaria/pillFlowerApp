@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, CameraRoll, Text, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { View, CameraRoll, Text, Dimensions, Image, TouchableOpacity, Share } from 'react-native';
 import RNFS from 'react-native-fs';
 import { takeSnapshot } from 'react-native-view-shot';
 import { PlayFlower } from '../components';
@@ -63,7 +63,22 @@ class GiftScreenEdit extends Component {
       quality: 0.8,
     })
     .then(
-      uri => console.log("Image saved to", uri),
+      uri => {
+        console.log("Image saved to", uri);
+        Share.share({
+          message: 'BAM: we\'re helping your business with awesome React Native apps',
+          url: 'http://bam.tech',
+          title: 'Wow, did you see that?',
+        }, {
+          // Android only:
+          dialogTitle: 'Share BAM goodness',
+          // iOS only:
+          excludedActivityTypes: [
+            'com.apple.UIKit.activity.PostToTwitter',
+          ],
+        },
+      );
+      },
       error => console.error("Oops, snapshot failed", error)
     );
   }
