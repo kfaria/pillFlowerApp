@@ -29,25 +29,29 @@ class FlowerBase extends Component {
   }
 
   resetFlower() {
-      // console.log(tempArray.length);
-      // this.setState({ reset: true });
-      // tempArray.forEach(() => {
-      //   tempArray.pop();
-      //   console.log('emptying');
-      // });
-      while (tempArray.length > 0) {
-        console.log(tempArray.length);      
-        tempArray.pop();
-      }
-      this.setState({ resetState: true });
-      console.log('fin');
+    // console.log(tempArray.length);
+    // this.setState({ reset: true });
+    // tempArray.forEach(() => {
+    //   tempArray.pop();
+    //   console.log('emptying');
+    // });
+    while (tempArray.length > 0) {
+      console.log(tempArray.length);      
+      tempArray.pop();
+    }
+  }
+
+  reRender() {
+      // this.setState({ resetState: true });
+      // console.log(this.state.resetState);  
+      // this.renderBody();    
   }
   renderBody() {  
-    console.log('executed');    
+    console.log('executed');
     for (let i = 0; i < this.props.rows; i++) {
       const activateX = (this.props.rowRadius[i] * (Math.cos(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').width / 2);
       const activateY = (this.props.rowRadius[i] * (Math.sin(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').height / 2);
-      console.log(activateX + " " + activateY);
+      // console.log(activateX + " " + activateY);
       const tempString = this.props.rowNames[i];
       tempArray.push(
         <View key={tempString} style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center'}}>
@@ -68,11 +72,8 @@ class FlowerBase extends Component {
       // console.log(tempArray[i].key);
     }
     console.log('gg');
-    return null;
   }
 
-  
- 
   render() {
     return (
       <View
