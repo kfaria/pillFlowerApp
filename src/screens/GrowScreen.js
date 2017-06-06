@@ -9,7 +9,6 @@ import pill4 from '../images/play-pill-flowers/04ns.png';
 import pill5 from '../images/play-pill-flowers/05ns.png';
 import outline from '../images/play-pill-flowers/outline.png';
 
-
 const styles = {
   viewStyle: {
     backgroundColor: 'black',

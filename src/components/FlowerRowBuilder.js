@@ -37,7 +37,7 @@ class FlowerRowBuilder extends Component {
       },
       onPanResponderMove: (event, gesture) => {
         // console.log(gesture.moveX + " " + gesture.moveY);
-        console.log(position.y._offset);
+        // console.log(position.y._offset);
         if (this.state.rowSet === false && this.state.inPosition === false) {
           position.setValue({ x: gesture.dx, y: gesture.dy });
           if (
@@ -54,13 +54,16 @@ class FlowerRowBuilder extends Component {
             // position.setValue({ x: Dimensions.get('window').width / 8, y: -1 * Dimensions.get('window').height / 4 });
             // this.orderPills();
             this.setState({ inPosition: true });
-            //code to realign pills to flowertrace
             this.renderBody();
           }
         }
       },
       onPanResponderRelease: (event, gesture) => {
         position.flattenOffset();
+
+        if (this.state.rowSet === false && this.state.inPosition === false){
+          position.setValue({ x: 0, y: 0 });
+        }
       },
     });
     this.pillArray = [];
@@ -72,7 +75,11 @@ class FlowerRowBuilder extends Component {
       rowSet: false,
       angleOffset: '0deg',
       array: [],
-      startingPosition: [{ translateX: this.props.flowerRadius }, { translateY: this.props.activationCoordinates[1] }, { rotateZ: -1 * parseFloat(this.props.angleOffset) }],
+      startingPosition: [
+        { translateX: this.props.flowerRadius },
+        { translateY: this.props.activationCoordinates[1] },
+        { rotateZ: -1 * parseFloat(this.props.angleOffset) }
+      ],
     };
   }
 
@@ -81,13 +88,26 @@ class FlowerRowBuilder extends Component {
   }
 
   scatterPills() {
-    this.setState({ startingPosition: [
-      { translateX: -300 + (parseInt(this.props.spacing) * 150) },
-      { translateY: ((Dimensions.get('window').height / 3.5)) },
-      { rotateZ: -1 * parseFloat(this.props.angleOffset) },
-    ] });
+    this.setState({
+      startingPosition: [
+        { translateX: -300 + (parseInt(this.props.spacing) * 150) },
+        { translateY: ((Dimensions.get('window').height / 3.5)) },
+        { rotateZ: -1 * parseFloat(this.props.angleOffset) },
+      ],
+    });
   }
 
+  reset() {
+    while (this.pillArray.length >= 0) {
+      this.pillArray.pop();
+    }
+    this.scatterPills();
+    this.setState({
+      inPosition: false,
+      activated: false,
+      rowSet: false,
+    });
+  }
   renderBody() {
     const angle = (2 * Math.PI) / this.props.numOfPetals;
     for (let i = 1; i <= this.props.numOfPetals; i++) {
@@ -114,6 +134,7 @@ class FlowerRowBuilder extends Component {
         });
       }
     }
+    // setTimeout(this.reset(), 5000);
   }
 
   render() {

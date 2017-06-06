@@ -17,7 +17,7 @@ import { View, Dimensions } from 'react-native';
 import { FlowerRowBuilder } from '../components';
 import pillButton1 from '../components/button.png';
 
-let tempArray = [];
+const tempArray = [];
 
 class FlowerBase extends Component {
   constructor(props) {
@@ -46,12 +46,18 @@ class FlowerBase extends Component {
         />
         </View>
       );
-      console.log(tempArray[i].key);
+      // console.log(tempArray[i].key);
     }
   }
   render() {
     return (
-      <View style={{ borderColor: 'blue', borderWidth: 2, width: 800, height: 800, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
+      <View
+        style=
+          {{
+            //borderColor: 'blue', borderWidth: 2, width: 800, height: 800, 
+            justifyContent: 'center', alignItems: 'center', position: 'absolute',
+          }}
+      >
         {tempArray}
       </View>
     );
