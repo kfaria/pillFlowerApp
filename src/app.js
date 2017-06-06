@@ -41,7 +41,6 @@ const TabNav = TabNavigator({
   grow: {
     screen: GrowScreen,
     navigationOptions: {
-      headerBackTitle: 'Back',
     },
   },
   gather: {
@@ -102,7 +101,7 @@ const AppNavigator = StackNavigator({
   growGame: {
     screen: GrowGameScreen,
     navigationOptions: {
-      title: 'Grow'
+      header: null,
     },
   },
 },

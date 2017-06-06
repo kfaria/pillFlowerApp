@@ -36,14 +36,14 @@ class FlowerBase extends Component {
       //   console.log('emptying');
       // });
       while (tempArray.length > 0) {
-        console.log(tempArray.length);      
+        console.log(tempArray.length);
         tempArray.pop();
       }
       this.setState({ resetState: true });
       console.log('fin');
   }
-  renderBody() {  
-    console.log('executed');    
+  renderBody() {
+    console.log('executed');
     for (let i = 0; i < this.props.rows; i++) {
       const activateX = (this.props.rowRadius[i] * (Math.cos(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').width / 2);
       const activateY = (this.props.rowRadius[i] * (Math.sin(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').height / 2);
@@ -71,22 +71,22 @@ class FlowerBase extends Component {
     return null;
   }
 
-  
- 
+
+
   render() {
     return (
       <View
         style=
           {{
-            //borderColor: 'blue', borderWidth: 2, width: 800, height: 800, 
+            //borderColor: 'blue', borderWidth: 2, width: 800, height: 800,
             justifyContent: 'center', alignItems: 'center', position: 'absolute',
           }}
       >
-      <TouchableWithoutFeedback onPress={() => this.resetFlower()}>
+      {/* <TouchableWithoutFeedback onPress={() => this.resetFlower()}>
         <View style={{ marginTop: -500 }}>
           <Image source={resetButton} alt="" />
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback> */}
         {tempArray}
       </View>
     );
