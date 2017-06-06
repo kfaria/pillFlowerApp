@@ -18,7 +18,7 @@ const styles = {
   },
   imageStyle: {
     flex: 1,
-  }
+  },
 };
 
 class PillLibrary extends Component {
@@ -29,63 +29,6 @@ class PillLibrary extends Component {
         contentContainerStyle={styles.scrollViewContainerStyle}
         style={styles.scrollViewStyle}
       >
-        <View style={{ position: 'absolute', top: 475, left: (width / 2) - 45 }}>
-          <PlayFlower
-            imageSource={pic2}
-            width={200}
-            height={200}
-            maxSize={450}
-            minSize={50}
-          />
-        </View>
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
         <Image
           source={require('../images/pill-flowers/01.png')}
           style={styles.imageStyle}
