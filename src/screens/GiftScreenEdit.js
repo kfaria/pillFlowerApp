@@ -107,7 +107,7 @@ class GiftScreenEdit extends Component {
           style={styles.buttonStyle}
         >
           <Text style={styles.textStyle}>
-            Save!
+            Send to a friend!
           </Text>
         </TouchableOpacity>
         <View style={{ position: 'relative', right: 400, top: 50 }}>

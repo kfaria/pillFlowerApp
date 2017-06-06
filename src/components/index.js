@@ -6,7 +6,8 @@ export * from './PillButton';
 export * from './ToggleButton';
 export * from './NavBarButton';
 export * from './PlayFlower';
-export * from './BackgroundChanger'
 export * from './FlowerRowBuilder';
 export * from './FlowerBase';
-
+export * from './PillLibrary';
+export * from './PlayFlowerStack';
+export * from './MusicButton';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 
 const styles = {
   textStyle: {
@@ -30,14 +30,12 @@ const styles = {
   },
 };
 
-const Button = ({ onPress, children }) => {
+const Button = ({ onPress, children, source }) => {
   const { textStyle, buttonStyle } = styles;
   // console.log(children);
   return (
     <TouchableOpacity onPress={onPress} style={buttonStyle}>
-      <Text style={textStyle}>
-        {children}
-      </Text>
+      <Image source={source} />
     </TouchableOpacity>
   );
 };

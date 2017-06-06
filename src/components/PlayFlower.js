@@ -5,8 +5,6 @@ const styles = {
   viewStyle: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: 'red',
   },
 };
 
@@ -69,7 +67,7 @@ class PlayFlower extends Component {
       scale: 1,
       prevScale: 1,
       test: [
-        { scale: 0.4 },
+        { scale: 0.3 },
       ],
     };
     console.log(this.state);

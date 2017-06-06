@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Animated, StatusBar } from 'react-native';
 import Sound from 'react-native-sound';
 import Toast, { DURATION } from 'react-native-easy-toast';
-import { Button, SoundPanel, OverlappingFade } from '../components/';
+import { Button, SoundPanel, OverlappingFade, MusicButton } from '../components/';
 import ArabellaFile from '../music/Arabella.mp3';
 import ChristallineFile from '../music/Christalline.mp3';
 import BellaFile from '../music/Bella.mp3';
@@ -14,7 +14,7 @@ const styles = {
   viewStyle: {
     backgroundColor: '#000',
     marginTop: 20,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     flex: 1,
   },
   buttonStyle: {
@@ -93,6 +93,17 @@ class DreamScreen extends Component {
       opacityButtonSix: new Animated.Value(1),
     };
     setInterval(() => {
+      if (this.props.screenProps.test.routes[0].index !== 4) {
+        Arabella.stop();
+        Christalline.stop();
+        Bella.stop();
+        LondonBlues.stop();
+        DarkBark.stop();
+        Darkside.stop();
+        this.setState({
+          currentTrack: 0,
+        });
+      }
       switch (this.state.currentTrack) {
         case 1:
           if (this.state.opacityButtonOne._value === 1) {
@@ -291,55 +302,66 @@ class DreamScreen extends Component {
     }
   }
   renderToast() {
+    /*
+    toast spacings:
+    position="top"
+    style={{ marginRight: 680 }}
+
+    position="top"
+    positionValue={120}
+
+    position="top"
+    style={{ marginLeft: 680 }}
+
+    style={{ marginRight: 680 }}
+    positionValue={160}
+
+    position="bottom"
+
+
+    position="bottom"
+    positionValue={160}
+
+
+    position="bottom"
+    style={{ marginLeft: 680 }}
+    positionValue={160}
+    */
     switch (this.state.currentTrack) {
       case 1:
         return (
           <Toast
             ref="toast"
-            position="top"
-            style={{ marginRight: 680 }}
           />
         );
       case 2:
         return (
           <Toast
             ref="toast"
-            position="top"
-            positionValue={120}
           />
         );
       case 3:
         return (
           <Toast
             ref="toast"
-            position="top"
-            style={{ marginLeft: 680 }}
           />
         );
       case 4:
         return (
           <Toast
             ref="toast"
-            position="bottom"
-            style={{ marginRight: 680 }}
-            positionValue={160}
           />
         );
       case 5:
         return (
           <Toast
             ref="toast"
-            position="bottom"
-            positionValue={160}
           />
         );
       case 6:
         return (
           <Toast
             ref="toast"
-            position="bottom"
-            style={{ marginLeft: 680 }}
-            positionValue={160}
           />
         );
       default:
@@ -354,38 +376,44 @@ class DreamScreen extends Component {
     return (
       <View style={styles.viewStyle}>
         <StatusBar hidden style={{ flex: 0 }} />
+        <View style={{ flex: 8, justifyContent: 'center' }}>
+          <OverlappingFade />
+        </View>
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonOne }}>
-            <Button
+            <MusicButton
               onPress={() => this.musicToggle(LondonBlues, 1, 'London Blues by Tony Smith')}
+              source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonTwo }}>
-            <Button
+            <MusicButton
               onPress={() => this.musicToggle(Christalline, 2, 'Christalline by Tony Smith')}
+              source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonThree }}>
-            <Button
+            <MusicButton
               onPress={() => this.musicToggle(Bella, 3, 'Bella by Tony Smith')}
+              source={require('../images/musicButton.png')}
             />
           </Animated.View>
-        </SoundPanel>
-        <OverlappingFade />
-        <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
-            <Button
+            <MusicButton
               onPress={() => this.musicToggle(DarkBark, 4, 'Dark Bark by Tony Smith')}
+              source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
-            <Button
+            <MusicButton
               onPress={() => this.musicToggle(Arabella, 5, 'Arabella by Tony Smith')}
+              source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
-            <Button
+            <MusicButton
               onPress={() => this.musicToggle(Darkside, 6, 'Darkside by Tony Smith')}
+              source={require('../images/musicButton.png')}
             />
           </Animated.View>
         </SoundPanel>
