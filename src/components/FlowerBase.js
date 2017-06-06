@@ -47,7 +47,7 @@ class FlowerBase extends Component {
     for (let i = 0; i < this.props.rows; i++) {
       const activateX = (this.props.rowRadius[i] * (Math.cos(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').width / 2);
       const activateY = (this.props.rowRadius[i] * (Math.sin(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').height / 2);
-      console.log(activateX + " " + activateY);
+      // console.log(activateX + " " + activateY);
       const tempString = this.props.rowNames[i];
       tempArray.push(
         <View key={tempString} style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center'}}>
@@ -68,11 +68,7 @@ class FlowerBase extends Component {
       // console.log(tempArray[i].key);
     }
     console.log('gg');
-    return null;
   }
-
-
-
   render() {
     return (
       <View
@@ -93,4 +89,4 @@ class FlowerBase extends Component {
   }
 }
 
-export {FlowerBase} ;
+export { FlowerBase } ;
