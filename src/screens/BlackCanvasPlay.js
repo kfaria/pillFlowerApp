@@ -26,21 +26,19 @@ const styles = {
     left: 0,
   },
   buttonStyle: {
-    height: 100,
+    height: 200,
     width: 100,
   },
   imageStyle: {
-    height: 100,
+    height: 200,
     width: 100,
-    position: 'relative',
-    right: 30,
   },
 };
 class PlayScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      backgroundImage: require('../images/backgrounds/bkgd green canvas.png'),
+      backgroundImage: require('../images/backgrounds/bkgd black canvas.png'),
     };
   }
   changeBackground(newImage) {
@@ -51,7 +49,7 @@ class PlayScreen extends Component {
   render() {
     return (
       <View style={styles.viewStyle}>
-        <Image source={this.state.backgroundImage} style={{ zIndex: -55, width, height }} />
+        <Image source={this.state.backgroundImage} style={{ zIndex: -55, position: 'absolute', width, height }} />
         <StatusBar hidden />
         <PlayFlowerStack imageSource={pic1} bottom={150} left={beginGap} />
         <PlayFlowerStack imageSource={pic2} bottom={150} left={beginGap + spacer} />
@@ -62,19 +60,19 @@ class PlayScreen extends Component {
         <View style={styles.containerStyle}>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd white canvas.png"))}
+            onPress={() => this.props.navigation.navigate('whiteCanvas')}
           >
             <Image source={require("../images/backgrounds/bkgd white canvas.png")} style={styles.imageStyle} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd black canvas.png"))}
+            onPress={() => this.props.navigation.navigate('blackCanvas')}
           >
             <Image source={require("../images/backgrounds/bkgd black canvas.png")} style={styles.imageStyle} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd green canvas.png"))}
+            onPress={() => this.props.navigation.navigate('greenCanvas')}
           >
             <Image source={require("../images/backgrounds/bkgd green canvas.png")} style={styles.imageStyle} />
           </TouchableOpacity>

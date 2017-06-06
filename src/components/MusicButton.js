@@ -28,16 +28,20 @@ const styles = {
     marginBottom: 30,
     marginTop: 20,
   },
+  imageStyle: {
+    width: 80,
+    height: 80,
+  },
 };
 
-const Button = ({ onPress, children, source }) => {
+const MusicButton = ({ onPress, children, source }) => {
   const { textStyle, buttonStyle } = styles;
   // console.log(children);
   return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
-      <Image source={source} />
+    <TouchableOpacity onPress={onPress}>
+      <Image source={source} style={styles.imageStyle} />
     </TouchableOpacity>
   );
 };
 
-export { Button };
+export { MusicButton };

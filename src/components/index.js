@@ -10,3 +10,4 @@ export * from './FlowerRowBuilder';
 export * from './FlowerBase';
 export * from './PillLibrary';
 export * from './PlayFlowerStack';
+export * from './MusicButton';
