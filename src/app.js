@@ -5,9 +5,7 @@ import GrowScreen from './screens/GrowScreen';
 import GatherScreen from './screens/GatherScreen';
 import DreamScreen from './screens/DreamScreen';
 import PlayScreen from './screens/PlayScreen';
-import WhiteCanvasPlay from './screens/WhiteCanvasPlay';
-import BlackCanvasPlay from './screens/BlackCanvasPlay';
-import GreenCanvasPlay from './screens/GreenCanvasPlay';
+import GrowGameScreen from './screens/GrowGameScreen';
 import GiftScreen from './screens/GiftScreen';
 import HomeScreen from './screens/HomeScreen';
 import CreditScreen from './screens/CreditScreen';
@@ -42,6 +40,9 @@ const TabNav = TabNavigator({
   },
   grow: {
     screen: GrowScreen,
+    navigationOptions: {
+      headerBackTitle: 'Back',
+    },
   },
   gather: {
     screen: GatherScreen,
@@ -96,6 +97,12 @@ const AppNavigator = StackNavigator({
     screen: CreditScreen,
     navigationOptions: {
       header: null,
+    },
+  },
+  growGame: {
+    screen: GrowGameScreen,
+    navigationOptions: {
+      title: 'Grow'
     },
   },
 },
