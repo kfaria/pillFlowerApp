@@ -13,9 +13,9 @@
 
 */
 import React, { Component } from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Image, TouchableWithoutFeedback } from 'react-native';
 import { FlowerRowBuilder } from '../components';
-import pillButton1 from '../components/button.png';
+import resetButton from '../images/swirlButtonWhite.png';
 
 const tempArray = [];
 
@@ -23,9 +23,27 @@ class FlowerBase extends Component {
   constructor(props) {
     super(props);
     this.renderBody();
+    this.state = {
+      resetState: false,
+    };
   }
 
-  renderBody() {
+  resetFlower() {
+      // console.log(tempArray.length);
+      // this.setState({ reset: true });
+      // tempArray.forEach(() => {
+      //   tempArray.pop();
+      //   console.log('emptying');
+      // });
+      while (tempArray.length > 0) {
+        console.log(tempArray.length);      
+        tempArray.pop();
+      }
+      this.setState({ resetState: true });
+      console.log('fin');
+  }
+  renderBody() {  
+    console.log('executed');    
     for (let i = 0; i < this.props.rows; i++) {
       const activateX = (this.props.rowRadius[i] * (Math.cos(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').width / 2);
       const activateY = (this.props.rowRadius[i] * (Math.sin(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').height / 2);
@@ -43,12 +61,18 @@ class FlowerBase extends Component {
           spacing={this.props.rowNames[i]}
           height={50}
           width={50}
+          resetStatus={this.props.resetStatus}
         />
         </View>
       );
       // console.log(tempArray[i].key);
     }
+    console.log('gg');
+    return null;
   }
+
+  
+ 
   render() {
     return (
       <View
@@ -58,6 +82,11 @@ class FlowerBase extends Component {
             justifyContent: 'center', alignItems: 'center', position: 'absolute',
           }}
       >
+      <TouchableWithoutFeedback onPress={() => this.resetFlower()}>
+        <View style={{ marginTop: -500 }}>
+          <Image source={resetButton} alt="" />
+        </View>
+      </TouchableWithoutFeedback>
         {tempArray}
       </View>
     );

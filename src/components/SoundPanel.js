@@ -17,6 +17,6 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#727272',
-  }
-}
+  },
+};
 export { SoundPanel };

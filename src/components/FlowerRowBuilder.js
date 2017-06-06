@@ -98,6 +98,7 @@ class FlowerRowBuilder extends Component {
   }
 
   reset() {
+    console.log("resetfromRow");
     while (this.pillArray.length >= 0) {
       this.pillArray.pop();
     }
@@ -138,8 +139,10 @@ class FlowerRowBuilder extends Component {
   }
 
   render() {
-    console.log('render called');
-    console.log(this.state.angleOffset);
+    if (this.props.resetStatus === true) {
+      this.reset();
+    }
+    console.log(this.props.resetStatus);
     return (
       // <Animated.View style={{ opacity: this.state.opacityValue }} >
       <View

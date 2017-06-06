@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Image } from 'react-native';
+import { View, Text, StatusBar, Image, TouchableWithoutFeedback } from 'react-native';
 import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
 import pill1 from '../images/play-pill-flowers/01ns.png';
@@ -8,11 +8,12 @@ import pill3 from '../images/play-pill-flowers/03ns.png';
 import pill4 from '../images/play-pill-flowers/04ns.png';
 import pill5 from '../images/play-pill-flowers/05ns.png';
 import outline from '../images/play-pill-flowers/outline.png';
+import resetButton from '../images/swirlButtonWhite.png';
 
 const styles = {
   viewStyle: {
     backgroundColor: 'black',
-    flex: 1,
+    flex: 1.5,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -28,6 +29,7 @@ class GrowScreen extends Component {
     this.state = {
       showTabBar: false,
       navBarButtonOffset: 40,
+      reset: false,
     };
   }
   componentWillMount() {
@@ -48,13 +50,20 @@ class GrowScreen extends Component {
       });
     }
   }
+
   render() {
+    console.log("hi for reset");
     return (
       <View style={styles.viewStyle}>
+        {/*<TouchableWithoutFeedback onPress={() => this.resetFlower()}>
+          <View style={{ flex: 1, marginTop: 50 }}>
+              <Image source={resetButton} alt="" />
+          </View>
+        </TouchableWithoutFeedback>*/}
         <StatusBar hidden />
         <View style={{ width: 800, height: 500, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
           <View
-            style={{ opacity: 0.65, transform: [{ scale: 2.5 }, { rotateZ: '-2deg' }]}}
+            style={{ opacity: 0.65, transform: [{ scale: 2.5 }, { rotateZ: '-2deg' }] }}
           >
           {/*<View style={{ borderColor: 'red', borderWidth: 2 }}>*/}
           <View>
@@ -73,6 +82,7 @@ class GrowScreen extends Component {
               rowAngleOffset={['22.5deg', '0deg', '22.5deg', '0deg', '0deg']}
               rowNames={['0level0', '1level1', '2level2', '3level3', '4level4']}
               pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
+              resetStatus={this.state.reset}
             />
             
         </View>
