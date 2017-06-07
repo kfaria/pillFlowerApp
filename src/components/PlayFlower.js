@@ -14,6 +14,7 @@ class PlayFlower extends Component {
     super(props);
     this.springValue = new Animated.Value(1);
     let pinchDistance = null;
+    let pinchAngle = null;
     const position = new Animated.ValueXY();
 
     const panResponder = PanResponder.create({
@@ -22,32 +23,39 @@ class PlayFlower extends Component {
         position.setOffset({ x: position.x._value, y: position.y._value });
         position.setValue({ x:0, y:0 });
         if (gesture.numberActiveTouches === 2) {
-          let pinchX = Math.abs(
-            event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX);
-          let pinchY = Math.abs(
-            event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY);
+          let pinchX = 
+            event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX;
+          let pinchY = 
+            event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY;
           let pinchDistance = Math.sqrt((pinchX * pinchX) + (pinchY * pinchY));
           this.pinchDistance = pinchDistance;
+          this.pinchAngle = (Math.sinh(pinchY / (pinchDistance / 2)) * (180 / Math.PI));
+          console.log(this.pinchAngle);
         }
         this.spring();
       },
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
         if (gesture.numberActiveTouches === 2) {
-          let pinchX2 = Math.abs(
-            event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX);
-          let pinchY2 = Math.abs(
-            event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY);
+          let pinchX2 = 
+            event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX;
+          let pinchY2 = 
+            event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY;
           let pinchDistance2 = Math.sqrt((pinchX2 * pinchX2) + (pinchY2 * pinchY2));
           //  set condition for max and min size
           let zoomRatio = pinchDistance2 / this.pinchDistance;
+          let pinchAngle2 = (Math.sinh(pinchY2 / (pinchDistance2 / 2)) * (-180 / Math.PI));
+          let newRotation = pinchAngle2 +'deg';
+          console.log(newRotation);
+          console.log(pinchY2 + " " + pinchX2);
+          // console.log(parseInt(this.state.test[1].rotateZ));
           //  maxmin zoom
           if (zoomRatio * this.props.width < this.props.maxSize &&
             zoomRatio * this.props.width > this.props.minSize) {
-            this.setState({ test: [{ scale: zoomRatio }] });
+            this.setState({ test: [{ scale: zoomRatio }, { rotateZ: newRotation }] });
             this.setState({ prevScale: zoomRatio });
           } else {
-            this.spring();
+            // this.spring();
             // zoomRatio = this.state.prevScale;
             // this.setState({ test: [{ scale: zoomRatio }] });
             // console.log(zoomRatio);
@@ -68,6 +76,7 @@ class PlayFlower extends Component {
       prevScale: 1,
       test: [
         { scale: 0.3 },
+        { rotateZ: '0deg' },
       ],
     };
     console.log(this.state);
