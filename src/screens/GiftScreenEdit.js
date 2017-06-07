@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, CameraRoll, Text, Dimensions, Image, TouchableOpacity, Share } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import RNFS from 'react-native-fs';
 import { takeSnapshot } from 'react-native-view-shot';
-import { PlayFlower } from '../components';
+import { PillLibrary } from '../components';
 import pic1 from '../images/pill-flowers/01.png';
 import pic2 from '../images/pill-flowers/02.png';
 import pic3 from '../images/pill-flowers/03.png';
@@ -11,10 +12,16 @@ import pic4 from '../images/pill-flowers/04.png';
 const { width, height } = Dimensions.get('window');
 
 const styles = {
-  mainStyle: {
+  contentContainerStyle: {
+    width,
+    height,
+  },
+  fullFrameStyle: {
     backgroundColor: 'black',
-    flex: 1,
+    width,
+    height: (height - 170),
     alignItems: 'center',
+    zIndex: -10,
   },
   buttonStyle: {
     padding: 1,
@@ -66,15 +73,18 @@ class GiftScreenEdit extends Component {
       uri => {
         console.log("Image saved to", uri);
         Share.share({
-          message: 'BAM: we\'re helping your business with awesome React Native apps',
-          url: 'http://bam.tech',
-          title: 'Wow, did you see that?',
+          message: 'Here\'s a pillflower!',
+          url: uri,
+          title: 'You\'ve received a Pillflower!',
         }, {
-          // Android only:
-          dialogTitle: 'Share BAM goodness',
           // iOS only:
           excludedActivityTypes: [
             'com.apple.UIKit.activity.PostToTwitter',
+            'com.apple.UIKit.activity.AssignToContact',
+            'com.apple.UIKit.activity.CopyToPasteboard',
+            'com.apple.UIKit.activity.Print',
+            'com.apple.UIKit.activity.AirDrop',
+            'com.apple.UIKit.activity.SaveToCameraRoll',
           ],
         },
       );
@@ -97,22 +107,31 @@ class GiftScreenEdit extends Component {
   }
   render() {
     return (
-      <View ref="fullFrame" style={styles.mainStyle}>
-        {
-          this.state.photos.map((p, i) => {
-            return (
-              <Image
-                key={{ i }}
-                style={{
-                  width,
-                  height: width,
-                  zIndex: -55,
-                }}
-                source={{ uri: p.node.image.uri }}
-              />
-            );
-          })
-        }
+      <View style={styles.contentContainerStyle}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.dispatch(NavigationActions.back())}
+          style={{ zIndex: 20, position: 'absolute', right: 20, top: 10 }}
+        >
+          <Image source={require('../images/exitButton.png')} style={{ height: 50, width: 50 }} />
+        </TouchableOpacity>
+        <View ref="fullFrame" style={styles.fullFrameStyle}>
+          <PillLibrary />
+          {
+            this.state.photos.map((p, i) => {
+              return (
+                <Image
+                  key={{ i }}
+                  style={{
+                    width,
+                    height: height - 50,
+                    zIndex: -55,
+                  }}
+                  source={{ uri: p.node.image.uri }}
+                />
+              );
+            })
+          }
+        </View>
         <TouchableOpacity
           onPress={() => {
             this.takeScreenShot();
@@ -125,7 +144,7 @@ class GiftScreenEdit extends Component {
             Send to a friend!
           </Text>
         </TouchableOpacity>
-        <View style={{ position: 'relative', right: 400, top: 50 }}>
+        {/* <View style={{ position: 'relative', right: 400, top: 50 }}>
           <PlayFlower
             imageSource={pic1}
             width={200}
@@ -160,7 +179,7 @@ class GiftScreenEdit extends Component {
             maxSize={450}
             minSize={50}
           />
-        </View>
+        </View> */}
       </View>
     );
   }

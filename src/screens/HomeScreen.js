@@ -71,7 +71,7 @@ class HomeScreen extends Component {
           onTimedMetadata={this.onTimedMetadata}  // Callback when the stream receive some metadata
           style={styles.backgroundVideo}
       />
-        <Image source={require('../images/flowerButton.png')} style={styles.imageStyle} />
+        <Image source={require('../images/flowerButtonTransparent.png')} style={styles.imageStyle} />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('grow')}>
           <Text style={styles.textStyle}>
             grow
@@ -97,7 +97,7 @@ class HomeScreen extends Component {
             gift
           </Text>
         </TouchableOpacity>
-        <Image source={require('../images/flowerButton.png')} style={styles.imageStyle} />
+        <Image source={require('../images/flowerButtonTransparent.png')} style={styles.imageStyle} />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('credit')}>
           <Image source={require('../images/infoButton.png')} style={styles.infoImageStyle} />
         </TouchableOpacity>
