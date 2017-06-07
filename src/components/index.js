@@ -8,6 +8,8 @@ export * from './NavBarButton';
 export * from './PlayFlower';
 export * from './FlowerRowBuilder';
 export * from './FlowerBase';
+export * from './FlowerBase2';
+export * from './FlowerBase1';
 export * from './PillLibrary';
 export * from './PlayFlowerStack';
 export * from './MusicButton';

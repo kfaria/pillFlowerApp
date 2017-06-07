@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StatusBar, Image, TouchableWithoutFeedback } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import NavBarButton from '../components/NavBarButton';
-import { FlowerBase } from '../components';
+import { FlowerBase1 } from '../components';
 import pill21 from '../images/play-pill-flowers/level2/201.png';
 import pill22 from '../images/play-pill-flowers/level2/202.png';
 import pill23 from '../images/play-pill-flowers/level2/203.png';
@@ -28,7 +28,7 @@ const styles = {
     width: 200,
   },
 };
-const flowerBaseArray = [];
+let flowerBaseArray2 = [];
 
 class GrowGameScreen extends Component {
   constructor(props) {
@@ -41,9 +41,9 @@ class GrowGameScreen extends Component {
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
-    console.log(flowerBaseArray);
-    flowerBaseArray.push(
-      <FlowerBase
+    console.log(flowerBaseArray2);
+    flowerBaseArray2.push(
+      <FlowerBase1
         key={outline2}
         height={800}
         width={800}
@@ -56,16 +56,14 @@ class GrowGameScreen extends Component {
         resetStatus={this.state.reset}
       />
     );
-    console.log(flowerBaseArray);
   }
 
   componentWillUnmount() {
     console.log("unmounted");
-    while (flowerBaseArray.length > 0) {
-      flowerBaseArray.pop();
+    while (flowerBaseArray2.length > 0) {
+      flowerBaseArray2 = [];
     }
-    this.setState({ reset: true });
-    console.log(flowerBaseArray);
+    // this.setState({ reset: true });
   }
   toggleTabBar() {
     this.setState({
@@ -84,14 +82,18 @@ class GrowGameScreen extends Component {
   }
   
   reset() {
-    while (flowerBaseArray.length > 0) {
-      flowerBaseArray.pop();
+    while (flowerBaseArray2.length > 0) {
+      flowerBaseArray2.pop();
     }
     this.setState({ reset: true });
+    // this.props.navigation.navigate('growGame2');
+    this.goBack();
+  }
+  goBack() {
     this.props.navigation.dispatch(NavigationActions.back());
   }
-
   render() {
+    console.log(flowerBaseArray2);
     return (
       <View style={styles.viewStyle}>
         <TouchableWithoutFeedback onPress={() => this.reset()}>
@@ -119,7 +121,7 @@ class GrowGameScreen extends Component {
             />
           </View>
           </View>
-            {flowerBaseArray}
+            {flowerBaseArray2}
         </View>
       </View>
     );

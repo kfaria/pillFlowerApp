@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StatusBar, Image, TouchableWithoutFeedback } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import NavBarButton from '../components/NavBarButton';
-import { FlowerBase } from '../components';
+import { FlowerBase2 } from '../components';
 import pill31 from '../images/play-pill-flowers/level3/301.png';
 import pill32 from '../images/play-pill-flowers/level3/302.png';
 import pill33 from '../images/play-pill-flowers/level3/303.png';
@@ -42,7 +42,7 @@ class GrowGameScreen extends Component {
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
     flowerBaseArray.push(
-      <FlowerBase
+      <FlowerBase2
         key={outline3}
         height={800}
         width={800}

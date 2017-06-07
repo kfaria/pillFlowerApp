@@ -28,6 +28,8 @@ const styles = {
   },
 };
 
+const flowerBaseArray = [];
+
 class GrowGameScreen extends Component {
   constructor(props) {
     super(props);
@@ -39,6 +41,28 @@ class GrowGameScreen extends Component {
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
+    flowerBaseArray.push(
+      <FlowerBase
+        key={outline}
+        height={800}
+        width={800}
+        rows={5}
+        rowRadius={[175, 145, 100, 50, 0]}
+        rowNumOfPetals={[16, 16, 16, 16, 1]}
+        rowAngleOffset={['0deg', '11.25deg', '0deg', '0deg', '0deg']}
+        rowNames={['0leel0', '1leel1', '2leel2', '3leel3', '4leel4']}
+        pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
+        resetStatus={this.state.reset}
+      />
+    );
+  }
+  componentWillUnmount() {
+    console.log("unmounted");
+    while (flowerBaseArray.length > 0) {
+      flowerBaseArray.pop();
+    }
+    this.setState({ reset: true });
+    console.log(flowerBaseArray);
   }
   toggleTabBar() {
     this.setState({
@@ -57,6 +81,7 @@ class GrowGameScreen extends Component {
   }
 
   render() {
+    console.log(flowerBaseArray);
     return (
       <View style={styles.viewStyle}>
         <TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>
@@ -83,17 +108,7 @@ class GrowGameScreen extends Component {
             />
           </View>
           </View>
-            <FlowerBase
-              height={800}
-              width={800}
-              rows={5}
-              rowRadius={[175, 145, 100, 50, 0]}
-              rowNumOfPetals={[16, 16, 16, 16, 1]}
-              rowAngleOffset={['0deg', '11.25deg', '0deg', '0deg', '0deg']}
-              rowNames={['0leel0', '1leel1', '2leel2', '3leel3', '4leel4']}
-              pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
-              resetStatus={this.state.reset}
-            />
+          {flowerBaseArray}
         </View>
       </View>
     );
