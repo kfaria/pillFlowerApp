@@ -4,10 +4,7 @@ import { NavigationActions } from 'react-navigation';
 import RNFS from 'react-native-fs';
 import { takeSnapshot } from 'react-native-view-shot';
 import { PillLibrary } from '../components';
-import pic1 from '../images/pill-flowers/01.png';
-import pic2 from '../images/pill-flowers/02.png';
-import pic3 from '../images/pill-flowers/03.png';
-import pic4 from '../images/pill-flowers/04.png';
+import frame from '../images/frame.png';
 
 const { width, height } = Dimensions.get('window');
 
@@ -115,6 +112,16 @@ class GiftScreenEdit extends Component {
           <Image source={require('../images/exitButton.png')} style={{ height: 50, width: 50 }} />
         </TouchableOpacity>
         <View ref="fullFrame" style={styles.fullFrameStyle}>
+          <Image
+            source={frame}
+            style={{
+              position: 'absolute',
+              maxHeight: height - 170,
+              width,
+              backgroundColor: 'rgba(0,0,0,0)',
+              resizeMode: 'stretch',
+            }}
+          />
           <PillLibrary />
           {
             this.state.photos.map((p, i) => {
