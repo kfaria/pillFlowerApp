@@ -58,7 +58,6 @@ class PlayFlower extends Component {
           let zoomRatio = (pinchDistance2 / (this.pinchDistance));
           let currentScale = this.state.test[0].scale;
           console.log(zoomRatio * currentScale);
-
           let pinchAngle2 = (Math.sinh(pinchY2 / (pinchDistance2 / 2)) * (-180 / Math.PI));
           let newRotation = pinchAngle2 +'deg';
           // console.log(pinchY2 + " " + pinchX2);
@@ -75,6 +74,7 @@ class PlayFlower extends Component {
                 this.setState({ test: [{ scale: (currentScale - 0.025) }, { rotateZ: newRotation }] });                
               }
             // this.setState({ test: [{ scale: (zoomRatio * currentScale) }, { rotateZ: newRotation }] });
+            this.pinchDistance = pinchDistance2;
             this.setState({ prevScale: zoomRatio });
             // console.log("else" + zoomRatio);    
           } else {
