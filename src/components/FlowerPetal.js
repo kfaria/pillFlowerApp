@@ -38,7 +38,18 @@ class FlowerPetal extends Component {
   }
   render() {
     return (
-      <Animated.View style={{ transform: [{ scale: this.springValue }] }}>
+      <Animated.View style=
+        {{
+          transform: [{ scale: this.springValue }],
+          shadowColor: '#000000',
+          shadowOffset: {
+            width: 0,
+            height: 3,
+          },
+          shadowRadius: 5,
+          shadowOpacity: 0.75,
+        }}
+      >
         <Animated.View style={{ opacity: this.state.opacityValue, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
           <Image
             //style={{ borderColor: 'red', borderWidth: 20 }}

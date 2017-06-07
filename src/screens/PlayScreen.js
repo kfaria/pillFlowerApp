@@ -12,7 +12,7 @@ import pic6 from '../images/pill-flowers/06.png';
 import vase from '../images/vase.png';
 
 const spacer = 160;
-const beginGap = 70
+const beginGap = 70;
 const { height, width } = Dimensions.get('window');
 const styles = {
   viewStyle: {

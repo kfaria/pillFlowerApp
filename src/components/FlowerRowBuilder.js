@@ -142,7 +142,7 @@ class FlowerRowBuilder extends Component {
     if (this.props.resetStatus === true) {
       this.reset();
     }
-    console.log(this.props.resetStatus);
+    console.log(this.props.angleOffset);
     return (
       // <Animated.View style={{ opacity: this.state.opacityValue }} >
       <View
@@ -152,6 +152,9 @@ class FlowerRowBuilder extends Component {
           alignItems: 'center',
           justifyContent: 'center',
           position: 'absolute',
+          borderColor: 'blue',
+          borderWidth: 2,
+          transform: [{ rotateZ: this.state.angleOffset }],
         }}
       >
           <View style={{ height: 100, width: 100, transform: [{ rotateZ: this.state.angleOffset }] }}>
@@ -163,7 +166,7 @@ class FlowerRowBuilder extends Component {
                 <FlowerPetal pillSpec={this.state.startingPosition} pillButtonImage={this.props.pillImage} />
               </View>
             </Animated.View>
-            <View style={{ width: 100, height: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ width: 100, height: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center', transform: [{ rotateZ: this.props.angleOffset }] }}>
               {this.pillArray}
             </View>
           </View>

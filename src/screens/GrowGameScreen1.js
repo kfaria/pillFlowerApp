@@ -68,7 +68,12 @@ class GrowGameScreen extends Component {
         <StatusBar hidden />
         <View style={{ width: 800, height: 500, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
           <View
-            style={{ opacity: 0.65, transform: [{ scale: 2.5 }, { rotateZ: '-2deg' }] }}
+            style={{
+              transform: [
+                { scale: 2.5 },
+                //{ rotateZ: '-2deg' },
+              ],
+            }}
           >
           {/*<View style={{ borderColor: 'red', borderWidth: 2 }}>*/}
           <View>
@@ -83,9 +88,9 @@ class GrowGameScreen extends Component {
               height={800}
               width={800}
               rows={5}
-              rowRadius={[165, 170, 125, 68, 0]}
-              rowNumOfPetals={[8, 8, 8, 16, 1]}
-              rowAngleOffset={['22.5deg', '0deg', '22.5deg', '0deg', '0deg']}
+              rowRadius={[175, 145, 100, 50, 0]}
+              rowNumOfPetals={[16, 16, 16, 16, 1]}
+              rowAngleOffset={['0deg', '11.25deg', '0deg', '0deg', '0deg']}
               rowNames={['0level0', '1level1', '2level2', '3level3', '4level4']}
               pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
               resetStatus={this.state.reset}

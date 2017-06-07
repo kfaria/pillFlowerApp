@@ -3,12 +3,12 @@ import { View, Text, StatusBar, Image, TouchableWithoutFeedback } from 'react-na
 import { NavigationActions } from 'react-navigation';
 import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
-import pill1 from '../images/play-pill-flowers/level2/201.png';
-import pill2 from '../images/play-pill-flowers/level2/202.png';
-import pill3 from '../images/play-pill-flowers/level2/203.png';
-import pill4 from '../images/play-pill-flowers/level2/204.png';
-import pill5 from '../images/play-pill-flowers/level2/205.png';
-import outline from '../images/play-pill-flowers/level2/outline.png';
+import pill21 from '../images/play-pill-flowers/level2/201.png';
+import pill22 from '../images/play-pill-flowers/level2/202.png';
+import pill23 from '../images/play-pill-flowers/level2/203.png';
+import pill24 from '../images/play-pill-flowers/level2/204.png';
+import pill25 from '../images/play-pill-flowers/level2/205.png';
+import outline2 from '../images/play-pill-flowers/level2/outline.png';
 import exitButton from '../images/exitButton.png';
 
 const styles = {
@@ -68,12 +68,17 @@ class GrowGameScreen extends Component {
         <StatusBar hidden />
         <View style={{ width: 800, height: 500, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
           <View
-            style={{ opacity: 0.65, transform: [{ scale: 2.5 }, { rotateZ: '-2deg' }] }}
+            style={{
+              transform: [
+                { scale: 2.5 },
+                //{ rotateZ: '-2deg' },
+              ],
+            }}
           >
           {/*<View style={{ borderColor: 'red', borderWidth: 2 }}>*/}
           <View>
             <Image
-              source={outline}
+              source={outline2}
               alt=''
               style={styles.outlineStyle}
             />
@@ -83,11 +88,11 @@ class GrowGameScreen extends Component {
               height={800}
               width={800}
               rows={5}
-              rowRadius={[165, 170, 125, 68, 0]}
-              rowNumOfPetals={[8, 8, 8, 16, 1]}
-              rowAngleOffset={['22.5deg', '0deg', '22.5deg', '0deg', '0deg']}
-              rowNames={['0level0', '1level1', '2level2', '3level3', '4level4']}
-              pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
+              rowRadius={[225, 170, 120, 68, 0]}
+              rowNumOfPetals={[32, 16, 16, 16, 1]}
+              rowAngleOffset={['0deg', '0deg', '10deg', '0deg', '0deg']}
+              rowNames={['0level02', '1level12', '2level22', '3level32', '4level42']}
+              pillRowImage={[pill25, pill24, pill23, pill22, pill21]}
               resetStatus={this.state.reset}
             />
         </View>

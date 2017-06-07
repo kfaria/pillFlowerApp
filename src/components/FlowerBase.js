@@ -67,7 +67,6 @@ class FlowerBase extends Component {
       );
       // console.log(tempArray[i].key);
     }
-    console.log('gg');
   }
   render() {
     return (
@@ -76,6 +75,7 @@ class FlowerBase extends Component {
           {{
             //borderColor: 'blue', borderWidth: 2, width: 800, height: 800,
             justifyContent: 'center', alignItems: 'center', position: 'absolute',
+            //transform: [{rotateZ: this.props.angleOffset }]
           }}
       >
       {/* <TouchableWithoutFeedback onPress={() => this.resetFlower()}>
