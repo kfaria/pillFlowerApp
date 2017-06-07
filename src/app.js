@@ -5,7 +5,9 @@ import GrowScreen from './screens/GrowScreen';
 import GatherScreen from './screens/GatherScreen';
 import DreamScreen from './screens/DreamScreen';
 import PlayScreen from './screens/PlayScreen';
-import GrowGameScreen from './screens/GrowGameScreen';
+import GrowGameScreen1 from './screens/GrowGameScreen1';
+import GrowGameScreen2 from './screens/GrowGameScreen2';
+import GrowGameScreen3 from './screens/GrowGameScreen3';
 import GiftScreen from './screens/GiftScreen';
 import HomeScreen from './screens/HomeScreen';
 import CreditScreen from './screens/CreditScreen';
@@ -98,8 +100,20 @@ const AppNavigator = StackNavigator({
       header: null,
     },
   },
-  growGame: {
-    screen: GrowGameScreen,
+  growGame1: {
+    screen: GrowGameScreen1,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  growGame2: {
+    screen: GrowGameScreen2,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  growGame3: {
+    screen: GrowGameScreen3,
     navigationOptions: {
       header: null,
     },

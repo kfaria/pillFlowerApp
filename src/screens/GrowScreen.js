@@ -61,9 +61,19 @@ class GrowScreen extends Component {
           </View>
         </TouchableWithoutFeedback>*/}
         <StatusBar hidden />
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame')}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame1')}>
           <Text style={{ fontSize: 40, margin: 20, color: 'white' }}>
-            Press here for game!
+            Press here for game 1!
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame2')}>
+          <Text style={{ fontSize: 40, margin: 20, color: 'white' }}>
+            Press here for game 2!
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame3')}>
+          <Text style={{ fontSize: 40, margin: 20, color: 'white' }}>
+            Press here for game 3!
           </Text>
         </TouchableOpacity>
       </View>

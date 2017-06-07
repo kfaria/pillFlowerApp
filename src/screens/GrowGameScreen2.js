@@ -3,13 +3,13 @@ import { View, Text, StatusBar, Image, TouchableWithoutFeedback } from 'react-na
 import { NavigationActions } from 'react-navigation';
 import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
-import pill1 from '../images/play-pill-flowers/level2/101.png';
-import pill2 from '../images/play-pill-flowers/level2/102.png';
-import pill3 from '../images/play-pill-flowers/level2/103.png';
-import pill4 from '../images/play-pill-flowers/level2/104.png';
-import pill5 from '../images/play-pill-flowers/level2/105.png';
+import pill1 from '../images/play-pill-flowers/level2/201.png';
+import pill2 from '../images/play-pill-flowers/level2/202.png';
+import pill3 from '../images/play-pill-flowers/level2/203.png';
+import pill4 from '../images/play-pill-flowers/level2/204.png';
+import pill5 from '../images/play-pill-flowers/level2/205.png';
 import outline from '../images/play-pill-flowers/level2/outline.png';
-import resetButton from '../images/swirlButtonWhite.png';
+import exitButton from '../images/exitButton.png';
 
 const styles = {
   viewStyle: {
@@ -21,6 +21,10 @@ const styles = {
   buttonStyle: {
     marginTop: 20,
     marginLeft: 20,
+  },
+  outlineStyle: {
+    height: 200,
+    width: 200,
   },
 };
 
@@ -58,7 +62,7 @@ class GrowGameScreen extends Component {
       <View style={styles.viewStyle}>
         <TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>
           <View style={{ flex: 1, marginTop: 50 }}>
-              <Image source={resetButton} alt="" />
+              <Image source={exitButton} alt="" />
           </View>
         </TouchableWithoutFeedback>
         <StatusBar hidden />
@@ -71,6 +75,7 @@ class GrowGameScreen extends Component {
             <Image
               source={outline}
               alt=''
+              style={styles.outlineStyle}
             />
           </View>
           </View>

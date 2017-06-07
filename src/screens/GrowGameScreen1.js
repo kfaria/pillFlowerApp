@@ -9,7 +9,7 @@ import pill3 from '../images/play-pill-flowers/level1/103.png';
 import pill4 from '../images/play-pill-flowers/level1/104.png';
 import pill5 from '../images/play-pill-flowers/level1/105.png';
 import outline from '../images/play-pill-flowers/level1/outline.png';
-import resetButton from '../images/swirlButtonWhite.png';
+import exitButton from '../images/exitButton.png';
 
 const styles = {
   viewStyle: {
@@ -21,6 +21,10 @@ const styles = {
   buttonStyle: {
     marginTop: 20,
     marginLeft: 20,
+  },
+  outlineStyle: {
+    height: 200,
+    width: 200,
   },
 };
 
@@ -58,7 +62,7 @@ class GrowGameScreen extends Component {
       <View style={styles.viewStyle}>
         <TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>
           <View style={{ flex: 1, marginTop: 50 }}>
-              <Image source={resetButton} alt="" />
+              <Image source={exitButton} alt="" />
           </View>
         </TouchableWithoutFeedback>
         <StatusBar hidden />
@@ -71,6 +75,7 @@ class GrowGameScreen extends Component {
             <Image
               source={outline}
               alt=''
+              style={styles.outlineStyle}
             />
           </View>
           </View>
