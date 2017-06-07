@@ -53,7 +53,7 @@ class PlayFlower extends Component {
             event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY;
           let pinchDistance2 = Math.sqrt((pinchX2 * pinchX2) + (pinchY2 * pinchY2));
           //  set condition for max and min size
-          let zoomRatio = pinchDistance2 / this.pinchDistance;
+          let zoomRatio = pinchDistance2 / this.pinchDistance*2;
           let pinchAngle2 = (Math.sinh(pinchY2 / (pinchDistance2 / 2)) * (-180 / Math.PI));
           let newRotation = pinchAngle2 +'deg';
           console.log(newRotation);
