@@ -46,12 +46,12 @@ const styles = {
 };
 
 const activeFlowerArray = [];
-const counter = 0;
+let counter = 0;
 class PillLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      test: 0,
+      count: 0,
     };
   }
   componentWillMount() {
@@ -68,16 +68,12 @@ class PillLibrary extends Component {
           maxSize={450}
           minSize={50}
         />
-        {/* <Image
-              source={pic2}
-              style={styles.imageStyle}
-            /> */}
       </View>
     );
-    this.counter = this.state.test + 1;
-    console.log(counter);
-    console.log(activeFlowerArray);
-    this.setState({ test: (this.counter) });
+    this.counter = this.state.count + 1;
+    console.log(this.state.count + 1);
+    // console.log(activeFlowerArray);
+    this.setState({ count: (this.counter) });
   }
   resetFlowers() {
       // activeFlowerArray.pop();
@@ -87,7 +83,7 @@ class PillLibrary extends Component {
       activeFlowerArray.pop();
       this.counter--;
     }
-    this.setState({ test: (this.counter) });
+    this.setState({ count: 0 });
   }
   render() {
     console.log(activeFlowerArray);
