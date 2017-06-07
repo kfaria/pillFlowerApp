@@ -54,6 +54,9 @@ class PillLibrary extends Component {
       test: 0,
     };
   }
+  componentWillMount() {
+    this.resetFlowers();
+  }
   addFlower(tappedFlower) {
     console.log('adding', tappedFlower);
     activeFlowerArray.push(

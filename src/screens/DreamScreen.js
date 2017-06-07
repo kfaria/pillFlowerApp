@@ -375,9 +375,9 @@ class DreamScreen extends Component {
         return (
           <Toast
             ref="toast"
-            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 825 }}
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 160 }}
             position='bottom'
-            positionValue={140}
+            positionValue={180}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -392,9 +392,9 @@ class DreamScreen extends Component {
         return (
           <Toast
             ref="toast"
-            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 825 }}
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 170 }}
             position='bottom'
-            positionValue={140}
+            positionValue={180}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -409,9 +409,9 @@ class DreamScreen extends Component {
         return (
           <Toast
             ref="toast"
-            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 825 }}
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 510 }}
             position='bottom'
-            positionValue={140}
+            positionValue={180}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -426,9 +426,9 @@ class DreamScreen extends Component {
         return (
           <Toast
             ref="toast"
-            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 825 }}
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 850 }}
             position='bottom'
-            positionValue={140}
+            positionValue={180}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -436,7 +436,6 @@ class DreamScreen extends Component {
               color: 'black',
               fontWeight: 'bold',
               fontSize: 20,
-              alignItems: 'center',
             }}
           />
         );
@@ -470,25 +469,25 @@ class DreamScreen extends Component {
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonThree }}>
             <MusicButton
-              onPress={() => this.musicToggle(Bella, 3, 'Bella\nTony Smith')}
+              onPress={() => this.musicToggle(Bella, 3, '     Bella\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
             <MusicButton
-              onPress={() => this.musicToggle(DarkBark, 4, 'Dark Bark\nTony Smith')}
+              onPress={() => this.musicToggle(DarkBark, 4, ' Dark Bark\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
             <MusicButton
-              onPress={() => this.musicToggle(Arabella, 5, 'Arabella\nTony Smith')}
+              onPress={() => this.musicToggle(Arabella, 5, '  Arabella\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
             <MusicButton
-              onPress={() => this.musicToggle(Darkside, 6, 'Darkside\nTony Smith')}
+              onPress={() => this.musicToggle(Darkside, 6, '  Darkside\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
