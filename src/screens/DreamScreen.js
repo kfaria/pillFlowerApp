@@ -430,7 +430,7 @@ class DreamScreen extends Component {
             position='bottom'
             positionValue={180}
             fadeInDuration={750}
-            fadeOutDuration={1000}
+            fadeOutDuration={1}
             opacity={0.8}
             textStyle={{
               color: 'black',
