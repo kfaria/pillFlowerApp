@@ -102,6 +102,7 @@ class PlayFlower extends Component {
         tension: 100,
       },
     ).start();
+    Pop.stop();
     Pop.play();
   }
 

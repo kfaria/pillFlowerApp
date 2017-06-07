@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
-import PhotoView from 'react-native-photo-view';
-import { NavigationActions } from 'react-navigation';
-import { PlayFlower, PlayFlowerStack, PillLibrary } from '../components';
+import { View, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
+import { PillLibrary } from '../components';
+import greenBackground from '../images/backgrounds/bkgd green canvas.png';
+import whiteBackground from '../images/backgrounds/bkgd white canvas.png';
+import blackBackground from '../images/backgrounds/bkgd black canvas.png';
 
 
 const { height, width } = Dimensions.get('window');
@@ -32,7 +33,7 @@ class PlayScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      backgroundImage: require('../images/backgrounds/bkgd green canvas.png'),
+      backgroundImage: greenBackground,
     };
   }
   changeBackground(newImage) {
@@ -55,21 +56,21 @@ class PlayScreen extends Component {
         <View style={styles.containerStyle}>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd white canvas.png"))}
+            onPress={() => this.changeBackground(whiteBackground)}
           >
-            <Image source={require("../images/backgrounds/bkgd white canvas.png")} style={styles.imageStyle} />
+            <Image source={whiteBackground} style={styles.imageStyle} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd black canvas.png"))}
+            onPress={() => this.changeBackground(blackBackground)}
           >
-            <Image source={require("../images/backgrounds/bkgd black canvas.png")} style={styles.imageStyle} />
+            <Image source={blackBackground} style={styles.imageStyle} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.changeBackground(require("../images/backgrounds/bkgd green canvas.png"))}
+            onPress={() => this.changeBackground(greenBackground)}
           >
-            <Image source={require("../images/backgrounds/bkgd green canvas.png")} style={styles.imageStyle} />
+            <Image source={greenBackground} style={styles.imageStyle} />
           </TouchableOpacity>
         </View>
       </View>
