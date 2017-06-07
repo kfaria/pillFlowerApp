@@ -95,7 +95,7 @@ class GrowGameScreen extends Component {
             style={{
               transform: [
                 { scale: 2.5 },
-                //{ rotateZ: '-2deg' },
+                { rotateZ: '-3deg' },
               ],
             }}
           >

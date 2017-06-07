@@ -52,10 +52,10 @@ class FlowerRowBuilder extends Component {
         if (this.state.rowSet === false && this.state.inPosition === false) {
           position.setValue({ x: gesture.dx, y: gesture.dy });
           if (
-            gesture.moveX >= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) - 15)
-            && gesture.moveX <= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + 15)
-            && gesture.moveY <= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) + 15)
-            && gesture.moveY >= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) - 15)
+            gesture.moveX >= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) - 20)
+            && gesture.moveX <= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + 20)
+            && gesture.moveY <= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) + 20)
+            && gesture.moveY >= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) - 20)
             ) {
             // position.setValue({ x: gesture.moveX - position.x, y: gesture.moveY - position.y });
             console.log((Dimensions.get('window').width / 2) + this.props.flowerRadius);
@@ -131,7 +131,7 @@ class FlowerRowBuilder extends Component {
   }
   renderBody() {
     const angle = (2 * Math.PI) / this.props.numOfPetals;
-    for (let i = 1; i <= this.props.numOfPetals; i++) {
+    for (let i = 0; i <= this.props.numOfPetals; i++) {
       //determine offset requirement
       const xPos = (this.props.flowerRadius) * Math.cos((i) * angle);
       const yPos = (this.props.flowerRadius) * Math.sin((i) * angle);
