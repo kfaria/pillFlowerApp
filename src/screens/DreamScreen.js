@@ -91,6 +91,7 @@ class DreamScreen extends Component {
       opacityButtonFour: new Animated.Value(1),
       opacityButtonFive: new Animated.Value(1),
       opacityButtonSix: new Animated.Value(1),
+      startedLondonBlues: false,
     };
     setInterval(() => {
       if (this.props.screenProps.test.routes[0].index !== 4) {
@@ -102,7 +103,15 @@ class DreamScreen extends Component {
         Darkside.stop();
         this.setState({
           currentTrack: 0,
+          startedLondonBlues: false,
         });
+      }
+      // if test is true on this interval, then we just got here. So we start playing it, but then set arrived to false so it doesn't start it every loop.
+      if (this.props.screenProps.test.routes[0].index === 4 && !this.state.startedLondonBlues) {
+        this.setState({
+          startedLondonBlues: true,
+        });
+        this.musicToggle(LondonBlues, 1, 'London Blues\n  Tony Smith')
       }
       switch (this.state.currentTrack) {
         case 1:
@@ -332,36 +341,102 @@ class DreamScreen extends Component {
         return (
           <Toast
             ref="toast"
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 850 }}
+            position='bottom'
+            positionValue={180}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+            textStyle={{
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: 20,
+            }}
           />
         );
       case 2:
         return (
           <Toast
             ref="toast"
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 510 }}
+            position='bottom'
+            positionValue={180}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+            textStyle={{
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: 20,
+            }}
           />
         );
       case 3:
         return (
           <Toast
             ref="toast"
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 160 }}
+            position='bottom'
+            positionValue={180}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+            textStyle={{
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: 20,
+            }}
           />
         );
       case 4:
         return (
           <Toast
             ref="toast"
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 170 }}
+            position='bottom'
+            positionValue={180}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+            textStyle={{
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: 20,
+            }}
           />
         );
       case 5:
         return (
           <Toast
             ref="toast"
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 510 }}
+            position='bottom'
+            positionValue={180}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+            textStyle={{
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: 20,
+            }}
           />
         );
       case 6:
         return (
           <Toast
             ref="toast"
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 850 }}
+            position='bottom'
+            positionValue={180}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+            textStyle={{
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: 20,
+            }}
           />
         );
       default:
@@ -382,37 +457,37 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonOne }}>
             <MusicButton
-              onPress={() => this.musicToggle(LondonBlues, 1, 'London Blues by Tony Smith')}
+              onPress={() => this.musicToggle(LondonBlues, 1, 'London Blues\n  Tony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonTwo }}>
             <MusicButton
-              onPress={() => this.musicToggle(Christalline, 2, 'Christalline by Tony Smith')}
+              onPress={() => this.musicToggle(Christalline, 2, 'Christalline\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonThree }}>
             <MusicButton
-              onPress={() => this.musicToggle(Bella, 3, 'Bella by Tony Smith')}
+              onPress={() => this.musicToggle(Bella, 3, '     Bella\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
             <MusicButton
-              onPress={() => this.musicToggle(DarkBark, 4, 'Dark Bark by Tony Smith')}
+              onPress={() => this.musicToggle(DarkBark, 4, ' Dark Bark\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
             <MusicButton
-              onPress={() => this.musicToggle(Arabella, 5, 'Arabella by Tony Smith')}
+              onPress={() => this.musicToggle(Arabella, 5, '  Arabella\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
             <MusicButton
-              onPress={() => this.musicToggle(Darkside, 6, 'Darkside by Tony Smith')}
+              onPress={() => this.musicToggle(Darkside, 6, '  Darkside\nTony Smith')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
