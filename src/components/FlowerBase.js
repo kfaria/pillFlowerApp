@@ -19,7 +19,7 @@ import resetButton from '../images/swirlButtonWhite.png';
 
 const tempArray = [];
 
-class FlowerBase extends Component {
+export default class FlowerBase extends Component {
   constructor(props) {
     super(props);
     this.renderBody();

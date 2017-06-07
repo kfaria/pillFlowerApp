@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, Image, View, Dimensions, TouchableOpacity } from 'react-native';
-import PlayFlower from '../components';
+import {PlayFlower} from '../components';
 import pic2 from '../images/pill-flowers/02.png';
-
 const { height, width } = Dimensions.get('window');
 
 const styles = {
@@ -37,23 +36,34 @@ class PillLibrary extends Component {
     };
   }
   addFlower(tappedFlower) {
-    console.log('adding', tappedFlower)
+    console.log('adding', tappedFlower);
     activeFlowerArray.push(
-      <PlayFlower
-        imageSource={tappedFlower}
-        width={200}
-        height={200}
-        maxSize={450}
-        minSize={50}
-      />,
+      <View key={this.state.test}>
+        <PlayFlower
+          imageSource={tappedFlower}
+          width={200}
+          height={200}
+          maxSize={450}
+          minSize={50}
+        />
+        <Image
+              source={pic2}
+              style={styles.imageStyle}
+            />
+      </View>
     );
+    const counter = this.state.test + 1;
+    console.log(counter);
+    console.log(activeFlowerArray);
+    this.setState({ test: (counter)});
   }
   resetFlowers() {
     while (activeFlowerArray.length > 1) {
-      activeFlowerArray.pop();
+      this.activeFlowerArray.pop();
     }
   }
   render() {
+    console.log(activeFlowerArray);
     return (
       <View style={styles.contentContainerStyle}>
         <View style={styles.playFlowerContainer}>
