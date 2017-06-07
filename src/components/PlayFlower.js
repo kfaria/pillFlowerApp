@@ -103,7 +103,7 @@ class PlayFlower extends Component {
         { rotateZ: '0deg' },
       ],
     };
-    console.log(this.state);
+    // console.log(this.state);
   }
   spring() {
     //  change the value below the change the amount of wiggle.
