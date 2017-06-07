@@ -43,6 +43,7 @@ class PlayFlower extends Component {
           // console.log(this.pinchAngle);
         }
         this.spring();
+        console.log(this.state.test[0].scale);
       },
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
@@ -53,24 +54,30 @@ class PlayFlower extends Component {
             event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY;
           let pinchDistance2 = Math.sqrt((pinchX2 * pinchX2) + (pinchY2 * pinchY2));
           //  set condition for max and min size
-          let zoomRatio = (pinchDistance2 / (this.pinchDistance*2));
+          // let zoomRatio = (pinchDistance2 / (this.pinchDistance*2));
+          let zoomRatio = (pinchDistance2 / (this.pinchDistance));
+          let currentScale = this.state.test[0].scale;
+          console.log(zoomRatio);
+
           let pinchAngle2 = (Math.sinh(pinchY2 / (pinchDistance2 / 2)) * (-180 / Math.PI));
           let newRotation = pinchAngle2 +'deg';
           // console.log(pinchY2 + " " + pinchX2);
           // console.log(parseInt(this.state.test[1].rotateZ));
           //  maxmin zoom
-          if (zoomRatio * this.props.width < this.props.maxSize &&
-            zoomRatio * this.props.width > this.props.minSize) {
-            this.setState({ test: [{ scale: zoomRatio }, { rotateZ: newRotation }] });
+          if ((zoomRatio * currentScale) * this.props.width < this.props.maxSize &&
+            (zoomRatio * currentScale) * this.props.width > this.props.minSize) {
+            this.setState({ test: [{ scale: (zoomRatio * currentScale) }, { rotateZ: newRotation }] });
             this.setState({ prevScale: zoomRatio });
+            // console.log("else" + zoomRatio);    
           } else {
             // this.spring();
             // zoomRatio = this.state.prevScale;
-            this.setState({ test: [{ scale: this.state.prevScale }] });
-            // console.log(zoomRatio);
+            // this.setState({ test: [{ scale: this.state.prevScale }] });
+            // console.log("else" + zoomRatio);
           }
           // this.setState({ test: [{ scale: zoomRatio }] });
         }
+        
       },
       onPanResponderRelease: (event, gesture) => {
         this.setState({ prevScale: this.state.scale });
@@ -84,7 +91,7 @@ class PlayFlower extends Component {
       scale: 1,
       prevScale: 1,
       test: [
-        { scale: 0.3 },
+        { scale: 0.5 },
         { rotateZ: '0deg' },
       ],
     };
