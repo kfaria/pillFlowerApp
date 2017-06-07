@@ -90,7 +90,7 @@ class GrowGameScreen extends Component {
               rowRadius={[175, 145, 100, 50, 0]}
               rowNumOfPetals={[16, 16, 16, 16, 1]}
               rowAngleOffset={['0deg', '11.25deg', '0deg', '0deg', '0deg']}
-              rowNames={['0level0', '1level1', '2level2', '3level3', '4level4']}
+              rowNames={['0leel0', '1leel1', '2leel2', '3leel3', '4leel4']}
               pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
               resetStatus={this.state.reset}
             />

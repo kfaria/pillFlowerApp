@@ -166,7 +166,6 @@ class FlowerRowBuilder extends Component {
     if (this.props.resetStatus === true) {
       this.reset();
     }
-    console.log(this.props.angleOffset);
     return (
       // <Animated.View style={{ opacity: this.state.opacityValue }} >
       <View

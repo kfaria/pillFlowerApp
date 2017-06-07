@@ -28,6 +28,7 @@ const styles = {
     width: 200,
   },
 };
+const flowerBaseArray = [];
 
 class GrowGameScreen extends Component {
   constructor(props) {
@@ -40,6 +41,31 @@ class GrowGameScreen extends Component {
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
+    console.log(flowerBaseArray);
+    flowerBaseArray.push(
+      <FlowerBase
+        key={outline2}
+        height={800}
+        width={800}
+        rows={6}
+        rowRadius={[2000, 225, 170, 120, 68, 0]}
+        rowNumOfPetals={[0, 32, 16, 16, 16, 1]}
+        rowAngleOffset={['0deg', '0deg', '0deg', '10deg', '0deg', '0deg']}
+        rowNames={['5red', '0level02', '1level12', '2level22', '3level32', '4level42']}
+        pillRowImage={[red1, pill25, pill24, pill23, pill22, pill21]}
+        resetStatus={this.state.reset}
+      />
+    );
+    console.log(flowerBaseArray);
+  }
+
+  componentWillUnmount() {
+    console.log("unmounted");
+    while (flowerBaseArray.length > 0) {
+      flowerBaseArray.pop();
+    }
+    this.setState({ reset: true });
+    console.log(flowerBaseArray);
   }
   toggleTabBar() {
     this.setState({
@@ -56,11 +82,20 @@ class GrowGameScreen extends Component {
       });
     }
   }
+  
+  reset() {
+    while (flowerBaseArray.length > 0) {
+      flowerBaseArray.pop();
+    }
+    this.setState({ reset: true });
+    this.props.navigation.dispatch(NavigationActions.back());
+  }
 
   render() {
     return (
       <View style={styles.viewStyle}>
-        <TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>
+        <TouchableWithoutFeedback onPress={() => this.reset()}>
+        {/*<TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>*/}
           <View style={{ flex: 1, marginTop: 50 }}>
               <Image source={exitButton} alt="" />
           </View>
@@ -84,17 +119,7 @@ class GrowGameScreen extends Component {
             />
           </View>
           </View>
-            <FlowerBase
-              height={800}
-              width={800}
-              rows={6}
-              rowRadius={[2000, 225, 170, 120, 68, 0]}
-              rowNumOfPetals={[0, 32, 16, 16, 16, 1]}
-              rowAngleOffset={['0deg', '0deg', '0deg', '10deg', '0deg', '0deg']}
-              rowNames={['5red', '0level02', '1level12', '2level22', '3level32', '4level42']}
-              pillRowImage={[red1, pill25, pill24, pill23, pill22, pill21]}
-              resetStatus={this.state.reset}
-            />
+            {flowerBaseArray}
         </View>
       </View>
     );
