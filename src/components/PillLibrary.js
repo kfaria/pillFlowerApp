@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { ScrollView, Image, View, Dimensions } from 'react-native';
+import { ScrollView, Image, View, Dimensions, TouchableOpacity } from 'react-native';
 import PlayFlower from '../components';
 import pic2 from '../images/pill-flowers/02.png';
 
 const { height, width } = Dimensions.get('window');
 
 const styles = {
+  contentContainerStyle: {
+    height,
+    width,
+    backgroundColor: 'rgba(0,0,0,0)',
+    position: 'absolute',
+  },
   scrollViewContainerStyle: {
     borderWidth: 10,
     borderColor: 'red',
@@ -21,19 +27,51 @@ const styles = {
   },
 };
 
+const activeFlowerArray = [];
+
 class PillLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      test: 0,
+    };
+  }
+  addFlower(tappedFlower) {
+    console.log('adding', tappedFlower)
+    activeFlowerArray.push(
+      <PlayFlower
+        imageSource={tappedFlower}
+        width={200}
+        height={200}
+        maxSize={450}
+        minSize={50}
+      />,
+    );
+  }
+  resetFlowers() {
+    while (activeFlowerArray.length > 1) {
+      activeFlowerArray.pop();
+    }
+  }
   render() {
     return (
-      <ScrollView
-        horizontal
-        contentContainerStyle={styles.scrollViewContainerStyle}
-        style={styles.scrollViewStyle}
-      >
-        <Image
-          source={require('../images/pill-flowers/01.png')}
-          style={styles.imageStyle}
-        />
-      </ScrollView>
+      <View style={styles.contentContainerStyle}>
+        <View style={styles.playFlowerContainer}>
+          {activeFlowerArray}
+        </View>
+        <ScrollView
+          horizontal
+          contentContainerStyle={styles.scrollViewContainerStyle}
+          style={styles.scrollViewStyle}
+        >
+          <TouchableOpacity onPress={() => this.addFlower(pic2)}>
+            <Image
+              source={pic2}
+              style={styles.imageStyle}
+            />
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
     );
   }
 }

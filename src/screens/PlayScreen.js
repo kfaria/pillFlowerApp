@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
 import PhotoView from 'react-native-photo-view';
 import { NavigationActions } from 'react-navigation';
-import { PlayFlower, PlayFlowerStack } from '../components';
+import { PlayFlower, PlayFlowerStack, PillLibrary } from '../components';
 import pic1 from '../images/pill-flowers/01.png';
 import pic2 from '../images/pill-flowers/02.png';
 import pic3 from '../images/pill-flowers/03.png';
@@ -53,12 +53,13 @@ class PlayScreen extends Component {
       <View style={styles.viewStyle}>
         <Image source={this.state.backgroundImage} style={{ zIndex: -55, width, height }} />
         <StatusBar hidden />
-        <PlayFlowerStack imageSource={pic1} bottom={150} left={beginGap} />
+        <PillLibrary />
+        {/* <PlayFlowerStack imageSource={pic1} bottom={150} left={beginGap} />
         <PlayFlowerStack imageSource={pic2} bottom={150} left={beginGap + spacer} />
         <PlayFlowerStack imageSource={pic3} bottom={150} left={beginGap + (2 * spacer)} />
         <PlayFlowerStack imageSource={pic4} bottom={150} left={beginGap + (3 * spacer)} />
         <PlayFlowerStack imageSource={pic5} bottom={150} left={beginGap + (4 * spacer)} />
-        <PlayFlowerStack imageSource={pic6} bottom={150} left={beginGap + (5 * spacer)} />
+        <PlayFlowerStack imageSource={pic6} bottom={150} left={beginGap + (5 * spacer)} /> */}
         <View style={styles.containerStyle}>
           <TouchableOpacity
             style={styles.buttonStyle}
