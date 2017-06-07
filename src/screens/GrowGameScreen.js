@@ -13,7 +13,7 @@ import resetButton from '../images/swirlButtonWhite.png';
 
 const styles = {
   viewStyle: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     flex: 1.5,
     justifyContent: 'center',
     alignItems: 'center',
