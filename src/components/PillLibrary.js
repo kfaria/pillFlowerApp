@@ -29,7 +29,7 @@ const styles = {
 };
 
 const activeFlowerArray = [];
-
+const counter = 0;
 class PillLibrary extends Component {
   constructor(props) {
     super(props);
@@ -54,14 +54,20 @@ class PillLibrary extends Component {
             /> */}
       </View>
     );
-    const counter = this.state.test + 1;
+    this.counter = this.state.test + 1;
     console.log(counter);
     console.log(activeFlowerArray);
-    this.setState({ test: (counter)});
+    this.setState({ test: (this.counter) });
   }
   resetFlowers() {
-      activeFlowerArray.pop();
+      // activeFlowerArray.pop();
       console.log('lets reset');
+
+    while (activeFlowerArray.length > 0) {
+      activeFlowerArray.pop();
+      this.counter--;
+    }
+    this.setState({ test: (this.counter) });
   }
   render() {
     console.log(activeFlowerArray);
