@@ -176,8 +176,6 @@ class FlowerRowBuilder extends Component {
           alignItems: 'center',
           justifyContent: 'center',
           position: 'absolute',
-          borderColor: 'blue',
-          borderWidth: 2,
           transform: [{ rotateZ: this.state.angleOffset }],
         }}
       >

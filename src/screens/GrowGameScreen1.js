@@ -57,7 +57,6 @@ class GrowGameScreen extends Component {
   }
 
   render() {
-    console.log("hi for reset");
     return (
       <View style={styles.viewStyle}>
         <TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>
