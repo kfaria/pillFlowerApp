@@ -40,7 +40,7 @@ class PlayFlower extends Component {
           let pinchDistance = Math.sqrt((pinchX * pinchX) + (pinchY * pinchY));
           this.pinchDistance = pinchDistance;
           this.pinchAngle = (Math.sinh(pinchY / (pinchDistance / 2)) * (180 / Math.PI));
-          console.log(this.pinchAngle);
+          // console.log(this.pinchAngle);
         }
         this.spring();
       },
@@ -53,11 +53,10 @@ class PlayFlower extends Component {
             event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY;
           let pinchDistance2 = Math.sqrt((pinchX2 * pinchX2) + (pinchY2 * pinchY2));
           //  set condition for max and min size
-          let zoomRatio = pinchDistance2 / this.pinchDistance*2;
+          let zoomRatio = (pinchDistance2 / (this.pinchDistance*2));
           let pinchAngle2 = (Math.sinh(pinchY2 / (pinchDistance2 / 2)) * (-180 / Math.PI));
           let newRotation = pinchAngle2 +'deg';
-          console.log(newRotation);
-          console.log(pinchY2 + " " + pinchX2);
+          // console.log(pinchY2 + " " + pinchX2);
           // console.log(parseInt(this.state.test[1].rotateZ));
           //  maxmin zoom
           if (zoomRatio * this.props.width < this.props.maxSize &&
@@ -67,7 +66,7 @@ class PlayFlower extends Component {
           } else {
             // this.spring();
             // zoomRatio = this.state.prevScale;
-            // this.setState({ test: [{ scale: zoomRatio }] });
+            this.setState({ test: [{ scale: this.state.prevScale }] });
             // console.log(zoomRatio);
           }
           // this.setState({ test: [{ scale: zoomRatio }] });
