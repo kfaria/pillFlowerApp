@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import { PanResponder, Image, Animated, View } from 'react-native';
+import Sound from 'react-native-sound';
+import PopSound from '../music/pop1.wav';
+
+const Pop = new Sound(PopSound, Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  console.log('should be working');
+});
 
 const styles = {
   viewStyle: {
@@ -23,9 +33,9 @@ class PlayFlower extends Component {
         position.setOffset({ x: position.x._value, y: position.y._value });
         position.setValue({ x:0, y:0 });
         if (gesture.numberActiveTouches === 2) {
-          let pinchX = 
+          let pinchX =
             event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX;
-          let pinchY = 
+          let pinchY =
             event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY;
           let pinchDistance = Math.sqrt((pinchX * pinchX) + (pinchY * pinchY));
           this.pinchDistance = pinchDistance;
@@ -37,9 +47,9 @@ class PlayFlower extends Component {
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
         if (gesture.numberActiveTouches === 2) {
-          let pinchX2 = 
+          let pinchX2 =
             event.nativeEvent.touches[1].pageX - event.nativeEvent.touches[0].pageX;
-          let pinchY2 = 
+          let pinchY2 =
             event.nativeEvent.touches[1].pageY - event.nativeEvent.touches[0].pageY;
           let pinchDistance2 = Math.sqrt((pinchX2 * pinchX2) + (pinchY2 * pinchY2));
           //  set condition for max and min size
@@ -92,6 +102,7 @@ class PlayFlower extends Component {
         tension: 100,
       },
     ).start();
+    Pop.play();
   }
 
   render() {

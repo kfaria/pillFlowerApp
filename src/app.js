@@ -30,8 +30,8 @@ const TabNav = TabNavigator({
   home: {
     screen: HomeScreen,
     navigationOptions: {
-      tabBarVisible: false,
       header: null,
+      tabBarVisible: false,
       tabBarLabel: ({ tintColor }) => (
         <Image
           source={require('./images/flowerButtonWhite.png')}
@@ -58,12 +58,12 @@ const TabNav = TabNavigator({
     screen: GiftScreen,
     navigationOptions: {
       header: null,
-      headerBackTitle: 'Back',
     },
   },
 }, {
   tabBarComponent: TabBar,
   initialRouteName: 'play',
+  swipeEnabled: true,
   tabBarOptions: {
     indicatorStyle: {
       backgroundColor: '#74d6af',
@@ -90,8 +90,7 @@ const AppNavigator = StackNavigator({
   EditGiftScreen: {
     screen: GiftScreenEdit,
     navigationOptions: {
-      title: 'Share',
-      tabBarVisible: false,
+      header: null,
     },
   },
   credit: {

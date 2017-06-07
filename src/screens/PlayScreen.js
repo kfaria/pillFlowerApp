@@ -3,16 +3,8 @@ import { View, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'reac
 import PhotoView from 'react-native-photo-view';
 import { NavigationActions } from 'react-navigation';
 import { PlayFlower, PlayFlowerStack, PillLibrary } from '../components';
-import pic1 from '../images/pill-flowers/01.png';
-import pic2 from '../images/pill-flowers/02.png';
-import pic3 from '../images/pill-flowers/03.png';
-import pic4 from '../images/pill-flowers/04.png';
-import pic5 from '../images/pill-flowers/05.png';
-import pic6 from '../images/pill-flowers/06.png';
-import vase from '../images/vase.png';
 
-const spacer = 160;
-const beginGap = 70
+
 const { height, width } = Dimensions.get('window');
 const styles = {
   viewStyle: {
