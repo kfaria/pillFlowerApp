@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, Image, View, Dimensions, TouchableOpacity } from 'react-native';
-import {PlayFlower} from '../components';
+import { ScrollView, Image, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { PlayFlower, Button } from '../components';
 import pic2 from '../images/pill-flowers/02.png';
+
 const { height, width } = Dimensions.get('window');
 
 const styles = {
@@ -19,7 +20,8 @@ const styles = {
   scrollViewStyle: {
     borderWidth: 10,
     borderColor: 'blue',
-    flex: 1,
+    position: 'absolute',
+    marginTop: height - 300,
   },
   imageStyle: {
     flex: 1,
@@ -38,7 +40,7 @@ class PillLibrary extends Component {
   addFlower(tappedFlower) {
     console.log('adding', tappedFlower);
     activeFlowerArray.push(
-      <View key={this.state.test}>
+      <View key={this.state.test} style={{ position: 'absolute', left: 500, right: 500, bottom: 500, top: 500 }}>
         <PlayFlower
           imageSource={tappedFlower}
           width={200}
@@ -46,10 +48,10 @@ class PillLibrary extends Component {
           maxSize={450}
           minSize={50}
         />
-        <Image
+        {/* <Image
               source={pic2}
               style={styles.imageStyle}
-            />
+            /> */}
       </View>
     );
     const counter = this.state.test + 1;
@@ -58,14 +60,18 @@ class PillLibrary extends Component {
     this.setState({ test: (counter)});
   }
   resetFlowers() {
-    while (activeFlowerArray.length > 1) {
-      this.activeFlowerArray.pop();
-    }
+      activeFlowerArray.pop();
+      console.log('lets reset');
   }
   render() {
     console.log(activeFlowerArray);
     return (
       <View style={styles.contentContainerStyle}>
+        <TouchableOpacity onPress={() => this.resetFlowers()}>
+          <Text style={{ margin: 50, fontSize: 50 }}>
+            RESET
+          </Text>
+        </TouchableOpacity>
         <View style={styles.playFlowerContainer}>
           {activeFlowerArray}
         </View>
