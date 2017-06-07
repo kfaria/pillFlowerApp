@@ -40,9 +40,6 @@ export default class CreditScreen extends Component {
         <Text style={[styles.headerStyle, { marginTop: 70, marginBottom: 20 }]}>
           CREDITS
         </Text>
-        <Text style={styles.headerStyle}>
-          PROJECT STATEMENT{"\n"}
-        </Text>
         <Text style={styles.textStyle}>
           Artwork & Sound Design: Lynne Heller, http://lynnehellerprojects.com/{"\n"}
           Programming: Connor Dear, Kenneth Faria commitlabs.github.io {"\n"}

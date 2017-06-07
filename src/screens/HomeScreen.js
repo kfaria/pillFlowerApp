@@ -7,7 +7,7 @@ const { height, width } = Dimensions.get('window');
 
 const styles = {
   viewStyle: {
-    flex: 1,
+    flex: 1 ,
     backgroundColor: 'white',
     borderWidth: 50,
     borderColor: 'black',
