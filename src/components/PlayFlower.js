@@ -67,7 +67,7 @@ class PlayFlower extends Component {
             (zoomRatio * currentScale) * this.props.width > this.props.minSize) {
               if (zoomRatio >= 1) {
                 console.log("scaling up");
-                this.setState({ test: [{ scale: (currentScale + 0.055) }, { rotateZ: newRotation }] });                   
+                this.setState({ test: [{ scale: (currentScale + 0.025) }, { rotateZ: newRotation }] });                   
               }
               if (zoomRatio < 1) {
                 console.log('scaling down');
