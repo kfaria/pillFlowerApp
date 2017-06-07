@@ -17,9 +17,20 @@ pillFlower, one layer at a time.  The props are as follows:
 
 import React, { Component } from 'react';
 import { View, Animated, TouchableHighlight, PanResponder, Dimensions } from 'react-native';
+import Sound from 'react-native-sound';
 import FlowerPetal from './FlowerPetal';
+import chime from '../music/chime.mp3';
 
-// const pillArray = [];
+
+
+// First song
+const success = new Sound(chime, Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  console.log('should be working');
+});
 
 class FlowerRowBuilder extends Component {
   constructor(props) {
@@ -139,6 +150,10 @@ class FlowerRowBuilder extends Component {
   }
 
   render() {
+    if (this.state.inPosition === true) {
+      success.play();
+      //sound effect
+    }
     if (this.props.resetStatus === true) {
       this.reset();
     }
