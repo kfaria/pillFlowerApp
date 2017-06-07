@@ -52,6 +52,7 @@ class FlowerBase extends Component {
       tempArray.push(
         <View key={tempString} style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center'}}>
         <FlowerRowBuilder
+          flowersSent={this.props.rows}
           activationCoordinates={[activateX, activateY]}
           angleOffset={this.props.rowAngleOffset[i]}
           rowID={tempString}

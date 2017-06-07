@@ -99,9 +99,14 @@ class FlowerRowBuilder extends Component {
   }
 
   scatterPills() {
+    console.log((Dimensions.get('window').width - (150 * this.props.flowersSent)) / 2);
+    let windowSpacing = ((Dimensions.get('window').width - (150 * this.props.flowersSent)) / 2);
+    console.log(150 * this.props.flowersSent);
     this.setState({
       startingPosition: [
-        { translateX: -300 + (parseInt(this.props.spacing) * 150) },
+        // { translateX: (-6 * windowSpacing )+ (parseInt(this.props.spacing) * 150) },
+        // { translateX: (Dimensions.get('window').width / -2.75) + (parseInt(this.props.spacing) * 150) },
+        { translateX: (Dimensions.get('window').width / -2.75) + (parseInt(this.props.spacing) * 150) },
         { translateY: ((Dimensions.get('window').height / 3.5)) },
         { rotateZ: -1 * parseFloat(this.props.angleOffset) },
       ],

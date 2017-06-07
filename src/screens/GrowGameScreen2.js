@@ -8,6 +8,7 @@ import pill22 from '../images/play-pill-flowers/level2/202.png';
 import pill23 from '../images/play-pill-flowers/level2/203.png';
 import pill24 from '../images/play-pill-flowers/level2/204.png';
 import pill25 from '../images/play-pill-flowers/level2/205.png';
+import red1 from '../images/play-pill-flowers/level2/red1.png';
 import outline2 from '../images/play-pill-flowers/level2/outline.png';
 import exitButton from '../images/exitButton.png';
 
@@ -87,12 +88,12 @@ class GrowGameScreen extends Component {
             <FlowerBase
               height={800}
               width={800}
-              rows={5}
-              rowRadius={[225, 170, 120, 68, 0]}
-              rowNumOfPetals={[32, 16, 16, 16, 1]}
-              rowAngleOffset={['0deg', '0deg', '10deg', '0deg', '0deg']}
-              rowNames={['0level02', '1level12', '2level22', '3level32', '4level42']}
-              pillRowImage={[pill25, pill24, pill23, pill22, pill21]}
+              rows={6}
+              rowRadius={[2000, 225, 170, 120, 68, 0]}
+              rowNumOfPetals={[0, 32, 16, 16, 16, 1]}
+              rowAngleOffset={['0deg', '0deg', '0deg', '10deg', '0deg', '0deg']}
+              rowNames={['5red', '0level02', '1level12', '2level22', '3level32', '4level42']}
+              pillRowImage={[red1, pill25, pill24, pill23, pill22, pill21]}
               resetStatus={this.state.reset}
             />
         </View>
