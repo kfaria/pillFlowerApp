@@ -63,7 +63,6 @@ const TabNav = TabNavigator({
 }, {
   tabBarComponent: TabBar,
   initialRouteName: 'play',
-  swipeEnabled: true,
   tabBarOptions: {
     indicatorStyle: {
       backgroundColor: '#74d6af',
