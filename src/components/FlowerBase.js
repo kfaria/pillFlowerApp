@@ -59,7 +59,7 @@ class FlowerBase extends Component {
           pillImage={this.props.pillRowImage[i]}
           numOfPetals={this.props.rowNumOfPetals[i]}
           flowerRadius={this.props.rowRadius[i]}
-          spacing={this.props.rowNames[i]}
+          spacingIndex={this.props.rowNames[i]}
           height={50}
           width={50}
           resetStatus={this.props.resetStatus}
