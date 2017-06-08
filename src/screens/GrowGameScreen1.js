@@ -47,7 +47,7 @@ class GrowGameScreen extends Component {
         height={800}
         width={800}
         rows={5}
-        rowRadius={[175, 145, 100, 50, 0]}
+        rowRadius={[225, 160, 100, 50, 0]}
         rowNumOfPetals={[16, 16, 16, 16, 1]}
         rowAngleOffset={['0deg', '11.25deg', '0deg', '0deg', '0deg']}
         rowNames={['0leel0', '1leel1', '2leel2', '3leel3', '4leel4']}
@@ -94,8 +94,8 @@ class GrowGameScreen extends Component {
           <View
             style={{
               transform: [
-                { scale: 2.5 },
-                { rotateZ: '-3deg' },
+                { scale: 3 },
+                { rotateZ: '-7deg' },
               ],
             }}
           >
