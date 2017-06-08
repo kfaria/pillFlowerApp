@@ -37,6 +37,7 @@ class FlowerPetal extends Component {
     ]).start();
   }
   render() {
+    console.log(this.props.pillSpec[2]);
     return (
       <Animated.View style=
         {{

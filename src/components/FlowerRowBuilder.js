@@ -41,21 +41,21 @@ class FlowerRowBuilder extends Component {
         return true;
       },
       onPanResponderGrant: (event, gesture) => {
-        console.log(((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + " "  + ((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]));
+        console.log(((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + " "  + ((Dimensions.get('window').height / 2) - this.props.activationCoordinates[1]));
         // console.log(this.props.activationCoordinates[1]);
         position.setOffset({ x: position.x._value, y: position.y._value });
         position.setValue({ x: 0, y: 0 });
       },
       onPanResponderMove: (event, gesture) => {
-        // console.log(gesture.moveX + " " + gesture.moveY);
+        console.log(gesture.moveX + " " + gesture.moveY);
         // console.log(position.y._offset);
         if (this.state.rowSet === false && this.state.inPosition === false) {
           position.setValue({ x: gesture.dx, y: gesture.dy });
           if (
-            gesture.moveX >= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) - 20)
-            && gesture.moveX <= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + 20)
-            && gesture.moveY <= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) + 20)
-            && gesture.moveY >= (((Dimensions.get('window').height / 2) + this.props.activationCoordinates[1]) - 20)
+            gesture.moveX >= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) - 25)
+            && gesture.moveX <= (((Dimensions.get('window').width / 2) + Math.abs(this.props.activationCoordinates[0])) + 25)
+            && (gesture.moveY <= (((Dimensions.get('window').height / 2) - this.props.activationCoordinates[1]) + 25)
+            && gesture.moveY >= (((Dimensions.get('window').height / 2) - this.props.activationCoordinates[1]) - 25))
             ) {
             // position.setValue({ x: gesture.moveX - position.x, y: gesture.moveY - position.y });
             console.log((Dimensions.get('window').width / 2) + this.props.flowerRadius);
@@ -99,6 +99,7 @@ class FlowerRowBuilder extends Component {
   }
 
   scatterPills() {
+    console.log(parseFloat(this.props.angleOffset));
     let margin = 0;
     if (this.props.flowersSent % 2 === 0) {
       margin = (-150 * this.props.flowersSent / 2);
@@ -112,7 +113,8 @@ class FlowerRowBuilder extends Component {
         // { translateX: (Dimensions.get('window').width / -2.75) + (parseInt(this.props.spacing) * 150) },
         // { translateX: (-150 * this.props.flowersSent / 2) },
         { translateY: ((Dimensions.get('window').height / 3.5)) },
-        { rotateZ: -1 * parseFloat(this.props.angleOffset) },
+        // { rotateZ: -1 * parseFloat(this.props.angleOffset) },
+        { rotateZ: (5 * parseFloat(this.props.angleOffset)).toString() },        
       ],
     });
   }
@@ -136,8 +138,9 @@ class FlowerRowBuilder extends Component {
       const xPos = (this.props.flowerRadius) * Math.cos((i) * angle);
       const yPos = (this.props.flowerRadius) * Math.sin((i) * angle);
       const pillAngle = 1 * angle * (180 / Math.PI) * i;
-      console.log(xPos + ',' + yPos + ',' + pillAngle.toString() + 'deg');
       const pillDelay = 200 * i;
+      console.log(xPos + ',' + yPos + ',' + pillAngle.toString() + 'deg'  + pillDelay);
+      
       if (this.state.activated === false) {
         const tempString = this.props.rowID;
         this.pillArray.push(
@@ -151,7 +154,7 @@ class FlowerRowBuilder extends Component {
         );
         this.setState({ activated: true, rowSet: true, angleOffset: this.props.angleOffset });
         this.setState({
-          startingPosition: [{ translateX: -1000 }, { translateY: -1000 }]          
+          startingPosition: [{ translateX: -1000 }, { translateY: -1000 }],
         });
       }
     }
@@ -175,7 +178,6 @@ class FlowerRowBuilder extends Component {
           alignItems: 'center',
           justifyContent: 'center',
           position: 'absolute',
-          transform: [{ rotateZ: this.state.angleOffset }],
         }}
       >
           <View style={{ height: 100, width: 100, transform: [{ rotateZ: this.state.angleOffset }] }}>
@@ -187,7 +189,7 @@ class FlowerRowBuilder extends Component {
                 <FlowerPetal pillSpec={this.state.startingPosition} pillButtonImage={this.props.pillImage} />
               </View>
             </Animated.View>
-            <View style={{ width: 100, height: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center', transform: [{ rotateZ: this.props.angleOffset }] }}>
+            <View style={{ width: 100, height: 100, position: 'absolute', alignItems: 'center', justifyContent: 'center' , transform: [{ rotateZ: (-2 * parseInt(this.state.angleOffset)).toString() + 'deg' }]}}>
               {this.pillArray}
             </View>
           </View>
