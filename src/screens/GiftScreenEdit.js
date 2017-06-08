@@ -34,9 +34,14 @@ const styles = {
     borderRadius: 8,
   },
   textStyle: {
+    position: 'absolute',
     color: 'white',
     fontSize: 20,
-    margin: 10
+    margin: 10,
+    backgroundColor: 'black',
+    padding: 10,
+    left: 425,
+    bottom: 10,
   },
   containerStyle: {
   },
@@ -105,9 +110,10 @@ class GiftScreenEdit extends Component {
   render() {
     return (
       <View style={styles.contentContainerStyle}>
+        {/* Escape Button */}
         <TouchableOpacity
           onPress={() => this.props.navigation.dispatch(NavigationActions.back())}
-          style={{ zIndex: 20, position: 'absolute', right: 20, top: 10 }}
+          style={{ zIndex: 20, position: 'absolute', right: 110, top: 90 }}
         >
           <Image source={require('../images/exitButton.png')} style={{ height: 50, width: 50 }} />
         </TouchableOpacity>
@@ -116,7 +122,7 @@ class GiftScreenEdit extends Component {
             source={frame}
             style={{
               position: 'absolute',
-              maxHeight: height - 170,
+              maxHeight: height - 160,
               width,
               backgroundColor: 'rgba(0,0,0,0)',
               resizeMode: 'stretch',
@@ -145,10 +151,9 @@ class GiftScreenEdit extends Component {
             // this.saveToFs();
           }
         }
-          style={styles.buttonStyle}
         >
           <Text style={styles.textStyle}>
-            Send to a friend!
+            Gift to a friend!
           </Text>
         </TouchableOpacity>
         {/* <View style={{ position: 'relative', right: 400, top: 50 }}>
