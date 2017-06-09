@@ -1,4 +1,3 @@
-
 /*  This component takes in the following props:
     height={}
     width={}
@@ -46,9 +45,13 @@ export default class FlowerBase2 extends Component {
   renderBody() {
     console.log('executed');
     for (let i = 0; i < this.props.rows; i++) {
-      const activateX = (this.props.rowRadius[i] * (Math.cos(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').width / 2);
-      const activateY = (this.props.rowRadius[i] * (Math.sin(parseFloat(this.props.rowAngleOffset[i])))); //+ (Dimensions.get('window').height / 2);
-      // console.log(activateX + " " + activateY);
+      let angle = parseInt(this.props.rowAngleOffset[i]) * (Math.PI / 180);
+      // console.log(this.props.rowRadius[i] * (Math.cos(Math.abs(parseInt(this.props.rowAngleOffset[i])))));
+      // console.log(this.props.rowRadius[i] * (Math.cos(Math.abs(parseInt(this.props.rowAngleOffset[i])))));
+      console.log(this.props.rowRadius[i] * Math.sin(parseFloat(this.props.rowAngleOffset[i])));
+      const activateX = (this.props.rowRadius[i] * (Math.cos(angle))); //+ (Dimensions.get('window').width / 2);
+      const activateY = (this.props.rowRadius[i] * (Math.sin(angle))); //+ (Dimensions.get('window').height / 2);
+      console.log(activateX + " " + activateY);
       const tempString = this.props.rowNames[i];
       tempArray.push(
         <View key={tempString} style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center'}}>
@@ -77,18 +80,12 @@ export default class FlowerBase2 extends Component {
           {{
             //borderColor: 'blue', borderWidth: 2, width: 800, height: 800,
             justifyContent: 'center', alignItems: 'center', position: 'absolute',
-            //transform: [{rotateZ: this.props.angleOffset }]
           }}
       >
-      {/* <TouchableWithoutFeedback onPress={() => this.resetFlower()}>
-        <View style={{ marginTop: -500 }}>
-          <Image source={resetButton} alt="" />
-        </View>
-      </TouchableWithoutFeedback> */}
         {tempArray}
       </View>
     );
   }
 }
 
-export { FlowerBase2 };
+export { FlowerBase2 } ;

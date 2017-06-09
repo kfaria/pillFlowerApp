@@ -62,7 +62,7 @@ const TabNav = TabNavigator({
   },
 }, {
   tabBarComponent: TabBar,
-  initialRouteName: 'play',
+  initialRouteName: 'grow',
   tabBarOptions: {
     indicatorStyle: {
       backgroundColor: '#74d6af',

@@ -31,6 +31,7 @@ export default class TabBar extends Component {
   }
 
   render() {
+    console.log(styles.container);
     return (
       <TabBarTop {...this.props} style={[styles.container, { top: this.state.offset }]} />
     );

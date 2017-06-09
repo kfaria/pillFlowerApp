@@ -19,12 +19,13 @@ import React, { Component } from 'react';
 import { View, Animated, TouchableHighlight, PanResponder, Dimensions } from 'react-native';
 import Sound from 'react-native-sound';
 import FlowerPetal from './FlowerPetal';
-import chime from '../music/chime.mp3';
+// import chime from '../music/chime.mp3';
+import sigh from '../music/sigh.wav';
 
 
 
 // First song
-const success = new Sound(chime, Sound.MAIN_BUNDLE, (error) => {
+const success = new Sound(sigh, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
     console.log('failed to load the sound', error);
     return;
@@ -163,6 +164,7 @@ class FlowerRowBuilder extends Component {
 
   render() {
     if (this.state.inPosition === true) {
+      success.stop();
       success.play();
       //sound effect
     }

@@ -47,9 +47,9 @@ class GrowGameScreen extends Component {
         height={800}
         width={800}
         rows={5}
-        rowRadius={[225, 160, 100, 50, 0]}
+        rowRadius={[215, 162, 107, 60, 0]}
         rowNumOfPetals={[16, 16, 16, 16, 1]}
-        rowAngleOffset={['0deg', '11.25deg', '0deg', '0deg', '0deg']}
+        rowAngleOffset={['0deg', '-11.25deg', '0deg', '0deg', '0deg']}
         rowNames={['0leel0', '1leel1', '2leel2', '3leel3', '4leel4']}
         pillRowImage={[pill5, pill4, pill3, pill2, pill1]}
         resetStatus={this.state.reset}
@@ -94,8 +94,8 @@ class GrowGameScreen extends Component {
           <View
             style={{
               transform: [
-                { scale: 3 },
-                { rotateZ: '-7deg' },
+                { scale: 2.80 },
+                { rotateZ: '1deg' },
               ],
             }}
           >
