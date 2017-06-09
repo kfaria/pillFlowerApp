@@ -98,7 +98,7 @@ class PillLibrary extends Component {
           </Text> */}
           <Image
             source={refreshButton}
-            style={{ position: 'absolute', right: 100, top: 80 }}
+            style={{ position: 'absolute', right: 110, top: 90, width: 57, height: 50 }}
           />
         </TouchableOpacity>
         <View style={styles.playFlowerContainer}>

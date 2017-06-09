@@ -112,7 +112,7 @@ class GiftScreenEdit extends Component {
         {/* Escape Button */}
         <TouchableOpacity
           onPress={() => this.props.navigation.dispatch(NavigationActions.back())}
-          style={{ zIndex: 20, position: 'absolute', right: 200, top: 90 }}
+          style={{ zIndex: 20, position: 'absolute', right: 180, top: 92 }}
         >
           <Image source={require('../images/exitButton.png')} style={{ height: 50, width: 50 }} />
         </TouchableOpacity>

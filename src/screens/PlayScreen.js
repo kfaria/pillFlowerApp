@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
+import { View, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
 import { PillLibrary } from '../components';
+import Toast, { DURATION } from 'react-native-easy-toast';
 import greenBackground from '../images/backgrounds/bkgd green canvas.png';
 import whiteBackground from '../images/backgrounds/bkgd white canvas.png';
 import blackBackground from '../images/backgrounds/bkgd black canvas.png';
-
+import arrow from '../images/arrow.png';
 
 const { height, width } = Dimensions.get('window');
 const styles = {
@@ -34,12 +35,28 @@ class PlayScreen extends Component {
     super(props);
     this.state = {
       backgroundImage: greenBackground,
+      onScreen: false,
+      playedHint: false,
     };
+    setInterval(() => {
+      if (this.props.screenProps.test.routes[0].index === 3) {
+        this.setState({ onScreen: true });
+      }
+      if (this.props.screenProps.test.routes[0].index !== 3) {
+        this.setState({ onScreen: false });
+      }
+      if (this.state.onScreen && !this.state.playedHint) {
+        this.renderHint();
+      }
+    }, 500);
   }
   changeBackground(newImage) {
     this.setState({
       backgroundImage: newImage,
     });
+  }
+  renderHint() {
+    this.refs.toast.show('Here\'s a hint', DURATION.LENGTH_LONG);
   }
   render() {
     return (
@@ -73,6 +90,20 @@ class PlayScreen extends Component {
             <Image source={greenBackground} style={styles.imageStyle} />
           </TouchableOpacity>
         </View>
+        <Toast
+          ref="toast"
+          style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 850 }}
+          position='bottom'
+          positionValue={180}
+          fadeInDuration={750}
+          fadeOutDuration={1000}
+          opacity={0.8}
+          textStyle={{
+            color: 'black',
+            fontWeight: 'bold',
+            fontSize: 20,
+          }}
+        />
       </View>
     );
   }
