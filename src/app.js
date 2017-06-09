@@ -32,12 +32,6 @@ const TabNav = TabNavigator({
     navigationOptions: {
       header: null,
       tabBarVisible: false,
-      tabBarLabel: ({ tintColor }) => (
-        <Image
-          source={require('./images/flowerButtonWhite.png')}
-          style={{ tintColor, width: 20, height: 20 }}
-        />
-    ),
     },
   },
   grow: {
