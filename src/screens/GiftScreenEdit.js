@@ -21,27 +21,26 @@ const styles = {
     zIndex: -10,
   },
   buttonStyle: {
-    padding: 1,
-    backgroundColor: 'grey',
-    justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#999',
-    shadowColor: '#666',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 2,
-    shadowRadius: 8,
-    borderRadius: 8,
+    position: 'absolute',
+    bottom: 209,
+    left: 422,
+    backgroundColor: 'black',
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 6,
+    paddingBottom: 6,
+    borderWidth: 2,
+    borderColor: 'grey',
   },
   textStyle: {
-    position: 'absolute',
     color: 'white',
-    fontSize: 20,
-    margin: 10,
-    backgroundColor: 'black',
-    padding: 10,
-    left: 425,
-    bottom: 10,
+    fontSize: 25,
+    // backgroundColor: 'black',
+    // padding: 15,
+    // width: 200,
+    // left: 420,
+    // bottom: 50,
   },
   containerStyle: {
   },
@@ -113,7 +112,7 @@ class GiftScreenEdit extends Component {
         {/* Escape Button */}
         <TouchableOpacity
           onPress={() => this.props.navigation.dispatch(NavigationActions.back())}
-          style={{ zIndex: 20, position: 'absolute', right: 110, top: 90 }}
+          style={{ zIndex: 20, position: 'absolute', right: 200, top: 90 }}
         >
           <Image source={require('../images/exitButton.png')} style={{ height: 50, width: 50 }} />
         </TouchableOpacity>
@@ -122,7 +121,7 @@ class GiftScreenEdit extends Component {
             source={frame}
             style={{
               position: 'absolute',
-              maxHeight: height - 160,
+              height: height - 160,
               width,
               backgroundColor: 'rgba(0,0,0,0)',
               resizeMode: 'stretch',
@@ -150,7 +149,8 @@ class GiftScreenEdit extends Component {
             this.takeScreenShot();
             // this.saveToFs();
           }
-        }
+          }
+          style={styles.buttonStyle}
         >
           <Text style={styles.textStyle}>
             Gift to a friend!
