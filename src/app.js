@@ -26,12 +26,14 @@ function getCurrentRouteName(navigationState) {
   return route.routeName;
 }
 
+// console.disableYellowBox = true;
+
 const TabNav = TabNavigator({
   home: {
     screen: HomeScreen,
     navigationOptions: {
       header: null,
-      tabBarVisible: false,
+      tabBarVisible: true,
       tabBarLabel: ({ tintColor }) => (
         <Image
           source={require('./images/flowerButtonWhite.png')}
@@ -43,6 +45,7 @@ const TabNav = TabNavigator({
   grow: {
     screen: GrowScreen,
     navigationOptions: {
+      tabBarVisible: true,
     },
   },
   gather: {
@@ -62,7 +65,7 @@ const TabNav = TabNavigator({
   },
 }, {
   tabBarComponent: TabBar,
-  initialRouteName: 'play',
+  initialRouteName: 'home',
   tabBarOptions: {
     indicatorStyle: {
       backgroundColor: '#74d6af',

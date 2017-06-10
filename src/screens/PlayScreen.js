@@ -41,6 +41,9 @@ class PlayScreen extends Component {
       backgroundImage: newImage,
     });
   }
+  componentWillMount() {
+    this.props.navigation.setParams({ visible: true });
+  }
   render() {
     return (
       <View style={styles.viewStyle}>
