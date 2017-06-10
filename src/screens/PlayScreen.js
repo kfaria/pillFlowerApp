@@ -57,10 +57,6 @@ class PlayScreen extends Component {
       backgroundImage: newImage,
     });
   }
-<<<<<<< HEAD
-  componentWillMount() {
-    this.props.navigation.setParams({ visible: true });
-=======
   playHint() {
     Animated.timing(                  // Animate over time
       this.state.fadeAnim,            // The animated value to drive
@@ -69,7 +65,6 @@ class PlayScreen extends Component {
         duration: 12000,              // Make it take a while
       },
     ).start();                        // Starts the animation
->>>>>>> ab28a3d91c4df828ed79d549802654a18cd05636
   }
   render() {
     return (
