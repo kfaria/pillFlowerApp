@@ -21,6 +21,7 @@ import pic17 from '../images/pill-flowers/17.png';
 import pic18 from '../images/pill-flowers/18.png';
 import pic19 from '../images/pill-flowers/19.png';
 import pic20 from '../images/pill-flowers/20.png';
+import refreshButton from '../images/refreshButton.png';
 
 const { height, width } = Dimensions.get('window');
 
@@ -86,7 +87,7 @@ class PillLibrary extends Component {
     this.setState({ count: 0 });
   }
   render() {
-    console.log(activeFlowerArray);
+    // console.log(activeFlowerArray);
     return (
       <View style={styles.contentContainerStyle}>
         <TouchableOpacity
@@ -96,8 +97,8 @@ class PillLibrary extends Component {
             RESET
           </Text> */}
           <Image
-            source={require('../images/swirlButtonWhite.png')}
-            style={{ position: 'absolute', right: 80, top: 80 }}
+            source={refreshButton}
+            style={{ position: 'absolute', right: 110, top: 90, width: 57, height: 50 }}
           />
         </TouchableOpacity>
         <View style={styles.playFlowerContainer}>

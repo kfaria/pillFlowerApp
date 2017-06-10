@@ -132,6 +132,7 @@ class App extends Component {
     }
   }
   render() {
+    console.disableYellowBox = true;
     return (
       <AppNavigator
         onNavigationStateChange={(prevState, currentState) => {

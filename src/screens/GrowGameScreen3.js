@@ -46,12 +46,12 @@ class GrowGameScreen extends Component {
         key={outline3}
         height={800}
         width={800}
-        rows={7}
-        rowRadius={[2000, 180, 130, 75, 130, 35, 2000]}
-        rowNumOfPetals={[0, 16, 16, 8, 16, 16, 0]}
-        rowAngleOffset={['0deg', '0deg', '11.25deg', '-45deg', '0deg', '0deg', '0deg']}
-        rowNames={['0level03', '1level13', '2level23', '3level33', '4level43', '5level53', '6level63']}
-        pillRowImage={[red3, pill34, pill33, pill35, pill32, pill31, red2]}
+        rows={5}
+        rowRadius={[180, 130, 75, 130, 35]}
+        rowNumOfPetals={[16, 16, 8, 16, 16]}
+        rowAngleOffset={['0deg', '11.25deg', '-45deg', '0deg', '0deg']}
+        rowNames={['0level03', '1level13', '2level23', '3level33', '4level43']}
+        pillRowImage={[pill34, pill33, pill35, pill32, pill31]}
         resetStatus={this.state.reset}
       />
     );
