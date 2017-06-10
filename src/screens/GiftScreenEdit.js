@@ -86,9 +86,9 @@ class GiftScreenEdit extends Component {
       uri => {
         console.log("Image saved to", uri);
         Share.share({
-          message: 'Here\'s a pillflower!',
+          message: 'Here\'s a pillflower! Disclaimer: Sent pictures may be posted to the Pillflower instagram account.',
           url: uri,
-          title: 'You\'ve received a Pillflower! Disclaimer: Sent pictures may be posted to the Pillflower instagram account.',
+          title: 'You\'ve received a Pillflower!',
         }, {
           // iOS only:
           excludedActivityTypes: [
