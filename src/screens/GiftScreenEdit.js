@@ -88,7 +88,7 @@ class GiftScreenEdit extends Component {
         Share.share({
           message: 'Here\'s a pillflower!',
           url: uri,
-          title: 'You\'ve received a Pillflower!',
+          title: 'You\'ve received a Pillflower! Disclaimer: Sent pictures may be posted to the Pillflower instagram account.',
         }, {
           // iOS only:
           excludedActivityTypes: [
