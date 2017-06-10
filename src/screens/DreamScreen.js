@@ -111,7 +111,7 @@ class DreamScreen extends Component {
         this.setState({
           startedLondonBlues: true,
         });
-        this.musicToggle(LondonBlues, 1, 'London Blues\n  Tony Smith')
+        this.musicToggle(LondonBlues, 1, 'London Blues')
       }
       switch (this.state.currentTrack) {
         case 1:
@@ -375,7 +375,7 @@ class DreamScreen extends Component {
         return (
           <Toast
             ref="toast"
-            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 160 }}
+            style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 170 }}
             position='bottom'
             positionValue={180}
             fadeInDuration={750}
@@ -457,37 +457,37 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonOne }}>
             <MusicButton
-              onPress={() => this.musicToggle(LondonBlues, 1, 'London Blues\n  Tony Smith')}
+              onPress={() => this.musicToggle(LondonBlues, 1, 'London Blues')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonTwo }}>
             <MusicButton
-              onPress={() => this.musicToggle(Christalline, 2, 'Christalline\nTony Smith')}
+              onPress={() => this.musicToggle(Christalline, 2, 'Christalline')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonThree }}>
             <MusicButton
-              onPress={() => this.musicToggle(Bella, 3, '     Bella\nTony Smith')}
+              onPress={() => this.musicToggle(Bella, 3, 'Bella')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
             <MusicButton
-              onPress={() => this.musicToggle(DarkBark, 4, ' Dark Bark\nTony Smith')}
+              onPress={() => this.musicToggle(DarkBark, 4, ' Dark Bark')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
             <MusicButton
-              onPress={() => this.musicToggle(Arabella, 5, '  Arabella\nTony Smith')}
+              onPress={() => this.musicToggle(Arabella, 5, '  Arabella')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
             <MusicButton
-              onPress={() => this.musicToggle(Darkside, 6, '  Darkside\nTony Smith')}
+              onPress={() => this.musicToggle(Darkside, 6, '  Darkside')}
               source={require('../images/musicButton.png')}
             />
           </Animated.View>

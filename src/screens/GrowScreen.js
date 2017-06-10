@@ -8,6 +8,8 @@ import { FlowerBase } from '../components';
 // import pill4 from '../images/play-pill-flowers/04ns.png';
 // import pill5 from '../images/play-pill-flowers/05ns.png';
 import growLevelOne from '../images/growLevelOne.png';
+import growLevelTwo from '../images/play-pill-flowers/level2/growLevel2.png';
+import growLevelThree from '../images/play-pill-flowers/level3/growLevel3.png';
 import outline from '../images/play-pill-flowers/outline.png';
 import resetButton from '../images/swirlButtonWhite.png';
 
@@ -83,27 +85,27 @@ class GrowScreen extends Component {
       <View style={styles.viewStyle} {...this.state.panResponder.panHandlers}>
         <StatusBar hidden />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame1')}>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 40, margin: 20, color: 'white' }}>
               Level I
             </Text>
-            <Image source={growLevelOne} style={{ height: 100, width: 100 }} />
+            <Image source={growLevelOne} style={{ height: 200, width: 200 }} />
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame2')}>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 40, margin: 20, color: 'white' }}>
               Level II
             </Text>
-            <Image source={growLevelOne} style={{ height: 100, width: 100 }} />
+            <Image source={growLevelTwo} style={{ height: 200, width: 200 }} />
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame3')}>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 40, margin: 20, color: 'white' }}>
               Level III
             </Text>
-            <Image source={growLevelOne} style={{ height: 100, width: 100 }} />
+            <Image source={growLevelThree} style={{ height: 200, width: 200 }} />
           </View>
         </TouchableOpacity>
       </View>

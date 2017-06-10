@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Image, TouchableWithoutFeedback, PanResponder } from 'react-native';
+import { Animated, View, Text, StatusBar, Image, TouchableWithoutFeedback, Dimensions, PanResponder } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
+import arrow from '../images/arrow.png';
 import pill1 from '../images/play-pill-flowers/level1/101.png';
 import pill2 from '../images/play-pill-flowers/level1/102.png';
 import pill3 from '../images/play-pill-flowers/level1/103.png';
@@ -10,6 +11,8 @@ import pill4 from '../images/play-pill-flowers/level1/104.png';
 import pill5 from '../images/play-pill-flowers/level1/105.png';
 import outline from '../images/play-pill-flowers/level1/outline.png';
 import exitButton from '../images/exitButton.png';
+
+const { height, width } = Dimensions.get('window');
 
 const styles = {
   viewStyle: {
@@ -57,6 +60,7 @@ class GrowGameScreen extends Component {
       navBarButtonOffset: 40,
       reset: false,
       touchCount: 0,
+      fadeAnim: new Animated.Value(1),
     };
   }
 
@@ -76,6 +80,15 @@ class GrowGameScreen extends Component {
         resetStatus={this.state.reset}
       />
     );
+  }
+  componentDidMount() {
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
+      {
+        toValue: 0,                   // Animate to opacity: 1 (opaque)
+        duration: 12000,              // Make it take a while
+      },
+    ).start();
   }
   componentWillUnmount() {
     console.log("unmounted");
@@ -140,6 +153,36 @@ class GrowGameScreen extends Component {
           </View>
           {flowerBaseArray}
         </View>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            top: height / 2 - 70,
+            left: 35,
+            opacity: this.state.fadeAnim,
+            zIndex: -50,
+          }}
+        >
+          <Image
+            source={arrow}
+            style={{
+              width: 100,
+            }}
+            resizeMode="contain"
+          />
+          <Text
+            style={{
+              position: 'absolute',
+              bottom: 500,
+              width: 150,
+              fontSize: 30,
+              fontWeight: 'bold',
+              textAlign: 'justify',
+              backgroundColor: 'rgba(0,0,0,0)',
+            }}
+            >
+            Drag the pills into place!
+          </Text>
+        </Animated.View>
       </View>
       // </Animated.View>
     );

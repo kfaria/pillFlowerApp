@@ -5,6 +5,9 @@ const SoundPanel = (props) => {
   return (
     <View style={styles.containerStyles}>
       {props.children}
+      <Text style={{ position: 'absolute', bottom: 1, right: 20, fontSize: 20 }}>
+        Music Composed by Tony Smith
+      </Text>
     </View>
   );
 };

@@ -42,7 +42,7 @@ export default class CreditScreen extends Component {
         </Text>
         <Text style={styles.textStyle}>
           Artwork & Sound Design: Lynne Heller, http://lynnehellerprojects.com/{"\n"}
-          Programming: Connor Dear, Kenneth Faria commitlabs.github.io {"\n"}
+          Programming: Connor Dear, Kenneth Faria commitlabs.ca{"\n"}
           Music: Tony Smith, http://tonysmithguitar.com/{"\n"}
         </Text>
         <Text style={styles.headerStyle}>

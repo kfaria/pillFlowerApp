@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, CameraRoll, Text, Dimensions, Image, TouchableOpacity, Share } from 'react-native';
+import { View, CameraRoll, Text, Dimensions, Image, TouchableOpacity, Share, Animated } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import RNFS from 'react-native-fs';
 import { takeSnapshot } from 'react-native-view-shot';
 import { PillLibrary } from '../components';
 import frame from '../images/frame.png';
+import arrow from '../images/arrow.png';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,27 +22,27 @@ const styles = {
     zIndex: -10,
   },
   buttonStyle: {
-    padding: 1,
-    backgroundColor: 'grey',
-    justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#999',
-    shadowColor: '#666',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 2,
-    shadowRadius: 8,
-    borderRadius: 8,
+    position: 'absolute',
+    bottom: 209,
+    left: 422,
+    backgroundColor: 'black',
+    paddingLeft: 85,
+    paddingRight: 85,
+    paddingTop: 6,
+    paddingBottom: 6,
+    borderWidth: 2,
+    borderColor: 'grey',
   },
   textStyle: {
-    position: 'absolute',
     color: 'white',
-    fontSize: 20,
-    margin: 10,
-    backgroundColor: 'black',
-    padding: 10,
-    left: 425,
-    bottom: 10,
+    fontSize: 25,
+    textAlign: 'center',
+    // backgroundColor: 'black',
+    // padding: 15,
+    // width: 200,
+    // left: 420,
+    // bottom: 50,
   },
   containerStyle: {
   },
@@ -52,10 +53,20 @@ class GiftScreenEdit extends Component {
     super(props);
     this.state = {
       photos: [],
+      fadeAnim: new Animated.Value(1),
     };
   }
   componentWillMount() {
     this.getPhotos();
+  }
+  componentDidMount() {
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
+      {
+        toValue: 0,                   // Animate to opacity: 1 (opaque)
+        duration: 10000,              // Make it take a while
+      },
+    ).start();
   }
   getPhotos() {
     console.log('GETTING PHOTOS');
@@ -77,7 +88,7 @@ class GiftScreenEdit extends Component {
         Share.share({
           message: 'Here\'s a pillflower!',
           url: uri,
-          title: 'You\'ve received a Pillflower!',
+          title: 'You\'ve received a Pillflower! Disclaimer: Sent pictures may be posted to the Pillflower instagram account.',
         }, {
           // iOS only:
           excludedActivityTypes: [
@@ -113,7 +124,7 @@ class GiftScreenEdit extends Component {
         {/* Escape Button */}
         <TouchableOpacity
           onPress={() => this.props.navigation.dispatch(NavigationActions.back())}
-          style={{ zIndex: 20, position: 'absolute', right: 110, top: 90 }}
+          style={{ zIndex: 20, position: 'absolute', right: 180, top: 92 }}
         >
           <Image source={require('../images/exitButton.png')} style={{ height: 50, width: 50 }} />
         </TouchableOpacity>
@@ -122,7 +133,7 @@ class GiftScreenEdit extends Component {
             source={frame}
             style={{
               position: 'absolute',
-              maxHeight: height - 160,
+              height: height - 160,
               width,
               backgroundColor: 'rgba(0,0,0,0)',
               resizeMode: 'stretch',
@@ -150,10 +161,11 @@ class GiftScreenEdit extends Component {
             this.takeScreenShot();
             // this.saveToFs();
           }
-        }
+          }
+          style={styles.buttonStyle}
         >
           <Text style={styles.textStyle}>
-            Gift to a friend!
+            Gift
           </Text>
         </TouchableOpacity>
         {/* <View style={{ position: 'relative', right: 400, top: 50 }}>
@@ -192,6 +204,37 @@ class GiftScreenEdit extends Component {
             minSize={50}
           />
         </View> */}
+        <Animated.View
+          style={{
+            position: 'absolute',
+            top: height / 2 + 100,
+            left: 110,
+            opacity: this.state.fadeAnim,
+            zIndex: 40,
+            opacity: this.state.fadeAnim,
+          }}
+        >
+          <Image
+            source={arrow}
+            style={{
+              width: 100,
+            }}
+            resizeMode="contain"
+          />
+          <Text
+            style={{
+              position: 'absolute',
+              bottom: 500,
+              width: 200,
+              fontSize: 30,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              backgroundColor: 'rgba(0,0,0,0)',
+            }}
+          >
+            Tap pills to place them on the screen, then press gift to send the picture to a friend!
+          </Text>
+        </Animated.View>
       </View>
     );
   }

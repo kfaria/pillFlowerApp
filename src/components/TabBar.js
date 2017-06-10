@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Dimensions } from 'react-native';
 import { TabBarTop } from 'react-navigation';
 
-const TAB_BAR_OFFSET = -70;
+const TAB_BAR_OFFSET = -700;
 
 export default class TabBar extends Component {
   constructor(props) {
@@ -31,9 +31,10 @@ export default class TabBar extends Component {
   }
 
   render() {
-    console.log(styles.container);
+    // console.log(styles.container);
     return (
-      <TabBarTop {...this.props} style={[styles.container, { top: this.state.offset }]} />
+      <TabBarTop {...this.props} style={[styles.container, { top: -1*Dimensions.get('window').height }]} />
+      // null
     );
   }
 }
