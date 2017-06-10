@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StatusBar, Image, TouchableWithoutFeedback, PanResponder } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
@@ -29,16 +29,37 @@ const styles = {
 };
 
 const flowerBaseArray = [];
+let timer = null;
 
 class GrowGameScreen extends Component {
   constructor(props) {
     super(props);
+
+    // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
+    const panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: (event, gesture) => {
+        console.log('press');
+      },
+      // onPanResponderMove: (event, gesture) => {},
+      onPanResponderRelease: (event, gesture) => {
+        let count = this.state.touchCount;
+        this.setState({ touchCount: count + 1 });
+        console.log('released');
+        // this.touchResponse();
+      },
+    });
+    // end of code block for timer.  Add new function outside of constructor touchResponse()
+
     this.state = {
+      panResponder,
       showTabBar: false,
       navBarButtonOffset: 40,
       reset: false,
+      touchCount: 0,
     };
   }
+
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
     flowerBaseArray.push(
@@ -80,10 +101,19 @@ class GrowGameScreen extends Component {
     }
   }
 
+  touchResponse() {
+    clearTimeout(timer);
+    timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 5000);
+  }
+
   render() {
-    console.log(flowerBaseArray);
+    console.log(this.state.touchCount);
+    this.touchResponse();
     return (
-      <View style={styles.viewStyle}>
+      <View 
+        style={styles.viewStyle}
+        {...this.state.panResponder.panHandlers}
+      >
         <TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>
           <View style={{ flex: 1, marginTop: 50 }}>
               <Image source={exitButton} alt="" />
@@ -111,6 +141,7 @@ class GrowGameScreen extends Component {
           {flowerBaseArray}
         </View>
       </View>
+      // </Animated.View>
     );
   }
 }

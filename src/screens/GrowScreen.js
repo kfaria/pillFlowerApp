@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Image, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
+import { View, Text, StatusBar, Image, TouchableWithoutFeedback, TouchableOpacity, PanResponder } from 'react-native';
 import NavBarButton from '../components/NavBarButton';
 import { FlowerBase } from '../components';
 // import pill1 from '../images/play-pill-flowers/01ns.png';
@@ -24,10 +24,30 @@ const styles = {
   },
 };
 
+let timer = null;
+
 class GrowScreen extends Component {
   constructor(props) {
     super(props);
+
+    // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
+    const panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: (event, gesture) => {
+        console.log('press');
+      },
+      // onPanResponderMove: (event, gesture) => {},
+      onPanResponderRelease: (event, gesture) => {
+        let count = this.state.touchCount;
+        this.setState({ touchCount: count + 1 });
+        console.log('released');
+        // this.touchResponse();
+      },
+    });
+    // end of code block for timer.  Add new function outside of constructor touchResponse()
+
     this.state = {
+      panResponder,
       showTabBar: false,
       navBarButtonOffset: 40,
       reset: false,
@@ -52,9 +72,15 @@ class GrowScreen extends Component {
     }
   }
 
+  touchResponse() {
+    clearTimeout(timer);
+    timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 60000);
+  }
+
   render() {
+    this.touchResponse();
     return (
-      <View style={styles.viewStyle}>
+      <View style={styles.viewStyle} {...this.state.panResponder.panHandlers}>
         <StatusBar hidden />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame1')}>
           <View style={{ flexDirection: 'row' }}>

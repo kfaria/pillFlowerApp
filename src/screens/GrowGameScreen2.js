@@ -33,10 +33,28 @@ let flowerBaseArray2 = [];
 class GrowGameScreen extends Component {
   constructor(props) {
     super(props);
+
+    // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
+    const panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: (event, gesture) => {
+        console.log('press');
+      },
+      // onPanResponderMove: (event, gesture) => {},
+      onPanResponderRelease: (event, gesture) => {
+        let count = this.state.touchCount;
+        this.setState({ touchCount: count + 1 });
+        console.log('released');
+        // this.touchResponse();
+      },
+    });
+    // end of code block for timer.  Add new function outside of constructor touchResponse()
+
     this.state = {
       showTabBar: false,
       navBarButtonOffset: 40,
       reset: false,
+      panResponder,
     };
   }
   componentWillMount() {
@@ -92,10 +110,16 @@ class GrowGameScreen extends Component {
   goBack() {
     this.props.navigation.dispatch(NavigationActions.back());
   }
+
+  touchResponse() {
+    clearTimeout(timer);
+    timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 5000);
+  }
+
   render() {
     console.log(flowerBaseArray2);
     return (
-      <View style={styles.viewStyle}>
+      <View style={styles.viewStyle} {...this.state.panResponder.panHandlers}>
         <TouchableWithoutFeedback onPress={() => this.reset()}>
         {/*<TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>*/}
           <View style={{ flex: 1, marginTop: 50 }}>
