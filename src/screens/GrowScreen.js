@@ -26,34 +26,42 @@ const styles = {
   },
 };
 
-// let timer = null;
+let timer = null;
 
 class GrowScreen extends Component {
   constructor(props) {
     super(props);
 
     // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
-    // const panResponder = PanResponder.create({
-    //   onStartShouldSetPanResponder: () => true,
-    //   onPanResponderGrant: (event, gesture) => {
-    //     console.log('press');
-    //   },
-    //   // onPanResponderMove: (event, gesture) => {},
-    //   onPanResponderRelease: (event, gesture) => {
-    //     let count = this.state.touchCount;
-    //     this.setState({ touchCount: count + 1 });
-    //     console.log('released');
-    //     // this.touchResponse();
-    //   },
-    // });
+    const panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: (event, gesture) => {
+        console.log('press');
+      },
+      // onPanResponderMove: (event, gesture) => {},
+      onPanResponderRelease: (event, gesture) => {
+        let count = this.state.touchCount;
+        this.setState({ touchCount: count + 1 });
+        console.log('released');
+        // this.touchResponse();
+      },
+    });
     // end of code block for timer.  Add new function outside of constructor touchResponse()
 
     this.state = {
-      // panResponder,
+      panResponder,
       showTabBar: false,
       navBarButtonOffset: 40,
       reset: false,
     };
+    setInterval(() => {
+      // if onscreen, set on screen
+      if (this.props.screenProps.test.routes[0].index === 1) {
+        this.setState({ onScreen: true });
+      } else {
+        this.setState({ onScreen: false });
+      }
+    }, 100);
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
@@ -74,16 +82,21 @@ class GrowScreen extends Component {
     }
   }
 
-  // touchResponse() {
-  //   clearTimeout(timer);
-  //   timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 60000);
-  // }
+  touchResponse() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      if (this.state.onScreen) {
+        this.props.navigation.navigate('dream');
+        console.log('naving')
+      }
+    }, 3000);
+  }
 
   render() {
-    // this.touchResponse();
+    this.touchResponse();
     return (
       <View style={styles.viewStyle}
-      // {...this.state.panResponder.panHandlers}
+      {...this.state.panResponder.panHandlers}
       >
         <StatusBar hidden />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('growGame1')}>

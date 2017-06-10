@@ -20,6 +20,14 @@ class GatherScreen extends Component {
     this.state = {
       timeout: 2000,
     };
+    setInterval(() => {
+      // if onscreen, set on screen
+      if (this.props.screenProps.test.routes[0].index === 2) {
+        this.setState({ onScreen: true });
+      } else {
+        this.setState({ onScreen: false });
+      }
+    }, 100);
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
