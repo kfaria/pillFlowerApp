@@ -27,8 +27,8 @@ const styles = {
     bottom: 209,
     left: 422,
     backgroundColor: 'black',
-    paddingLeft: 85,
-    paddingRight: 85,
+    paddingLeft: 20,
+    paddingRight: 20,
     paddingTop: 6,
     paddingBottom: 6,
     borderWidth: 2,
@@ -93,6 +93,7 @@ class GiftScreenEdit extends Component {
           // iOS only:
           excludedActivityTypes: [
             'com.apple.UIKit.activity.PostToTwitter',
+            'com.apple.UIKit.activity.PostToInstagram',
             'com.apple.UIKit.activity.AssignToContact',
             'com.apple.UIKit.activity.CopyToPasteboard',
             'com.apple.UIKit.activity.Print',
@@ -165,7 +166,7 @@ class GiftScreenEdit extends Component {
           style={styles.buttonStyle}
         >
           <Text style={styles.textStyle}>
-            Gift
+            Send to a friend!
           </Text>
         </TouchableOpacity>
         {/* <View style={{ position: 'relative', right: 400, top: 50 }}>
@@ -211,7 +212,6 @@ class GiftScreenEdit extends Component {
             left: 110,
             opacity: this.state.fadeAnim,
             zIndex: 40,
-            opacity: this.state.fadeAnim,
           }}
         >
           <Image
@@ -230,6 +230,9 @@ class GiftScreenEdit extends Component {
               fontWeight: 'bold',
               textAlign: 'center',
               backgroundColor: 'rgba(0,0,0,0)',
+              textShadowColor: '#ffffff',
+              textShadowOffset: { width: 1, height: 1 },
+              textShadowRadius: 1,
             }}
           >
             Tap pills to place them on the screen, then press gift to send the picture to a friend!

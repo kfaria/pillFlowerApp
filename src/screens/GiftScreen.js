@@ -7,8 +7,10 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  Animated,
 } from 'react-native';
 import Camera from 'react-native-camera';
+import arrow from '../images/arrow.png';
 
 const { width, height } = Dimensions.get('window')
 
@@ -52,10 +54,35 @@ class GiftScreen extends Component {
     super(props);
     this.state = {
       hasTakenPicture: false,
+      onScreen: false,
+      playedHint: false,
+      fadeAnim: new Animated.Value(1),
     };
+    setInterval(() => {
+      //if onscreen, set on screen
+      if (this.props.screenProps.test.routes[0].index === 5) {
+        this.setState({ onScreen: true });
+        if (!this.state.playedHint) {
+          this.playHint();
+          this.setState({ playedHint: true });
+        }
+      }
+      if (this.props.screenProps.test.routes[0].index !== 5) {
+        this.setState({ onScreen: false, playedHint: false, fadeAnim: new Animated.Value(1) });
+      }
+    }, 100);
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
+  }
+  playHint() {
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
+      {
+        toValue: 0,                   // Animate to opacity: 1 (opaque)
+        duration: 5000,              // Make it take a while
+      },
+    ).start();                        // Starts the animation
   }
   takePicture() {
     const options = {};
@@ -113,6 +140,39 @@ class GiftScreen extends Component {
             />
           </TouchableOpacity>
         </Camera>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            top: 750,
+            left: width / 2 - 150,
+            opacity: this.state.fadeAnim,
+            zIndex: 40,
+          }}
+        >
+          <Image
+            source={arrow}
+            style={{
+              width: 100,
+            }}
+            resizeMode="contain"
+          />
+          <Text
+            style={{
+              position: 'absolute',
+              bottom: 450,
+              width: 200,
+              fontSize: 30,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              backgroundColor: 'rgba(0,0,0,0)',
+              textShadowColor: '#ffffff',
+              textShadowOffset: { width: 1, height: 1 },
+              textShadowRadius: 1,
+            }}
+          >
+            Press here to take a photo!
+          </Text>
+        </Animated.View>
       </View>
     );
   }
