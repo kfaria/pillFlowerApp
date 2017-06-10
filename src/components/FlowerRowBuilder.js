@@ -19,13 +19,13 @@ import React, { Component } from 'react';
 import { View, Animated, TouchableHighlight, PanResponder, Dimensions } from 'react-native';
 import Sound from 'react-native-sound';
 import FlowerPetal from './FlowerPetal';
-// import chime from '../music/chime.mp3';
+import chime from '../music/chime.mp3';
 import sigh from '../music/sigh.wav';
 
 
 
 // First song
-const success = new Sound(sigh, Sound.MAIN_BUNDLE, (error) => {
+const success = new Sound(chime, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
     console.log('failed to load the sound', error);
     return;
@@ -115,7 +115,7 @@ class FlowerRowBuilder extends Component {
         // { translateX: (-150 * this.props.flowersSent / 2) },
         { translateY: ((Dimensions.get('window').height / 3.5)) },
         // { rotateZ: -1 * parseFloat(this.props.angleOffset) },
-        { rotateZ: (5 * parseFloat(this.props.angleOffset)).toString() },        
+        { rotateZ: (5 * parseFloat(this.props.angleOffset)).toString() },
       ],
     });
   }
@@ -141,7 +141,7 @@ class FlowerRowBuilder extends Component {
       const pillAngle = 1 * angle * (180 / Math.PI) * i;
       const pillDelay = 200 * i;
       console.log(xPos + ',' + yPos + ',' + pillAngle.toString() + 'deg'  + pillDelay);
-      
+
       if (this.state.activated === false) {
         const tempString = this.props.rowID;
         this.pillArray.push(
