@@ -39,22 +39,6 @@ class FadeInPart2 extends Component {
       require('./../images/pill-flowers/22.png'),
       require('./../images/pill-flowers/23.png'),
       require('./../images/pill-flowers/24.png'),
-      require('./../images/pill-flowers/25.png'),
-      require('./../images/pill-flowers/26.png'),
-      require('./../images/pill-flowers/27.png'),
-      require('./../images/pill-flowers/28.png'),
-      require('./../images/pill-flowers/29.png'),
-      require('./../images/pill-flowers/30.png'),
-      require('./../images/pill-flowers/31.png'),
-      require('./../images/pill-flowers/32.png'),
-      require('./../images/pill-flowers/33.png'),
-      require('./../images/pill-flowers/34.png'),
-      require('./../images/pill-flowers/35.png'),
-      require('./../images/pill-flowers/36.png'),
-      require('./../images/pill-flowers/37.png'),
-      require('./../images/pill-flowers/38.png'),
-      require('./../images/pill-flowers/39.png'),
-      require('./../images/pill-flowers/40.png'),
     ];
     super(props);
     this.state = {
