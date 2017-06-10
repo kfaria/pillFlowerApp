@@ -35,26 +35,26 @@ class GrowGameScreen extends Component {
     super(props);
 
     // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
-    const panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderGrant: (event, gesture) => {
-        console.log('press');
-      },
-      // onPanResponderMove: (event, gesture) => {},
-      onPanResponderRelease: (event, gesture) => {
-        let count = this.state.touchCount;
-        this.setState({ touchCount: count + 1 });
-        console.log('released');
-        // this.touchResponse();
-      },
-    });
+    // const panResponder = PanResponder.create({
+    //   onStartShouldSetPanResponder: () => true,
+    //   onPanResponderGrant: (event, gesture) => {
+    //     console.log('press');
+    //   },
+    //   // onPanResponderMove: (event, gesture) => {},
+    //   onPanResponderRelease: (event, gesture) => {
+    //     let count = this.state.touchCount;
+    //     this.setState({ touchCount: count + 1 });
+    //     console.log('released');
+    //     // this.touchResponse();
+    //   },
+    // });
     // end of code block for timer.  Add new function outside of constructor touchResponse()
 
     this.state = {
       showTabBar: false,
       navBarButtonOffset: 40,
       reset: false,
-      panResponder,
+      // panResponder,
     };
   }
   componentWillMount() {
@@ -98,7 +98,7 @@ class GrowGameScreen extends Component {
       });
     }
   }
-  
+
   reset() {
     while (flowerBaseArray2.length > 0) {
       flowerBaseArray2.pop();
@@ -111,15 +111,17 @@ class GrowGameScreen extends Component {
     this.props.navigation.dispatch(NavigationActions.back());
   }
 
-  touchResponse() {
-    clearTimeout(timer);
-    timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 5000);
-  }
+  // touchResponse() {
+  //   clearTimeout(timer);
+  //   timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 5000);
+  // }
 
   render() {
     console.log(flowerBaseArray2);
     return (
-      <View style={styles.viewStyle} {...this.state.panResponder.panHandlers}>
+      <View style={styles.viewStyle}
+      // {...this.state.panResponder.panHandlers}
+       >
         <TouchableWithoutFeedback onPress={() => this.reset()}>
         {/*<TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>*/}
           <View style={{ flex: 1, marginTop: 50 }}>

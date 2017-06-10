@@ -39,27 +39,27 @@ class GrowGameScreen extends Component {
     super(props);
 
     // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
-    const panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderGrant: (event, gesture) => {
-        console.log('press');
-      },
-      // onPanResponderMove: (event, gesture) => {},
-      onPanResponderRelease: (event, gesture) => {
-        let count = this.state.touchCount;
-        this.setState({ touchCount: count + 1 });
-        console.log('released');
-        // this.touchResponse();
-      },
-    });
+    // const panResponder = PanResponder.create({
+    //   onStartShouldSetPanResponder: () => true,
+    //   onPanResponderGrant: (event, gesture) => {
+    //     console.log('press');
+    //   },
+    //   // onPanResponderMove: (event, gesture) => {},
+    //   onPanResponderRelease: (event, gesture) => {
+    //     let count = this.state.touchCount;
+    //     this.setState({ touchCount: count + 1 });
+    //     console.log('released');
+    //     // this.touchResponse();
+    //   },
+    // });
     // end of code block for timer.  Add new function outside of constructor touchResponse()
 
     this.state = {
-      panResponder,
+      // panResponder,
       showTabBar: false,
       navBarButtonOffset: 40,
       reset: false,
-      touchCount: 0,
+      // touchCount: 0,
       fadeAnim: new Animated.Value(1),
     };
   }
@@ -114,18 +114,18 @@ class GrowGameScreen extends Component {
     }
   }
 
-  touchResponse() {
-    clearTimeout(timer);
-    timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 5000);
-  }
+  // touchResponse() {
+  //   clearTimeout(timer);
+  //   timer = setTimeout(() => { this.props.navigation.navigate('dream'); }, 5000);
+  // }
 
   render() {
-    console.log(this.state.touchCount);
-    this.touchResponse();
+    // console.log(this.state.touchCount);
+    // this.touchResponse();
     return (
-      <View 
+      <View
         style={styles.viewStyle}
-        {...this.state.panResponder.panHandlers}
+        // {...this.state.panResponder.panHandlers}
       >
         <TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(NavigationActions.back())}>
           <View style={{ flex: 1, marginTop: 50 }}>
