@@ -87,7 +87,7 @@ class PillLibrary extends Component {
     this.setState({ count: 0 });
   }
   render() {
-    console.log(activeFlowerArray);
+    // console.log(activeFlowerArray);
     return (
       <View style={styles.contentContainerStyle}>
         <TouchableOpacity

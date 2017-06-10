@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
+import { View, Animated, Text, Dimensions, StatusBar, TouchableOpacity, Image } from 'react-native';
 import { PillLibrary } from '../components';
-import Toast, { DURATION } from 'react-native-easy-toast';
 import greenBackground from '../images/backgrounds/bkgd green canvas.png';
 import whiteBackground from '../images/backgrounds/bkgd white canvas.png';
 import blackBackground from '../images/backgrounds/bkgd black canvas.png';
@@ -37,26 +36,35 @@ class PlayScreen extends Component {
       backgroundImage: greenBackground,
       onScreen: false,
       playedHint: false,
+      fadeAnim: new Animated.Value(1),
     };
     setInterval(() => {
+      //if onscreen, set on screen
       if (this.props.screenProps.test.routes[0].index === 3) {
         this.setState({ onScreen: true });
+        if (!this.state.playedHint) {
+          this.playHint();
+          this.setState({ playedHint: true });
+        }
       }
       if (this.props.screenProps.test.routes[0].index !== 3) {
-        this.setState({ onScreen: false });
+        this.setState({ onScreen: false, playedHint: false, fadeAnim: new Animated.Value(1) });
       }
-      if (this.state.onScreen && !this.state.playedHint) {
-        this.renderHint();
-      }
-    }, 500);
+    }, 100);
   }
   changeBackground(newImage) {
     this.setState({
       backgroundImage: newImage,
     });
   }
-  renderHint() {
-    this.refs.toast.show('Here\'s a hint', DURATION.LENGTH_LONG);
+  playHint() {
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
+      {
+        toValue: 0,                   // Animate to opacity: 1 (opaque)
+        duration: 12000,              // Make it take a while
+      },
+    ).start();                        // Starts the animation
   }
   render() {
     return (
@@ -64,6 +72,35 @@ class PlayScreen extends Component {
         <Image source={this.state.backgroundImage} style={{ zIndex: -55, width, height }} />
         <StatusBar hidden />
         <PillLibrary />
+        <Animated.View
+          style={{
+            position: 'absolute',
+            top: height / 2 + 50,
+            left: 200,
+            opacity: this.state.fadeAnim,
+            zIndex: -50,
+          }}
+        >
+          <Image
+            source={arrow}
+            style={{
+              width: 100,
+            }}
+            resizeMode="contain"
+          />
+          <Text
+            style={{
+              position: 'relative',
+              bottom: 700,
+              width: 275,
+              fontSize: 30,
+              fontWeight: 'bold',
+              textAlign: 'justify',
+              backgroundColor: 'rgba(0,0,0,0)',
+            }}>
+            Tap Pillflowers in your library to add to the picture, then pinch, tap, and spin them to create your scene!
+          </Text>
+        </Animated.View>
         {/* <PlayFlowerStack imageSource={pic1} bottom={150} left={beginGap} />
         <PlayFlowerStack imageSource={pic2} bottom={150} left={beginGap + spacer} />
         <PlayFlowerStack imageSource={pic3} bottom={150} left={beginGap + (2 * spacer)} />
@@ -90,20 +127,6 @@ class PlayScreen extends Component {
             <Image source={greenBackground} style={styles.imageStyle} />
           </TouchableOpacity>
         </View>
-        <Toast
-          ref="toast"
-          style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 850 }}
-          position='bottom'
-          positionValue={180}
-          fadeInDuration={750}
-          fadeOutDuration={1000}
-          opacity={0.8}
-          textStyle={{
-            color: 'black',
-            fontWeight: 'bold',
-            fontSize: 20,
-          }}
-        />
       </View>
     );
   }
