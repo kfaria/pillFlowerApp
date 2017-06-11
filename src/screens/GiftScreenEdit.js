@@ -64,7 +64,7 @@ class GiftScreenEdit extends Component {
       this.state.fadeAnim,            // The animated value to drive
       {
         toValue: 0,                   // Animate to opacity: 1 (opaque)
-        duration: 10000,              // Make it take a while
+        duration: 12000,              // Make it take a while
       },
     ).start();
   }
@@ -231,8 +231,8 @@ class GiftScreenEdit extends Component {
               textAlign: 'center',
               backgroundColor: 'rgba(0,0,0,0)',
               textShadowColor: '#ffffff',
-              textShadowOffset: { width: 1, height: 1 },
-              textShadowRadius: 1,
+              textShadowOffset: { width: 2, height: 2 },
+              textShadowRadius: 4,
             }}
           >
             Tap pills to place them on the screen, then press gift to send the picture to a friend!

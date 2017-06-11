@@ -165,8 +165,8 @@ class GiftScreen extends Component {
               textAlign: 'center',
               backgroundColor: 'rgba(0,0,0,0)',
               textShadowColor: '#ffffff',
-              textShadowOffset: { width: 1, height: 1 },
-              textShadowRadius: 1,
+              textShadowOffset: { width: 2, height: 2 },
+              textShadowRadius: 12,
             }}
           >
             Press here to take a photo!
