@@ -132,7 +132,7 @@ class GrowGameScreen extends Component {
           style={{
             position: 'absolute',
             top: height / 2 - 70,
-            left: 35,
+            right: 100,
             opacity: this.state.fadeAnim,
             zIndex: -50,
           }}
@@ -142,7 +142,8 @@ class GrowGameScreen extends Component {
             style={{
               width: 100,
               transform: [
-                { rotate: '180' },
+                { rotateX: '180deg' },
+                { rotateY: '180deg' },
               ],
             }}
             resizeMode="contain"
