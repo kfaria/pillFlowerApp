@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, Text, TouchableOpacity, ScrollView, Dimensions, Image } from 'react-native';
-import NavBarButton from '../components/NavBarButton';
-import { PlayFlower } from '../components';
-import pic2 from '../images/pill-flowers/02.png'
-
+import { View, StatusBar, Dimensions, Image, PanResponder } from 'react-native';
 
 const { height, width } = Dimensions.get('window');
 
@@ -14,28 +10,51 @@ const styles = {
   },
 };
 
+let timer = null;
+
 class GatherScreen extends Component {
   constructor(props) {
     super(props);
+    // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
+    const panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: (event, gesture) => {
+        console.log('press');
+      },
+      // onPanResponderMove: (event, gesture) => {},
+      onPanResponderRelease: (event, gesture) => {
+        let count = this.state.touchCount;
+        this.setState({ touchCount: count + 1 });
+        console.log('released');
+        // this.touchResponse();
+      },
+    });
+    // end of code block for timer.  Add new function outside of constructor touchResponse()
     this.state = {
-      timeout: 2000,
+      panResponder,
+      touchCount: 0,
+      onScreen: false,
     };
-    setInterval(() => {
-      // if onscreen, set on screen
-      if (this.props.screenProps.test.routes[0].index === 2) {
-        this.setState({ onScreen: true });
-      } else {
-        this.setState({ onScreen: false });
-      }
-    }, 100);
   }
-  componentWillMount() {
-    this.props.navigation.setParams({ visible: true });
+  touchResponse() {
+    console.log('clearing timer');
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      this.checkCurrentScreen();
+    }, 300000);
   }
-
+  checkCurrentScreen() {
+    if (this.props.screenProps.currentScreen === 'gather') {
+      this.props.navigation.navigate('dream');
+      console.log('naving');
+    }
+  }
   render() {
+    this.touchResponse();
     return (
-      <View style={styles.viewStyle}>
+      <View style={styles.viewStyle}
+        {...this.state.panResponder.panHandlers}
+      >
         <StatusBar hidden />
         <Image
           style={{ height, width }} source={require('../images/gatherPlaceholder.png')}

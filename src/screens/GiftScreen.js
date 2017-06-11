@@ -3,11 +3,11 @@ import {
   View,
   StatusBar,
   Text,
-  CameraRoll,
   Image,
   TouchableOpacity,
   Dimensions,
   Animated,
+  PanResponder,
 } from 'react-native';
 import Camera from 'react-native-camera';
 import arrow from '../images/arrow.png';
@@ -49,6 +49,8 @@ const styles = {
   },
 };
 
+let timer = null;
+
 class GiftScreen extends Component {
   constructor(props) {
     super(props);
@@ -60,20 +62,17 @@ class GiftScreen extends Component {
     };
     setInterval(() => {
       //if onscreen, set on screen
-      if (this.props.screenProps.test.routes[0].index === 5) {
+      if (this.props.screenProps.currentScreen === 'gift') {
         this.setState({ onScreen: true });
         if (!this.state.playedHint) {
           this.playHint();
           this.setState({ playedHint: true });
         }
       }
-      if (this.props.screenProps.test.routes[0].index !== 5) {
+      if (this.props.screenProps.currentScreen !== 'gift') {
         this.setState({ onScreen: false, playedHint: false, fadeAnim: new Animated.Value(1) });
       }
     }, 100);
-  }
-  componentWillMount() {
-    this.props.navigation.setParams({ visible: true });
   }
   playHint() {
     Animated.timing(                  // Animate over time

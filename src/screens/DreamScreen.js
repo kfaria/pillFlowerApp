@@ -94,7 +94,7 @@ class DreamScreen extends Component {
       startedLondonBlues: false,
     };
     setInterval(() => {
-      if (this.props.screenProps.test.routes[0].index !== 4) {
+      if (this.props.screenProps.currentScreen !== 'dream') {
         Arabella.stop();
         Christalline.stop();
         Bella.stop();
@@ -107,7 +107,7 @@ class DreamScreen extends Component {
         });
       }
       // if test is true on this interval, then we just got here. So we start playing it, but then set arrived to false so it doesn't start it every loop.
-      if (this.props.screenProps.test.routes[0].index === 4 && !this.state.startedLondonBlues) {
+      if (this.props.screenProps.currentScreen === 'dream' && !this.state.startedLondonBlues) {
         this.setState({
           startedLondonBlues: true,
         });

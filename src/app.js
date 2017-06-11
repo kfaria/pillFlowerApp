@@ -74,6 +74,7 @@ const TabNav = TabNavigator({
     upperCaseLabel: false,
   },
   animationEnabled: true,
+  swipeEnabled: false,
 });
 
 const AppNavigator = StackNavigator({
@@ -132,12 +133,12 @@ class App extends Component {
         onNavigationStateChange={(prevState, currentState) => {
           const currentScreen = getCurrentRouteName(currentState);
           const prevScreen = getCurrentRouteName(prevState);
-          this.setState({ herp: currentState });
+          this.setState({ herp: currentState, currentScreen });
           console.log(currentScreen);
           console.log(prevScreen);
         }
         }
-        screenProps={{ test: this.state.herp }}
+        screenProps={{ test: this.state.herp, currentScreen: this.state.currentScreen }}
       />
     );
   }
