@@ -61,7 +61,7 @@ class GrowScreen extends Component {
     clearTimeout(timer);
     timer = setTimeout(() => {
       this.checkCurrentScreen();
-    }, 300000);
+    }, 120000);
   }
   checkCurrentScreen() {
     if (this.props.screenProps.currentScreen === 'grow') {

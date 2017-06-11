@@ -141,6 +141,9 @@ class GrowGameScreen extends Component {
             source={arrow}
             style={{
               width: 100,
+              transform: [
+                { rotate: '180' },
+              ],
             }}
             resizeMode="contain"
           />
