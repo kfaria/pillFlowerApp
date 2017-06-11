@@ -97,6 +97,9 @@ class PlayScreen extends Component {
               fontWeight: 'bold',
               textAlign: 'justify',
               backgroundColor: 'rgba(0,0,0,0)',
+              textShadowColor: '#ffffff',
+              textShadowOffset: { width: 2, height: 2 },
+              textShadowRadius: 12,
             }}>
             Tap Pillflowers in your library to add to the picture, then pinch, tap, and spin them to create your scene!
           </Text>
