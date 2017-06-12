@@ -65,7 +65,7 @@ class GrowScreen extends Component {
   }
   checkCurrentScreen() {
     if (this.props.screenProps.currentScreen === 'grow') {
-      this.props.navigation.navigate('dream');
+      this.props.navigation.navigate('home');
       console.log('naving');
     }
   }

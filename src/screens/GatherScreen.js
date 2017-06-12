@@ -45,7 +45,7 @@ class GatherScreen extends Component {
   }
   checkCurrentScreen() {
     if (this.props.screenProps.currentScreen === 'gather') {
-      this.props.navigation.navigate('dream');
+      this.props.navigation.navigate('home');
       console.log('naving');
     }
   }
