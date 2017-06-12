@@ -78,7 +78,7 @@ class HomeScreen extends Component {
   }
   checkCurrentScreen() {
     if (this.props.screenProps.currentScreen === 'home') {
-      this.props.navigation.navigate('dream');
+      this.props.navigation.navigate('home');
       console.log('naving');
     }
   }
