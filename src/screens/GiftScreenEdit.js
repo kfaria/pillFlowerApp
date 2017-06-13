@@ -101,7 +101,7 @@ class GiftScreenEdit extends Component {
             'com.apple.UIKit.activity.SaveToCameraRoll',
           ],
         },
-      );
+      ).then(() => this.props.navigation.dispatch(NavigationActions.back()));
       },
       error => console.error("Oops, snapshot failed", error)
     );
