@@ -208,23 +208,28 @@ class GiftScreenEdit extends Component {
         <Animated.View
           style={{
             position: 'absolute',
-            top: height / 2 + 100,
+            bottom: -50,
             left: 110,
             opacity: this.state.fadeAnim,
             zIndex: 40,
+            borderWidth: 2,
+            borderColor: 'red',
           }}
         >
           <Image
             source={arrow}
             style={{
               width: 100,
+              height: 200,
+              position: 'absolute',
+              bottom: 200,
             }}
             resizeMode="contain"
           />
           <Text
             style={{
               position: 'absolute',
-              bottom: 500,
+              bottom: 400,
               width: 200,
               fontSize: 30,
               fontWeight: 'bold',
