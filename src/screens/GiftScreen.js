@@ -12,7 +12,7 @@ import {
 import Camera from 'react-native-camera';
 import arrow from '../images/arrow.png';
 
-const { width, height } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window');
 
 const styles = {
   viewStyle: {
@@ -73,6 +73,7 @@ class GiftScreen extends Component {
         this.setState({ onScreen: false, playedHint: false, fadeAnim: new Animated.Value(1) });
       }
     }, 100);
+    this.takePicture = this.takePicture.bind(this);
   }
   playHint() {
     Animated.timing(                  // Animate over time
@@ -129,9 +130,7 @@ class GiftScreen extends Component {
           type={Camera.constants.Type.front}
         >
           <TouchableOpacity
-            onPress={() => {
-              this.takePicture();
-            }}
+            onPress={this.takePicture}
             style={{ width: 50, height: 50, position: 'absolute', zIndex: 100, bottom: 50 }}
           >
             <View

@@ -4,6 +4,18 @@ import { TabBarTop } from 'react-navigation';
 
 const TAB_BAR_OFFSET = -700;
 
+const styles = {
+  container: {
+    overflow: 'hidden',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#777',
+    elevation: 8,
+  },
+};
+
 export default class TabBar extends Component {
   constructor(props) {
     super(props);
@@ -32,21 +44,10 @@ export default class TabBar extends Component {
 
   render() {
     // console.log(styles.container);
+    // { top: -1*Dimensions.get('window').height }
     return (
-      <TabBarTop {...this.props} style={[styles.container, { top: -1*Dimensions.get('window').height }]} />
+      <TabBarTop {...this.props} style={[styles.container]} />
       // null
     );
   }
 }
-
-const styles = {
-  container: {
-    overflow: 'hidden',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#777',
-    elevation: 8,
-  },
-};

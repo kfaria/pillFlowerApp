@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Image, Animated } from 'react-native';
+import { Image, Animated, Dimensions } from 'react-native';
 
-const styles={
+const { width, height } = Dimensions.get('window');
+
+const styles = {
   imageStyle: {
-    width: 800,
-    height: 800,
+    width: (5 * width) / 6,
+    height: (5 * width) / 6,
     position: 'absolute',
     bottom: 0,
   },
@@ -15,55 +17,30 @@ class FadeInPart2 extends Component {
   constructor(props) {
     // Use an array of even length
     const imageArray = [
-      require('./../images/pill-flowers/01.png'),
       require('./../images/pill-flowers/02.png'),
-      require('./../images/pill-flowers/03.png'),
       require('./../images/pill-flowers/04.png'),
-      require('./../images/pill-flowers/05.png'),
       require('./../images/pill-flowers/06.png'),
-      require('./../images/pill-flowers/07.png'),
       require('./../images/pill-flowers/08.png'),
-      require('./../images/pill-flowers/09.png'),
       require('./../images/pill-flowers/10.png'),
-      require('./../images/pill-flowers/11.png'),
       require('./../images/pill-flowers/12.png'),
-      require('./../images/pill-flowers/13.png'),
       require('./../images/pill-flowers/14.png'),
-      require('./../images/pill-flowers/15.png'),
       require('./../images/pill-flowers/16.png'),
-      require('./../images/pill-flowers/17.png'),
       require('./../images/pill-flowers/18.png'),
-      require('./../images/pill-flowers/19.png'),
       require('./../images/pill-flowers/20.png'),
-      require('./../images/pill-flowers/21.png'),
       require('./../images/pill-flowers/22.png'),
-      require('./../images/pill-flowers/23.png'),
       require('./../images/pill-flowers/24.png'),
-      require('./../images/pill-flowers/25.png'),
       require('./../images/pill-flowers/26.png'),
-      require('./../images/pill-flowers/27.png'),
       require('./../images/pill-flowers/28.png'),
-      require('./../images/pill-flowers/29.png'),
       require('./../images/pill-flowers/30.png'),
-      require('./../images/pill-flowers/31.png'),
       require('./../images/pill-flowers/32.png'),
-      require('./../images/pill-flowers/33.png'),
       require('./../images/pill-flowers/34.png'),
-      require('./../images/pill-flowers/35.png'),
       require('./../images/pill-flowers/36.png'),
-      require('./../images/pill-flowers/37.png'),
       require('./../images/pill-flowers/38.png'),
-      require('./../images/pill-flowers/39.png'),
       require('./../images/pill-flowers/40.png'),
-      require('./../images/pill-flowers/41.png'),
       require('./../images/pill-flowers/42.png'),
-      require('./../images/pill-flowers/43.png'),
       require('./../images/pill-flowers/44.png'),
-      require('./../images/pill-flowers/45.png'),
       require('./../images/pill-flowers/46.png'),
-      require('./../images/pill-flowers/47.png'),
       require('./../images/pill-flowers/48.png'),
-      require('./../images/pill-flowers/49.png'),
       require('./../images/pill-flowers/50.png'),
     ];
     super(props);
@@ -84,7 +61,7 @@ class FadeInPart2 extends Component {
             duration: 2000,
           },
         ).start();
-        this.setState({ currentIndex: this.state.currentIndex += 2 });
+        this.setState({ currentIndex: this.state.currentIndex += 1 });
       // If the image is in the back, fade it in
       } else {
         this.setState({ currentImage: imageArray[this.state.currentIndex], inFront: true });

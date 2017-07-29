@@ -8,7 +8,7 @@ const Pop = new Sound(PopSound, Sound.MAIN_BUNDLE, (error) => {
     console.log('failed to load the sound', error);
     return;
   }
-  console.log('should be working');
+  // console.log('should be working');
 });
 
 const styles = {
@@ -67,16 +67,16 @@ class PlayFlower extends Component {
             (zoomRatio * currentScale) * this.props.width > this.props.minSize) {
               if (zoomRatio >= 1) {
                 console.log("scaling up");
-                this.setState({ test: [{ scale: (currentScale + 0.025) }, { rotateZ: newRotation }] });                   
+                this.setState({ test: [{ scale: (currentScale + 0.025) }, { rotateZ: newRotation }] });
               }
               if (zoomRatio < 1) {
                 console.log('scaling down');
-                this.setState({ test: [{ scale: (currentScale - 0.025) }, { rotateZ: newRotation }] });                
+                this.setState({ test: [{ scale: (currentScale - 0.025) }, { rotateZ: newRotation }] });
               }
             // this.setState({ test: [{ scale: (zoomRatio * currentScale) }, { rotateZ: newRotation }] });
             this.pinchDistance = pinchDistance2;
             this.setState({ prevScale: zoomRatio });
-            // console.log("else" + zoomRatio);    
+            // console.log("else" + zoomRatio);
           } else {
             // this.spring();
             // zoomRatio = this.state.prevScale;
@@ -85,7 +85,7 @@ class PlayFlower extends Component {
           }
           // this.setState({ test: [{ scale: zoomRatio }] });
         }
-        
+
       },
       onPanResponderRelease: (event, gesture) => {
         this.setState({ prevScale: this.state.scale });

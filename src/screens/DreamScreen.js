@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Animated, StatusBar } from 'react-native';
+import { View, Animated, StatusBar, Dimensions } from 'react-native';
 import Sound from 'react-native-sound';
 import Toast, { DURATION } from 'react-native-easy-toast';
-import { Button, SoundPanel, OverlappingFade, MusicButton } from '../components/';
+import { SoundPanel, OverlappingFade, MusicButton } from '../components/';
 import ArabellaFile from '../music/Arabella.mp3';
 import ChristallineFile from '../music/Christalline.mp3';
 import BellaFile from '../music/Bella.mp3';
@@ -10,10 +10,12 @@ import DarkBarkFile from '../music/DarkBark.mp3';
 import LondonBluesFile from '../music/LondonBlues.mp3';
 import DarksideFile from '../music/Darkside.mp3';
 
+const musicButton = require('../images/musicButton.png');
+
 const styles = {
   viewStyle: {
     backgroundColor: '#000',
-    marginTop: 20,
+    // marginTop: 20,
     justifyContent: 'space-around',
     flex: 1,
   },
@@ -281,6 +283,12 @@ class DreamScreen extends Component {
           });
       }
     }, 570);
+    this.musicToggle1 = this.musicToggle.bind(this, LondonBlues, 1, 'LondonBlues');
+    this.musicToggle2 = this.musicToggle.bind(this, Christalline, 2, 'Christalline');
+    this.musicToggle3 = this.musicToggle.bind(this, Bella, 3, 'Bella');
+    this.musicToggle4 = this.musicToggle.bind(this, DarkBark, 4, ' Dark Bark');
+    this.musicToggle5 = this.musicToggle.bind(this, Arabella, 5, '  Arabella');
+    this.musicToggle6 = this.musicToggle.bind(this, Darkside, 6, '  Darkside');
   }
   // If a track other than the selected button is pressed, stop it and play the new one
   // Called each time a music button is pressed
@@ -343,7 +351,7 @@ class DreamScreen extends Component {
             ref="toast"
             style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 850 }}
             position='bottom'
-            positionValue={180}
+            positionValue={165}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -360,7 +368,7 @@ class DreamScreen extends Component {
             ref="toast"
             style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 510 }}
             position='bottom'
-            positionValue={180}
+            positionValue={165}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -377,7 +385,7 @@ class DreamScreen extends Component {
             ref="toast"
             style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginRight: 170 }}
             position='bottom'
-            positionValue={180}
+            positionValue={165}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -394,7 +402,7 @@ class DreamScreen extends Component {
             ref="toast"
             style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 170 }}
             position='bottom'
-            positionValue={180}
+            positionValue={165}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -411,7 +419,7 @@ class DreamScreen extends Component {
             ref="toast"
             style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 510 }}
             position='bottom'
-            positionValue={180}
+            positionValue={165}
             fadeInDuration={750}
             fadeOutDuration={1000}
             opacity={0.8}
@@ -428,7 +436,7 @@ class DreamScreen extends Component {
             ref="toast"
             style={{ backgroundColor: 'rgba(0,0,0,0)', height: 75, width: 200, alignItems: 'center', marginLeft: 850 }}
             position='bottom'
-            positionValue={180}
+            positionValue={165}
             fadeInDuration={750}
             fadeOutDuration={1}
             opacity={0.8}
@@ -457,38 +465,38 @@ class DreamScreen extends Component {
         <SoundPanel>
           <Animated.View style={{ opacity: this.state.opacityButtonOne }}>
             <MusicButton
-              onPress={() => this.musicToggle(LondonBlues, 1, 'London Blues')}
-              source={require('../images/musicButton.png')}
+              onPress={this.musicToggle1}
+              source={musicButton}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonTwo }}>
             <MusicButton
-              onPress={() => this.musicToggle(Christalline, 2, 'Christalline')}
-              source={require('../images/musicButton.png')}
+              onPress={this.musicToggle2}
+              source={musicButton}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonThree }}>
             <MusicButton
-              onPress={() => this.musicToggle(Bella, 3, 'Bella')}
-              source={require('../images/musicButton.png')}
+              onPress={this.musicToggle3}
+              source={musicButton}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFour }}>
             <MusicButton
-              onPress={() => this.musicToggle(DarkBark, 4, ' Dark Bark')}
-              source={require('../images/musicButton.png')}
+              onPress={this.musicToggle4}
+              source={musicButton}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonFive }}>
             <MusicButton
-              onPress={() => this.musicToggle(Arabella, 5, '  Arabella')}
-              source={require('../images/musicButton.png')}
+              onPress={this.musicToggle5}
+              source={musicButton}
             />
           </Animated.View>
           <Animated.View style={{ opacity: this.state.opacityButtonSix }}>
             <MusicButton
-              onPress={() => this.musicToggle(Darkside, 6, '  Darkside')}
-              source={require('../images/musicButton.png')}
+              onPress={this.musicToggle6}
+              source={musicButton}
             />
           </Animated.View>
         </SoundPanel>
