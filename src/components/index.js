@@ -13,3 +13,5 @@ export * from './FlowerBase1';
 export * from './PillLibrary';
 export * from './PlayFlowerStack';
 export * from './MusicButton';
+export * from './AnimPillFlower';
+export * from './HomeScreenAnimation';

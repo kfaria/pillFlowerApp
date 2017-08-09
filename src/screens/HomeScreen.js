@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, Image, TouchableOpacity, PanResponder } from 'react-native';
-import Video from 'react-native-video';
-import bgvid from '../images/background.mp4';
+import { View, Text, Image, TouchableOpacity, PanResponder, Dimensions } from 'react-native';
+import { HomeScreenAnimation } from '../components/HomeScreenAnimation';
 
 const { height, width } = Dimensions.get('window');
 
 const styles = {
   viewStyle: {
-    flex: 1 ,
+    flex: 1,
     backgroundColor: 'white',
     borderWidth: 50,
     borderColor: 'black',
@@ -67,7 +66,7 @@ class HomeScreen extends Component {
       panResponder,
       touchCount: 0,
       onScreen: false,
-    }
+    };
   }
   touchResponse() {
     console.log('clearing timer');
@@ -86,7 +85,8 @@ class HomeScreen extends Component {
     this.touchResponse();
     return (
       <View style={styles.viewStyle} {...this.state.panResponder.panHandlers}>
-        <Video
+        <HomeScreenAnimation />
+        {/* <Video
           source={bgvid}   // Can be a URL or a local file.
           ref={(ref) => {
             this.player = ref
@@ -109,7 +109,7 @@ class HomeScreen extends Component {
           onBuffer={this.onBuffer}                // Callback when remote video is buffering
           onTimedMetadata={this.onTimedMetadata}  // Callback when the stream receive some metadata
           style={styles.backgroundVideo}
-      />
+      /> */}
         <Image source={require('../images/flowerButtonTransparent.png')} style={styles.imageStyle} />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('grow')}>
           <Text style={styles.textStyle}>
