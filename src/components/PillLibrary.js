@@ -54,6 +54,27 @@ class PillLibrary extends Component {
     this.state = {
       count: 0,
     };
+    this.resetFlowers = this.resetFlowers.bind(this);
+    this.addFlower1 = this.addFlower.bind(this, pic1);
+    this.addFlower2 = this.addFlower.bind(this, pic2);
+    this.addFlower3 = this.addFlower.bind(this, pic3);
+    this.addFlower4 = this.addFlower.bind(this, pic4);
+    this.addFlower5 = this.addFlower.bind(this, pic5);
+    this.addFlower6 = this.addFlower.bind(this, pic6);
+    this.addFlower7 = this.addFlower.bind(this, pic7);
+    this.addFlower8 = this.addFlower.bind(this, pic8);
+    this.addFlower9 = this.addFlower.bind(this, pic9);
+    this.addFlower10 = this.addFlower.bind(this, pic10);
+    this.addFlower11 = this.addFlower.bind(this, pic11);
+    this.addFlower12 = this.addFlower.bind(this, pic12);
+    this.addFlower13 = this.addFlower.bind(this, pic13);
+    this.addFlower14 = this.addFlower.bind(this, pic14);
+    this.addFlower15 = this.addFlower.bind(this, pic15);
+    this.addFlower16 = this.addFlower.bind(this, pic16);
+    this.addFlower17 = this.addFlower.bind(this, pic17);
+    this.addFlower18 = this.addFlower.bind(this, pic18);
+    this.addFlower19 = this.addFlower.bind(this, pic19);
+    this.addFlower20 = this.addFlower.bind(this, pic20);
   }
   componentWillMount() {
     this.resetFlowers();
@@ -94,7 +115,7 @@ class PillLibrary extends Component {
     return (
       <View style={styles.contentContainerStyle}>
         <TouchableOpacity
-          onPress={() => this.resetFlowers()}
+          onPress={this.resetFlowers}
         >
           {/* <Text style={{ margin: 50, fontSize: 50 }}>
             RESET
@@ -112,121 +133,121 @@ class PillLibrary extends Component {
           contentContainerStyle={styles.scrollViewContainerStyle}
           style={styles.scrollViewStyle}
         >
-          <TouchableOpacity onPress={() => this.addFlower(pic1)}>
+          <TouchableOpacity onPress={this.addFlower1}>
             <Image
               source={pic1}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic2)}>
+          <TouchableOpacity onPress={this.addFlower2}>
             <Image
               source={pic2}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic3)}>
+          <TouchableOpacity onPress={this.addFlower3}>
             <Image
               source={pic3}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic4)}>
+          <TouchableOpacity onPress={this.addFlower4}>
             <Image
               source={pic4}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic5)}>
+          <TouchableOpacity onPress={this.addFlower5}>
             <Image
               source={pic5}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic6)}>
+          <TouchableOpacity onPress={this.addFlower6}>
             <Image
               source={pic6}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic7)}>
+          <TouchableOpacity onPress={this.addFlower7}>
             <Image
               source={pic7}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic8)}>
+          <TouchableOpacity onPress={this.addFlower8}>
             <Image
               source={pic8}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic9)}>
+          <TouchableOpacity onPress={this.addFlower9}>
             <Image
               source={pic9}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic10)}>
+          <TouchableOpacity onPress={this.addFlower10}>
             <Image
               source={pic10}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic11)}>
+          <TouchableOpacity onPress={this.addFlower11}>
             <Image
               source={pic11}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic12)}>
+          <TouchableOpacity onPress={this.addFlower12}>
             <Image
               source={pic12}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic13)}>
+          <TouchableOpacity onPress={this.addFlower13}>
             <Image
               source={pic13}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic14)}>
+          <TouchableOpacity onPress={this.addFlower14}>
             <Image
               source={pic14}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic15)}>
+          <TouchableOpacity onPress={this.addFlower15}>
             <Image
               source={pic15}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic16)}>
+          <TouchableOpacity onPress={this.addFlower16}>
             <Image
               source={pic16}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic17)}>
+          <TouchableOpacity onPress={this.addFlower17}>
             <Image
               source={pic17}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic18)}>
+          <TouchableOpacity onPress={this.addFlower18}>
             <Image
               source={pic18}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic19)}>
+          <TouchableOpacity onPress={this.addFlower19}>
             <Image
               source={pic19}
               style={styles.imageStyle}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.addFlower(pic20)}>
+          <TouchableOpacity onPress={this.addFlower20}>
             <Image
               source={pic20}
               style={styles.imageStyle}

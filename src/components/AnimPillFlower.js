@@ -19,7 +19,7 @@ class AnimPillFlower extends Component {
       {
         toValue: 1,
         duration: 1,
-        delay: 0,
+        delay: this.props.delay,
       }).start(() => {
         Animated.timing(this.state.opacityValue,
           {

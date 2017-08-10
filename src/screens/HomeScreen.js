@@ -8,8 +8,6 @@ const styles = {
   viewStyle: {
     flex: 1,
     backgroundColor: 'white',
-    borderWidth: 50,
-    borderColor: 'black',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
@@ -110,7 +108,7 @@ class HomeScreen extends Component {
           onTimedMetadata={this.onTimedMetadata}  // Callback when the stream receive some metadata
           style={styles.backgroundVideo}
       /> */}
-        <Image source={require('../images/flowerButtonTransparent.png')} style={styles.imageStyle} />
+        <Image source={require('../images/flowerButtonTransparent.png')} style={[styles.imageStyle, { marginTop: (width > 1000) ? 25 : 0 }]} />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('grow')}>
           <Text style={styles.textStyle}>
             grow
