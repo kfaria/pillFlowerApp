@@ -20,14 +20,15 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0)',
   },
   imageStyle: {
+    marginTop: 40,
     width: 80,
     height: 85,
   },
   infoImageStyle: {
     flex: 0,
     position: 'absolute',
-    bottom: 10,
-    left: 350,
+    bottom: 30,
+    left: 250,
     width: 50,
     height: 50,
   },
@@ -44,6 +45,7 @@ let timer = null;
 
 class HomeScreen extends Component {
   constructor(props) {
+    console.log('height: ' + height + ' width: ' + width);
     super(props);
     // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
     const panResponder = PanResponder.create({
@@ -84,31 +86,7 @@ class HomeScreen extends Component {
     return (
       <View style={styles.viewStyle} {...this.state.panResponder.panHandlers}>
         <HomeScreenAnimation />
-        {/* <Video
-          source={bgvid}   // Can be a URL or a local file.
-          ref={(ref) => {
-            this.player = ref
-          }}                                      // Store reference
-          rate={1.0}                              // 0 is paused, 1 is normal.
-          volume={1.0}                            // 0 is muted, 1 is normal.
-          muted={false}                           // Mutes the audio entirely.
-          paused={false}                          // Pauses playback entirely.
-          resizeMode="cover"                      // Fill the whole screen at aspect ratio.*
-          repeat                                  // Repeat forever.
-          playInBackground={false}                // Audio continues to play when app entering background.
-          playWhenInactive={true}                // [iOS] Video continues to play when control or notification center are shown.
-          ignoreSilentSwitch={"ignore"}           // [iOS] ignore | obey - When 'ignore', audio will still play with the iOS hard silent switch set to silent. When 'obey', audio will toggle with the switch. When not specified, will inherit audio settings as usual.
-          progressUpdateInterval={250.0}          // [iOS] Interval to fire onProgress (default to ~250ms)
-          onLoadStart={this.loadStart}            // Callback when video starts to load
-          onLoad={this.setDuration}               // Callback when video loads
-          onProgress={this.setTime}               // Callback every ~250ms with currentTime
-          onEnd={this.onEnd}                      // Callback when playback finishes
-          onError={this.videoError}               // Callback when video cannot be loaded
-          onBuffer={this.onBuffer}                // Callback when remote video is buffering
-          onTimedMetadata={this.onTimedMetadata}  // Callback when the stream receive some metadata
-          style={styles.backgroundVideo}
-      /> */}
-        <Image source={require('../images/flowerButtonTransparent.png')} style={[styles.imageStyle, { marginTop: (width > 1000) ? 25 : 0 }]} />
+        <Image source={require('../images/flowerButtonTransparent.png')} style={styles.imageStyle} />
         <TouchableOpacity onPress={() => this.props.navigation.navigate('grow')}>
           <Text style={styles.textStyle}>
             grow

@@ -11,7 +11,6 @@ import bgPill7 from '../images/pill-flowers/30.png';
 
 const { height, width } = Dimensions.get('window');
 
-const frequency = 26000;
 const styles = {
   containerStyle: {
     height,
@@ -19,24 +18,23 @@ const styles = {
     position: 'absolute',
     top: 0,
     left: 0,
-    borderWidth: (width > 1000) ? 50 : 10,
     borderColor: 'black',
   },
 };
 
+const frequency = 26000;
+
 function HomeScreenAnimation() {
-  console.log('height: ' + height);
-  console.log('width: ' + width);
   return (
-    <View style={styles.containerStyle}>
+    <View style={[styles.containerStyle, { borderWidth: 40 }]}>
       <AnimPillFlower
         image={bgPill1} // The image file
         fadeDuration={6000} // Time (ms) that the PF fades for
         delay={1000} // Time (ms) before appearing on screen
         fadeDelay={2000} // Time (ms) that the PF stays on screen before starting fade
-        topSpacing={height / 3.5} // Spacing from the top (float)
-        leftSpacing={-width / 5} // Spacing from the left side (float)
-        size={width / 2} // Size of the PF (float)
+        topSpacing={height / 3.5} // Spacing from the top.
+        leftSpacing={-(width / 5)} // Spacing from the left side.
+        size={width / 2} // Size of the PF.
         frequency={frequency} // Time (ms) for the overal length of the loop (above)
       />
       <AnimPillFlower
