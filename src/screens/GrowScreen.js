@@ -36,13 +36,13 @@ class GrowScreen extends Component {
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event, gesture) => {
-        console.log('press');
+        // console.log('press');
       },
       // onPanResponderMove: (event, gesture) => {},
       onPanResponderRelease: (event, gesture) => {
         let count = this.state.touchCount;
         this.setState({ touchCount: count + 1 });
-        console.log('released');
+        // console.log('released');
         // this.touchResponse();
       },
     });
@@ -57,7 +57,7 @@ class GrowScreen extends Component {
     };
   }
   touchResponse() {
-    console.log('clearing timer');
+    // console.log('clearing timer');
     clearTimeout(timer);
     timer = setTimeout(() => {
       this.checkCurrentScreen();
@@ -66,7 +66,7 @@ class GrowScreen extends Component {
   checkCurrentScreen() {
     if (this.props.screenProps.currentScreen === 'grow') {
       this.props.navigation.navigate('home');
-      console.log('naving');
+      // console.log('naving');
     }
   }
 

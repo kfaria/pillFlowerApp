@@ -59,7 +59,7 @@ class GrowGameScreen extends Component {
   }
   componentWillMount() {
     this.props.navigation.setParams({ visible: true });
-    console.log(flowerBaseArray2);
+    // console.log(flowerBaseArray2);
     flowerBaseArray2.push(
       <FlowerBase1
         key={outline2}
@@ -77,7 +77,7 @@ class GrowGameScreen extends Component {
   }
 
   componentWillUnmount() {
-    console.log("unmounted");
+    // console.log("unmounted");
     while (flowerBaseArray2.length > 0) {
       flowerBaseArray2 = [];
     }
@@ -117,7 +117,7 @@ class GrowGameScreen extends Component {
   // }
 
   render() {
-    console.log(flowerBaseArray2);
+    // console.log(flowerBaseArray2);
     return (
       <View style={styles.viewStyle}
       // {...this.state.panResponder.panHandlers}

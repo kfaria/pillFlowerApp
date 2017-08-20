@@ -73,12 +73,12 @@ class GrowGameScreen extends Component {
     ).start();
   }
   componentWillUnmount() {
-    console.log("unmounted");
+    // console.log("unmounted");
     while (flowerBaseArray.length > 0) {
       flowerBaseArray.pop();
     }
     this.setState({ reset: true });
-    console.log(flowerBaseArray);
+    // console.log(flowerBaseArray);
   }
   toggleTabBar() {
     this.setState({

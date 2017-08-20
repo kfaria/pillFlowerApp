@@ -69,7 +69,7 @@ class GiftScreenEdit extends Component {
     ).start();
   }
   getPhotos() {
-    console.log('GETTING PHOTOS');
+    // console.log('GETTING PHOTOS');
     CameraRoll.getPhotos({
       first: 1,
       assetType: 'All',
@@ -84,7 +84,7 @@ class GiftScreenEdit extends Component {
     })
     .then(
       uri => {
-        console.log("Image saved to", uri);
+        // console.log("Image saved to", uri);
         Share.share({
           message: 'Here\'s a pillflower! Disclaimer: Sent pictures may be posted to the Pillflower instagram account.',
           url: uri,

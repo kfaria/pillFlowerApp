@@ -30,55 +30,55 @@ Sound.setCategory('Playback');
 // First song
 const Arabella = new Sound(ArabellaFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
-    console.log('failed to load the sound', error);
+    // console.log('failed to load the sound', error);
     return;
   }
-  console.log('should be working');
+  // console.log('should be working');
 });
 
 // Second song
 const Christalline = new Sound(ChristallineFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
-    console.log('failed to load the sound', error);
+    // console.log('failed to load the sound', error);
     return;
   }
-  console.log('should be working');
+  // console.log('should be working');
 });
 
 // Third song
 const Bella = new Sound(BellaFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
-    console.log('failed to load the sound', error);
+    // console.log('failed to load the sound', error);
     return;
   }
-  console.log('should be working');
+  // console.log('should be working');
 });
 
 // Fourth song
 const DarkBark = new Sound(DarkBarkFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
-    console.log('failed to load the sound', error);
+    // console.log('failed to load the sound', error);
     return;
   }
-  console.log('should be working');
+  // console.log('should be working');
 });
 
 // Fifth song
 const LondonBlues = new Sound(LondonBluesFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
-    console.log('failed to load the sound', error);
+    // console.log('failed to load the sound', error);
     return;
   }
-  console.log('should be working');
+  // console.log('should be working');
 });
 
 // Sixth song
 const Darkside = new Sound(DarksideFile, Sound.MAIN_BUNDLE, (error) => {
   if (error) {
-    console.log('failed to load the sound', error);
+    // console.log('failed to load the sound', error);
     return;
   }
-  console.log('should be working');
+  // console.log('should be working');
 });
 
 class DreamScreen extends Component {
@@ -315,7 +315,7 @@ class DreamScreen extends Component {
       musicToBePlayed.play();
       this.setState({ currentTrack: trackNumberToBePlayed });
     } else {
-      console.log('somethings wrong');
+      // console.log('somethings wrong');
     }
   }
   renderToast() {

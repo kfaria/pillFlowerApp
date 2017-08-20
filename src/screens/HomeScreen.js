@@ -45,19 +45,18 @@ let timer = null;
 
 class HomeScreen extends Component {
   constructor(props) {
-    console.log('height: ' + height + ' width: ' + width);
     super(props);
     // Code block for timer within constructor. Add panResponder in state. wire it up in the parent view under the render
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event, gesture) => {
-        console.log('press');
+        // console.log('press');
       },
       // onPanResponderMove: (event, gesture) => {},
       onPanResponderRelease: (event, gesture) => {
         let count = this.state.touchCount;
         this.setState({ touchCount: count + 1 });
-        console.log('released');
+        // console.log('released');
         // this.touchResponse();
       },
     });
@@ -69,7 +68,7 @@ class HomeScreen extends Component {
     };
   }
   touchResponse() {
-    console.log('clearing timer');
+    // console.log('clearing timer');
     clearTimeout(timer);
     timer = setTimeout(() => {
       this.checkCurrentScreen();
@@ -78,7 +77,7 @@ class HomeScreen extends Component {
   checkCurrentScreen() {
     if (this.props.screenProps.currentScreen === 'home') {
       this.props.navigation.navigate('home');
-      console.log('naving');
+      // console.log('naving');
     }
   }
   render() {
