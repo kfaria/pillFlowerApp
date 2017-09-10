@@ -27,7 +27,7 @@ const styles = {
   },
 };
 
-const MusicButton = ({ onPress, children, source }) => {
+const MusicButton = ({ onPress, source }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <Image source={source} style={styles.imageStyle} />

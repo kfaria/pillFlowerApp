@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { View, Image, Animated } from 'react-native';
+import Sound from 'react-native-sound';
+import soundFile from '../music/pop1.wav';
 
 // Props: source, fadeDuration, delay, topSpacing, leftSpacing, size, frequency, id
+
 
 class AnimPillFlower extends Component {
   constructor(props) {
     super(props);
+    const sound = new Sound(props.sound, Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+      // console.log('should be working');
+    });
     this.state = {
       opacityValue: new Animated.Value(0),
     };
@@ -21,6 +31,7 @@ class AnimPillFlower extends Component {
         duration: 1,
         delay: this.props.delay,
       }).start(() => {
+        // this.sound.play();
         Animated.timing(this.state.opacityValue,
           {
             toValue: 0,

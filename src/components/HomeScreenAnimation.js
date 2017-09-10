@@ -8,6 +8,7 @@ import bgPill4 from '../images/pill-flowers/51.png';
 import bgPill5 from '../images/pill-flowers/52.png';
 import bgPill6 from '../images/pill-flowers/06.png';
 import bgPill7 from '../images/pill-flowers/30.png';
+import pop1 from '../music/pop1.wav';
 
 const { height, width } = Dimensions.get('window');
 
@@ -26,9 +27,11 @@ const frequency = 26000;
 
 function HomeScreenAnimation() {
   return (
-    <View style={[styles.containerStyle, { borderWidth: 40 }]}>
+    <View style={styles.containerStyle}>
+      <View style={[styles.containerStyle, { borderWidth: 40, zIndex: 10, backgroundColor: 'rgba(0,0,0,0)' }]} />
       <AnimPillFlower
         image={bgPill1} // The image file
+        sound={pop1} // The sound file for the animation
         fadeDuration={6000} // Time (ms) that the PF fades for
         delay={1000} // Time (ms) before appearing on screen
         fadeDelay={2000} // Time (ms) that the PF stays on screen before starting fade
