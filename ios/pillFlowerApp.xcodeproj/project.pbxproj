@@ -43,6 +43,7 @@
 		7180B4341ED21827008C11D1 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7180B4331ED217EF008C11D1 /* libRCTCameraRoll.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8715D24C25A8469A8776E1D5 /* libRNAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F978C929A7584476944D1ABE /* libRNAudio.a */; };
+		C0330E831F6618BF000ABC19 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */; };
 		CD21CBBA08A0441FB4143163 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D34367D31E5A43F781B89948 /* libRCTVideo.a */; };
 		DEDD475A38FF4565BFCC8E44 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 396988EB25D441DBBD6BBE7D /* libReactNativeNavigation.a */; };
 		E785744C2D32476ABB18B010 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A8FDBEE40547E3B16C56F0 /* libRNFS.a */; };
@@ -232,13 +233,6 @@
 			remoteGlobalIDString = 6456441F1EB8DA9100672408;
 			remoteInfo = "RNFS-tvOS";
 		};
-		713EFC9D1F45C5800026E983 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3C474C1410E941B0AAE7BCE5 /* RCTVideo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 641E28441F0EEC8500443AF6;
-			remoteInfo = "RCTVideo-tvOS";
-		};
 		716D51981ED65E6F00C77882 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F43B0E38EFBD4EDBB3031719 /* RNFS.xcodeproj */;
@@ -384,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0330E831F6618BF000ABC19 /* libjschelpers.a in Frameworks */,
 				7180B4341ED21827008C11D1 /* libRCTCameraRoll.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -568,7 +563,6 @@
 			isa = PBXGroup;
 			children = (
 				7180B42D1ED2151A008C11D1 /* libRCTVideo.a */,
-				713EFC9E1F45C5800026E983 /* libRCTVideo.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1078,13 +1072,6 @@
 			remoteRef = 62EBC0931EE9BC6E00A5FBBF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		713EFC9E1F45C5800026E983 /* libRCTVideo.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTVideo.a;
-			remoteRef = 713EFC9D1F45C5800026E983 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		716D51991ED65E6F00C77882 /* libRNFS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1401,7 +1388,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.pillFlowerAppConnor;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.pillFlowerApp;
 				PRODUCT_NAME = pillFlowerApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1436,7 +1423,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.pillFlowerAppConnor;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.pillFlowerApp;
 				PRODUCT_NAME = pillFlowerApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1648,6 +1635,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/../node_modules/react-native/React";
 			};
 			name = Debug;
 		};
@@ -1682,6 +1670,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/../node_modules/react-native/React";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
